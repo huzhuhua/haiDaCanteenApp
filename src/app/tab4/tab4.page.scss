@@ -1,0 +1,232 @@
+//通栏背景图
+.toolbar {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  height: 200px;
+  // background-image: url("../../assets/hdImages/我的banner背景.png");
+  background-image: url("../../assets/hdImages/我的banner背景.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  margin-bottom: -50px;
+}
+//标题
+.toolbar h4 {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  font-family: PingFangSC-Regular;
+  font-size: 18px;
+  transform: translateX(-50%);
+}
+.toolbar ion-button {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: url("../../assets/images/退出登录.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  padding: 0px 0px;
+}
+//个人信息
+.identityInformation {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: 74px;
+}
+ion-text {
+  color: #ffffff;
+}
+//功能模块
+.newfunction {
+  border-radius: 15px;
+  width: 330px;
+  height: 130px;
+  background-color: #fefefe;
+  border: 1px solid rgba(233, 233, 233, 0.5);
+  // box-shadow: 3px 3px 11px 6px rgba(233,233,233,0.50);
+  box-shadow: 0px 4px 7px -2px #dae7ff;
+  opacity: 0.94;
+  top: -30px;
+  margin: 20px auto;
+}
+.mybanlance {
+  color: #666666;
+  display: flex;
+  flex-direction: row;
+  height: 25px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-right: 15px;
+  justify-content: space-between;
+}
+.function {
+  //position: absolute;
+  z-index: 200;
+  //left: 28px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+ion-header {
+  height: 300px;
+}
+
+//字体设置
+.newfunction ion-text {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: PingFangSC-Medium;
+}
+.function ion-text {
+  color: #666666;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-family: PingFangSC-Semibold;
+}
+//功能按钮设置
+.function ion-button {
+  margin-right: 10px;
+}
+.function div {
+  text-align: center;
+  margin-top: 7px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+//充值
+.recharge {
+  width: 49px;
+  height: 49px;
+  // position: absolute;
+  // top:20px;
+  // right: 20px;
+  background: url("../../assets/images2/充值图标.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  padding: 0px 0px;
+  margin-left: 14px;
+}
+//提现
+.withdraw {
+  width: 49px;
+  height: 49px;
+  // position: absolute;
+  // top:20px;
+  // right: 20px;
+  background: url("../../assets/images2/提现图标.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  padding: 0px 0px;
+  margin-left: 10px;
+}
+//银行卡
+.bank {
+  width: 49px;
+  height: 49px;
+  // position: absolute;
+  // top:20px;
+  // right: 20px;
+  background: url("../../assets/images2/银行卡图标.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  padding: 0px 0px;
+  margin-left: 10px;
+}
+//交易记录
+.tradingRecord {
+  width: 49px;
+  height: 49px;
+  // position: absolute;
+  // top:20px;
+  // right: 20px;
+  background: url("../../assets/images2/交易记录图标.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  padding: 0px 0px;
+  margin-left: 10px;
+}
+//余额
+.balance {
+  width: 90%;
+}
+.balance ion-text {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  text-align: left;
+  color: #666666;
+  width: 200px;
+  font-weight: 520;
+}
+.balance img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+ion-list {
+  margin-top: 20px;
+}
+ion-list div {
+  margin-top: 5px;
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-buttom: 0px;
+  --padding-top: 0px;
+  height: 280px;
+}
+
+// 去掉toolbar下的边框
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0 0;
+}
+
+// 去掉点击边框
+.button{
+  display: inline-block
+}
+
+
+
+// 图标
+.icon{
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+//ion-item全局处理
+ion-item{
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+.title{
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+ion-icon{
+  position: absolute; 
+  right: 20px;
+  width: 40px;
+  height: 20px;
+}

@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-toolbar >
+    
+    <div class="toolbar" >
+      <img class="logo" src="../../../assets/images/logo.png" alt="" >
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+<!--  <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3050513164,3428481198&fm=26&gp=0.jpg" alt="">-->
+  <h3 style="letter-spacing:15px;font-weight: 700;">登录</h3>
+
+  <form [formGroup]="loginForm">
+    <ion-list lines=none>
+      <ion-item  style="">
+        <ion-icon src="../../../assets/images/手机.svg" ></ion-icon>
+        <ion-input placeholder="请输入手机号"  style="font-size: 14px;font-weight: 700;letter-spacing: 3px;" formControlName="mobile" ></ion-input>
+        <ion-text *ngIf="mobile.touched&&mobile.hasError('required')">*请输入</ion-text>
+        <ion-text *ngIf="mobile.touched&&mobile.hasError('pattern')">*手机格式错误</ion-text>
+        </ion-item>
+           <ion-item class="code" >
+            <ion-icon src="../../../assets/images/安全、盾、验证码.svg" ></ion-icon>
+            <ion-input placeholder="验证码"  style="font-size: 14px;" formControlName="code" [value]="value"></ion-input>
+            
+             
+              <app-get-code countAmount="3" [mobile]="mobile.value" ></app-get-code>
+        
+            </ion-item>
+        <!-- <ion-item>
+          <ion-input placeholder="请输入密码" type="{{pwshow?'text':'password'}}" style="letter-spacing: 3px;font-size: 14px;font-weight: 700;" formControlName="password" type='password'></ion-input>
+          <ion-text *ngIf="password.touched&&password.hasError('required')">*请输入</ion-text>
+          <ion-text *ngIf="password.touched&&password.hasError('minlength')">*密码长度必须为11位</ion-text>
+          <ion-text *ngIf="password.touched&&password.hasError('maxlength')">*密码长度必须为11位</ion-text>
+          <ion-text *ngIf="password.touched&&password.hasError('pattern')">*密码至少两种或两种以上</ion-text>
+          <a href="javascript:;" rel="external nofollow" item-end (click)="pwshow=!pwshow" [ngClass]="pwshow?'eyeshow':'eyehide'">
+            <ion-icon name="ios-eye-off" color="dark" class="eye-hide" *ngIf="!pwshow"></ion-icon>　
+            <ion-icon name="ios-eye" color="dark" class="eye-show" *ngIf="pwshow"></ion-icon>　
+           </a>
+          </ion-item> -->
+         <div>
+          <a [routerLink]="['/find-pass']" routerLinkActive="router-link-active"  class="findPassword" >找回密码</a> | <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="findPassword" >密码登录</a>
+         </div>
+           
+          
+       
+          </ion-list>
+            <ion-button (click)="login()"  expand="block" size="small" class="login"  [disabled]='!loginForm.valid' color="white">确认登录</ion-button>
+            <ion-text style="font-size: 13px;color: #666;">没有帐号？请前往
+              <a [routerLink]="['/register']" routerLinkActive="router-link-active"  class="register" >注册</a>
+
+              </ion-text>
+            <!-- <ion-button [routerLink]="['/register']" routerLinkActive="router-link-active"      routerLinkActive="router-link-active"  expand="block" size="small" style="width: 93%;font-size: 10px;height:38px;margin-left: 16px;" (click)="onClick()">注册</ion-button> -->
+       
+  </form>
+  
+</ion-content>

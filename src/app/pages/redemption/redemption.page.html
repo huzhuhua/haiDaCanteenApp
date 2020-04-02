@@ -1,0 +1,108 @@
+<ion-header no-border>
+    <!--导航栏-->
+    <ion-toolbar>
+        <div class="toolbar">
+
+
+            <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;">
+            </ion-back-button>
+            <h4 style="color: #ffffff;">赎回</h4>
+            <div style="margin-top: 68px;">
+                <ion-text style="font-size: 12px;"> 累计收益(￥)</ion-text><br>
+                <ion-text style="font-size: 22px;">
+                    ￥ {{balance}}5555
+                </ion-text>
+            </div>
+
+            <div class="toolbarAcount">
+
+                <div style="display: flex;flex-direction: column;margin-right: 109px;margin-left: -136px;">
+                    <ion-text>
+                        持仓金额(￥)
+                    </ion-text>
+
+                    <ion-text style="font-size: 18px;">
+                        ￥ {{amount}}1111
+                    </ion-text>
+                </div>
+
+                <div style="display: flex;flex-direction: column;margin-left: 62px;margin-right: -135px;">
+                    <ion-text>
+                        涨幅率(￥)
+                    </ion-text>
+                    <ion-text style="font-size: 18px;">
+                        3%
+                    </ion-text>
+
+                </div>
+            </div>
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <!--产品详情内容-->
+    <ion-button class="topButton" [routerLink]="['/returns-detailed']" routerLinkActive="router-link-active"   >收益明细 <ion-text style="font-size: 18px;position: absolute; right: 15px;">></ion-text>
+    </ion-button>
+
+
+    <ion-card class="card">
+
+        <form [formGroup]="redemptionForm">
+            <ion-list>
+                <ion-item lines="none">
+                    <ion-label class="row1">{{name}}<button *ngIf="productType ==1">活期</button>
+                        <button *ngIf="productType ==0">定期</button></ion-label>
+                </ion-item>
+                <ion-item lines="none" class="row2">
+                    <ion-text style="" class="rate">5%</ion-text>
+                    <ion-text style="" class="date">￥5000</ion-text>
+                </ion-item>
+                <ion-item class="row3">
+                    <ion-label class="title2">七日年化收益率</ion-label>
+                    <ion-label class="title2">产品期限</ion-label>
+                </ion-item>
+
+                <ion-item lines="none" class="input">
+                    <ion-icon src="../../../assets/images/金钱.svg"></ion-icon>
+                    <ion-input placeholder="请输入买入金额" formControlName="totalAmount"> </ion-input>
+                    <!--                <ion-text *ngIf="productInfo.amount.touched&&productInfo.amount.hasError('required')">请输金额</ion-text>-->
+                    <span style="color: #2A2A2A;"></span>
+                    <!--                <Span style="color: #2A2A2A;" >{{productInfo.minamount}}</Span>-->
+                </ion-item>
+                <ion-item class="input" style="margin-bottom: 20px;">
+                    <ion-icon src="../../../assets/images/锁.svg"></ion-icon>
+                    <ion-input placeholder="请输入密码" type="{{pwshow?'text':'password'}}"
+                        style="letter-spacing: 3px;font-size: 14px;font-weight: 700;" formControlName="password">
+                    </ion-input>
+                    <!-- <ion-text *ngIf="password.touched&&password.hasError('required')">*请输入</ion-text> -->
+                    <ion-text *ngIf="password.touched&&password.hasError('minlength')">密码为11位</ion-text>
+                    <ion-text *ngIf="password.touched&&password.hasError('maxlength')">密码为11位</ion-text>
+                    <ion-text *ngIf="password.touched&&password.hasError('pattern')">*密码两种以上</ion-text>
+                    <a href="javascript:;" rel="external nofollow" item-end (click)="pwshow=!pwshow"
+                        [ngClass]="pwshow?'eyeshow':'eyehide'">
+                        <ion-icon src="../../../assets/images/眼睛.svg" color="dark" class="eye-hide" *ngIf="!pwshow">
+                        </ion-icon>　　
+                        <!--闭眼图标-->
+                        <ion-icon src="../../../assets/images/眼睛开.svg" color="dark" class="eye-show" *ngIf="pwshow">
+                        </ion-icon>　　
+                        <!--睁眼图标-->
+                    </a>
+                </ion-item>
+                <ion-item  class="row6" >
+                    <ion-label>手续费规则</ion-label>
+                  </ion-item>
+                  <ion-item  lines="none" class="row8" style="margin-bottom: 20px;">
+                    <ion-label class="title1">本产品支持账户余额支付。</ion-label>
+                  </ion-item>
+
+
+            </ion-list>
+        </form>
+    </ion-card>
+    <!--前往购买按钮-->
+    <ion-button class='redemption' expand="block" color="white" (click)="redemption()"
+        routerLinkActive="router-link-active">确认赎回</ion-button>
+
+</ion-content>

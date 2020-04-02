@@ -1,0 +1,122 @@
+// 大盒子
+ion-content{
+  text-align: center;
+}
+//通栏
+.toolbar{
+  width:100%;
+  position: relative;
+  height: 233px;
+  background-image:  url("../../../assets/images/登录注册banner.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.list-ios{
+  margin-bottom: -10px;
+}
+
+//logo
+.logo{
+  position: absolute;
+  left:50%;
+  top:42%;
+  transform: translate(-50%,-50%);
+  width: 63px;
+  height: 73px;
+}
+ion-list{
+  text-align: center;
+}
+
+// 输入框项目
+ion-item{
+
+  margin: 20px auto;
+  border: 1.5px solid #5E6DFB ;
+  width: 300px;
+  height: 50px;
+  border-radius: 11px;
+  padding: 0px;
+
+}
+
+.code{
+  position: relative;
+}
+.code-target{
+  position: absolute;
+  z-index: 99999;
+  right: 20px;
+  top:12px;
+  text-decoration: none;
+
+}
+ion-text{
+  font-size: 11px;
+  color: #FF0404;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+ion-button{
+  //    height: 38px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  background: url('../../../assets/images/登录按钮.png');
+  background-size: cover;
+  overflow: hidden;
+}
+.button-native{
+  background: #ffffff;
+}
+//登录
+//按钮
+.login{
+  width: 316px;
+  font-size: 18px;
+  height:60px;
+  margin: 20px auto;
+  background-color: red($color: #000000);
+  letter-spacing: 3px;
+
+}
+//注册
+.register{
+  font-size: 15px;
+  padding-bottom: 3px;
+  text-decoration: none;
+  border-bottom: 1px solid #6187FD;
+}
+//睁眼，闭眼图标
+// .eyeshow{
+// display: inline-block;
+// }
+// .eyehide{
+//   display: none;
+// }
+.findPassword{
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+//图标
+ion-icon{
+
+ width: 22px;
+ height: 22px;
+ margin-right: 3px;
+
+}

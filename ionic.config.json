@@ -1,0 +1,7 @@
+{
+  "name": "艾尚理财",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

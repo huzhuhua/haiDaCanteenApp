@@ -1,0 +1,38 @@
+
+<ion-header no-border>
+    <!--导航栏-->
+    <ion-toolbar >
+        <div class="toolbar" >
+            <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+            <h4 style="color: #ffffff;">银行卡</h4>
+        </div>
+        <ion-button color="white" class="add" (click)="navigate1()" ></ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="card" *ngFor="let item of cardList" (click)=" presentActionSheet()">
+
+        <div class="row1">
+            <span class="line1">{{item.bindCard.formatName}}</span>
+            <span class="line2">{{item.bindCard.formatEnglishName}}</span>
+            <!-- <ion-button expand="block">Show Action Sheet</ion-button> -->
+        </div>
+
+        <div class="row2">
+            <span>{{item.bindCard.bankCardNum | password }}</span>
+        </div>
+
+        <div class="row3">
+            <span class="line1">Cardholder</span>
+            <span class="line2">Date of card binding</span>
+        </div>
+
+        <div class="row4">
+            <span class="line1">{{item.name}}</span>
+            <span class="line2">{{item.bindCard.createTime | date: 'yyyy-MM-dd '}}</span>
+        </div>
+
+    </ion-card>
+</ion-content>
+

@@ -1,0 +1,50 @@
+<ion-header no-border>
+  <ion-toolbar >
+    
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">提现</h4>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <form [formGroup]="withdrawForm">
+    <ion-list>
+      <ion-item  style="background-color: rgb(248, 26, 26);">
+        <ion-input  style="font-size: 14px;" formControlName="text" ></ion-input>
+        <!-- <ion-text *ngIf="bankCardNum.touched&&bankCardNum.hasError('required')">请输入</ion-text>
+        <ion-text *ngIf="bankCardNum.touched&&bankCardNum.hasError('pattern')">银行卡格式错误</ion-text> -->
+        <ion-select formControlName="bankCardNum" >
+          <ion-select-option *ngFor="let cardId of cardIds" value="{{cardId.bankCardNum}}">
+            {{cardId.formatName+cardId.formatNum}}        
+          </ion-select-option>
+      </ion-select>
+        </ion-item>
+<!--        <ion-text style="font-size: 14px;margin-left: 12px;color: black;">提现金额</ion-text>-->
+        <ion-item>
+          <ion-icon src="../../../assets/images/提现.svg" ></ion-icon>
+          <ion-input placeholder="金额"  style="font-size: 14px;" formControlName="money"></ion-input>
+          <!-- <ion-text style="font-size: 10px;color: rgb(224, 230, 228);">可用余额xx元</ion-text> -->
+          <ion-text style="color: black;">余额{{balance}}元</ion-text>
+
+          
+          </ion-item>
+          
+          <ion-item>
+            <ion-icon src="../../../assets/images/锁.svg" ></ion-icon>
+            <ion-input placeholder="请输入交易密码" type="{{pwshow?'text':'password'}}" style="font-size: 14px;font-weight: 700;" formControlName="password" ></ion-input>
+            <!-- <ion-text *ngIf="password.touched&&password.hasError('required')">请输入密码</ion-text> -->
+           
+            <ion-text *ngIf="password.touched&&password.hasError('pattern')">6位纯数字</ion-text>
+            
+            </ion-item>
+          </ion-list>
+
+        <ion-button (click)="withdraw()" color="white" class="withdraw" routerLinkActive="router-link-active"  expand="block" size="small"  [disabled]='!withdrawForm.valid' >确认提现</ion-button>
+           
+  </form>
+</ion-content>
+

@@ -1,0 +1,60 @@
+<ion-header >
+  <ion-toolbar class="toolbar">
+    <div style="position: absolute;left: 0px;top:35%;"  (click)=" ads()">
+      <ion-icon src="../../assets//HdImage/位置.svg" ></ion-icon> 
+      <ion-text>未选择</ion-text>
+    </div>
+    
+     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="background">
+  <div style="align-items: center;width: 100%;position: relative;">
+  <ion-button  color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+    <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
+   <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
+   <ion-text>鱼香肉丝</ion-text>
+
+ </ion-button>
+</div>
+  <!-- <div class="align-bottom" #map id="map_container" style="width:100%;height:20vh;"></div> -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="释放刷新"
+      refreshingSpinner="circles"
+      refreshingText="更新完成">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="slider" style="background-image: url('http://pic2.16pic.com/00/22/04/16pic_2204173_b.jpg');" ></div> -->
+<ion-slides #slider  pager="true" speed=250 lines=none>
+  <ion-slide  *ngFor="let product of sliders" [routerLink]="['/product-buy']" [queryParams]="{id:product.id}"  routerLinkActive="router-link-active" no-line>
+    <div class="slider" [style.background-image]="  'url(' +product.picUrl + ')'  " >
+
+      <!-- <div class="slider" style="background-image: url('http://pic2.16pic.com/00/22/04/16pic_2204173_b.jpg');" > -->
+        
+    <h5 style="color: #ffffff;margin: 16px auto;">{{product.name}}</h5>
+   
+    <ion-text >
+      <h6 style="margin-left: 280px;margin-top: 170px;color: #0ffebc;">{{product.money}}￥</h6>
+      </ion-text>
+    </div>
+
+      </ion-slide>
+</ion-slides>
+<ion-row style="margin: 20px 16px;">
+  <ion-text color="dark"  class="text1">推荐</ion-text>
+ 
+</ion-row> 
+<app-product-list [productList]="productList"></app-product-list>
+<ion-infinite-scroll threshold="10%" (ionInfinite)="ionInfinite($event)">
+  <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="加载中...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+  <ion-row class="bLine">
+    <ion-text *ngIf="!hasMore" (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text>
+  </ion-row>
+
+</ion-content>

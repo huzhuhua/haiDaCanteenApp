@@ -1,0 +1,86 @@
+<ion-header no-border>
+
+  <!--导航栏-->
+  <ion-toolbar >
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;padding-right: 10px;"></ion-back-button>
+      <h4 style="color: #ffffff;">产品买入</h4>
+      <!-- <div style="display: flex;flex-direction: row;position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);">
+        <div style="display: flex;flex-direction: column;border-right: 1px solid #fff;">
+          <ion-text>
+              持仓金额(￥)
+          </ion-text>
+         
+          <ion-text style="font-size: 18px;">
+            ￥ {{amount}}1111
+          </ion-text>
+      </div>
+  
+     <div style="display: flex;flex-direction: column;">
+      <ion-text >
+          涨幅率(￥)
+      </ion-text>
+      <ion-text style="font-size: 18px;">
+       3%
+    </ion-text>
+   
+     </div>
+      </div> -->
+     
+</div>                  
+    
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+
+  <!--产品详情内容-->
+  <ion-card class="card">
+    <form [formGroup]=" productpayForm">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label class="row1">{{pName}}<button *ngIf="productType ==1">活期</button>
+            <button *ngIf="productType ==0">定期</button>
+            <button *ngIf="preorderType ==1" style="background: #FF4F60;">预售</button>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" class="row2">
+          <ion-label class="title2">七日年化收益率</ion-label>
+          <ion-label class="title2">产品周期</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="row3">
+          <ion-label style="" class="rate">{{pRate}}%</ion-label>
+          <ion-label style="" class="date">{{pDay}}天</ion-label>
+        </ion-item>
+        <ion-item class="row4">
+          <ion-label class="title2">{{pAmount}}元起购|中低风险</ion-label>
+          <ion-label class="title3" >{{endDate|date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
+        </ion-item>
+       
+        <ion-item lines="" class="input">
+          <ion-icon src="../../../assets/images/安全、盾、验证码.svg" ></ion-icon>
+          <ion-input placeholder="买入金额"   formControlName="amount"> </ion-input>
+          <ion-text *ngIf="productInfo.amount.touched&&productInfo.amount.hasError('required')" style="color: red">请输入金额</ion-text>
+         
+         
+        </ion-item>
+
+        <ion-item class="input" >
+          <ion-icon src="../../../assets/images/锁.svg" ></ion-icon>
+          <ion-input placeholder="验证码"  formControlName="vcode" [value]="value"></ion-input>
+          <app-get-code countAmount="60" (outputEvent)="returnCode($event)"></app-get-code>
+        </ion-item>
+        <div style="color: #666;font-size: 12px;display: flex;flex-direction: row;justify-content: center;margin-top: -15px;"> <img src={{url}} alt=""      (click)="change()" style=" width:20px;height:20px;margin-top: 10px;margin-right: 5px;"> <div style="margin-top: 11px;"><span style="letter-spacing:3px">我已阅读并同意</span > <a  [routerLink]="['/agreement']" [queryParams]="{id:2}"   routerLinkActive="router-link-active" class="agreement">《艾尚理财服务协议》</a></div></div>
+
+      </ion-list>
+    </form>
+  </ion-card>
+  <ion-button class='pay' expand="block" color="white" (click)=" productPay()" [disabled]='!productpayForm.valid'>确认支付</ion-button>
+
+</ion-content>
+
+
+

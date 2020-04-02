@@ -1,0 +1,123 @@
+ion-text{
+    font-size: 10px;
+    color: red;
+    font-weight: 700;
+}
+ion-list{
+    text-align: center;
+}
+// 输入框项目
+ion-item{
+  margin: 20px auto;
+  border: 1px solid #5E6DFB;
+  width: 300px;
+  height: 40px;
+  border-radius: 11px;
+ }
+.toolbar{
+    width:100%;
+   text-align: center;
+   position: relative;
+    position: relative;
+    height: 180px;
+    background-image:  url("../../../assets/images/开户绑卡banner.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+    margin-bottom: 75px;
+}
+.toolbar h4{
+        position: absolute;
+       top:8px;
+       left:50%;
+        transform: translateX(-50%);
+       
+}
+//form{
+//    padding-left: 36px;
+//}
+//按钮
+.openAccount{
+  width: 316px;
+  font-size: 15px;
+  height:60px;
+  margin: 20px auto;
+  background-color: red($color: #000000);
+  letter-spacing: 3px;
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+ion-button{
+  //    height: 38px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  background: url('../../../assets/images/登录按钮.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+.list-ios{
+  margin-bottom: 0px;
+}
+ //图标
+ ion-icon{
+
+  width: 22px;
+  height: 22px;
+  margin-right: 3px;
+ 
+ }
+
+ .idCard{
+ width: 300px;
+  height:150px;
+  border: 1px solid #5E6DFB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  border-radius: 7px;
+     //图标
+
+//  ion-icon
+img{
+  max-width:34%;
+  width: 70px;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 10px;
+ 
+ };
+ ion-text{
+   font-size: 14px;
+   color: #666;
+   font-weight: 700;
+ }
+ }
+ .cardImg{
+  width:100% ;
+  height: 100%;
+  padding: 3px;
+  img{
+    border-radius: 7px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+  }
+   }
+   //上传图标
+   .iconImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     align-items: center;
+    //  margin-top: 50px;
+   }
+

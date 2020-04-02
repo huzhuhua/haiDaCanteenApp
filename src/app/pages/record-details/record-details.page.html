@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">交易详情</h4>
+         <ion-grid class="top">
+          <ion-row class="row1">
+            <ion-col>{{orderType}}金额(￥)</ion-col>
+          </ion-row>
+          <ion-row class="row2">
+            <ion-col ><span >{{amount}}</span>￥</ion-col>
+          </ion-row>
+        </ion-grid>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-avatar class="circle"></ion-avatar>
+      <ion-label class="col1">付款方式：</ion-label>
+      <ion-label class="col2">{{cardOrCompany}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar class="circle"></ion-avatar>
+      <ion-label class="col1">创建时间：</ion-label>
+      <ion-label class="col2">{{time | date: 'yyyy-MM-dd HH:mm'}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar class="circle"></ion-avatar>
+      <ion-label class="col1">订单号码：</ion-label>
+      <ion-label class="col2">{{id | slice:0:11 }}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar class="circle"></ion-avatar>
+      <ion-label class="col1">交易说明：</ion-label>
+      <ion-label class="col2">{{orderType}}{{amount}}元</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

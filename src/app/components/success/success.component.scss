@@ -1,0 +1,56 @@
+.infoPanel {
+    margin-top: 42px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ion-icon {
+    font-size: 72px;
+    margin-top: 6px;
+  }
+  
+  .productPanel {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .toSee {
+    font-size: 24px;
+    border-bottom: 2px solid gray;
+    padding-bottom: 5px;
+  }
+  
+  .productList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d7d8da;
+  }
+  
+  .productInfoTop {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  .rate {
+    font-size: 28px;
+    color: #e79273;
+  }
+  
+  .purchaseAmount {
+    font-size: 16px;
+    color: #a2a4ab;
+  }

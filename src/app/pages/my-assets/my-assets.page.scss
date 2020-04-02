@@ -1,0 +1,149 @@
+.toolbar{
+    width:100%;
+   text-align: center;
+   position: relative;
+    position: relative;
+    height: 291px;
+    // background-image:  url("../../../assets/hdImages/我的资产banner背景.png") ;
+    background-image:  url("../../../assets/hdImages/我的资产banner背景.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+.toolbar h4{
+        position: absolute;
+       top:8px;
+       left:50%;
+        transform: translateX(-50%);
+       
+}
+
+//饼状图
+.nf-chart{
+    width:300px;
+    height:234px;
+    left:35px;
+    margin: 4px;
+  //  top:50px;
+  position: absolute;
+}
+//金额数据
+.number{
+margin-top: 30px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+ion-text{
+    color: #fff;
+    font-size: 12px;
+
+}
+.money{
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    
+}
+//理财
+.financial{
+   margin-left: 40px;
+    position: relative;
+    font-weight: 700;
+:before{
+        content:"";
+        // display: block;
+        position: absolute;
+        left: -8px;
+        width: 6px;
+        height: 20px;
+        // font-size: 20px;
+        // border-radius: 4px;
+        background-image: linear-gradient(180deg, #9889FF 0%, #7886FF 100%);
+        margin-right: 20px;
+        border-radius: 6px;
+      }
+}
+
+//第一行样式
+.row1 {
+  font-size: 16px;
+  color: #333333;
+  font-weight: bolder;
+}
+.row1 button{
+  padding: 2px 4px;
+  background: #5E6DFB;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #FFFEFE;
+  line-height: 16px;
+  margin-left: 4px;
+}
+
+//第三行样式
+.row3{
+  top: -21px;
+}
+.title2{
+  font-size: 11px;
+  color: #999999;
+  margin-top: -16px;
+}
+
+//第二行样式
+.row2 {
+  font-size: 18px;
+  top: -2px;
+}
+.rate {
+  color: #FD263B;
+  margin-top: -8px;
+}
+.date {
+  color: #FD263B;
+  font-size: 18px;
+  margin-top: -8px;
+}
+
+  //卡片
+  .card{
+   
+  margin: 20px auto;
+  //    border: 0.4px solid #DAE7FF;
+  //    border-radius: 7px;
+  //    box-shadow: 5px 5px 5px #666;
+  height: 120px;
+  // background: #fefefe;
+  box-shadow: 0 4px 6px 0 #DAE7FF;
+  border-radius: 11px;
+  width: 82%;
+  height: 100px;
+  //    text-align: center;
+  color: #333333;
+  }
+
+
+  // 去掉顶部banner边框
+ion-toolbar {
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-buttom: 0px;
+  --padding-top: 0px;
+  height: 280px;
+}
+
+// 去掉toolbar下的边框
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0 0;
+}
+
+// 下面content高度
+ion-toolbar{
+  height: 306px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin-top: -26px;
+}

@@ -1,0 +1,84 @@
+<ion-header no-border>
+  <ion-toolbar >
+    
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">交易记录</h4>
+         <ion-grid class="top">
+          <ion-row class="row1">
+            <ion-col>本月支出(￥)</ion-col>
+            <ion-col>本月收入(￥)</ion-col>
+          </ion-row>
+          <ion-row class="row2">
+            <ion-col class="col1" size="6"><span >{{pays}}</span>￥</ion-col>
+            <ion-col class="col2"><span >{{income}}</span>￥</ion-col>
+          </ion-row>
+        </ion-grid>
+
+    </div>
+  </ion-toolbar>
+  <!-- <form [formGroup]="selectForm" >
+    <ion-list class="select">
+
+
+        <ion-col size="6">
+            期限
+            <select   formControlName="month">
+                <option value="0" selected="">全部期限</option>
+                <option value="999">活期</option>
+                <option value="3">3个月</option>
+                <option value="6">6个月</option>
+                <option value="8">8个月</option>
+                <option value="12">12个月</option>
+            </select>
+        </ion-col>
+
+
+        <ion-col size="6">
+            收益率
+            <label>
+                <select  formControlName="rate">
+                    <option value="0" selected="" >全部收益</option>
+                    <option value="20">20%</option>
+                    <option value="40">40%</option>
+                    <option value="60">60%</option>
+                    <option value="80">80%</option>
+                </select>
+            </label>
+        </ion-col>
+    </ion-list>
+
+
+</form > -->
+
+</ion-header>
+<ion-content>
+
+  <ion-list  *ngFor="let item of recordList" lines=none  [routerLink]="['/record-details']"
+                [queryParams]="{id: item.id, amount: item.amount, orderType: item.orderType, time: item.date, cardOrCompany: item.cardOrCompany}">
+    <ion-item>
+        <div class="{{item.color}}" >
+          <div class="icon">
+  
+          </div>
+          <div class="deal" style="margin-left: 10px">
+           <ion-text style="font-size: 12px;color: black;">交易详情:{{item.description}}</ion-text><br>
+           <ion-text style="font-size: 12px;color: black;">交易时间:{{item.date | date: 'yyyy-MM-dd HH:mm:ss'}}</ion-text>
+          </div>
+          <div class="money">
+            <ion-text style="padding-left: 30px; font-size: 16px;" >{{item.amount}}</ion-text>
+          </div>
+
+        </div>
+      </ion-item>
+      
+
+  </ion-list>
+
+    <!--    返回顶部-->
+    <ion-row class="bLine">
+        <ion-text  (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text>
+    </ion-row>
+
+<!--  <ion-button  color="white" style="color: red;" (click)="top()">返回顶部</ion-button>-->
+</ion-content>

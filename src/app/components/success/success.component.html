@@ -1,0 +1,22 @@
+
+<div class="infoPanel">
+  <span>{{successInfo}}</span>
+  <div class="infoIcon">
+      <ion-icon name="checkmark-circle" color="primary"></ion-icon>
+  </div>
+</div>
+<div class="productPanel">
+  <div>
+      <span class="toSee">去看看</span>
+  </div>
+  <div class="productList" *ngFor="let product of productList" (click)="navigate(product.id)">
+      <ion-row class="productInfoTop">
+          <ion-col>{{product.name}}</ion-col>
+          <ion-col class="rate" text-center>{{product.rateReturn}}%</ion-col>
+          <ion-col text-right>期限{{product.holdDay}}天</ion-col>
+      </ion-row>
+      <div class="purchaseAmount">
+          {{product.purchaseAmount}}元起购
+      </div>
+  </div>
+</div>

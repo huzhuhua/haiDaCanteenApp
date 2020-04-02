@@ -1,0 +1,35 @@
+<!-- <ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1" >
+      <ion-icon name="home"></ion-icon>
+      <ion-label>首页</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon name="briefcase"></ion-icon>
+      <ion-label>订单</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>已购</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="tab4"  >
+      <ion-icon name="person" ></ion-icon>
+      <ion-label>我的</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs> -->
+<ion-tabs>
+  <ion-tab-bar (ionTabBarChanged)="change($event)" [selectedTab]="defaultSelectedTabName" slot="bottom">
+      <ion-tab-button *ngFor="let tabsButton of tabsButtons" tab="{{tabsButton.tabName}}">
+          <ion-icon [ngStyle]="{'display': tabFlag!=tabsButton.tabName ? 'block' : 'none'}" src="{{tabsButton.iconSrc}}"></ion-icon>
+          <ion-icon  [ngStyle]="{'display': tabFlag==tabsButton.tabName ? 'block' : 'none'}" src="{{tabsButton.iconSrc2}}"></ion-icon>
+          <ion-label class="label_one" *ngIf="tabFlag!=tabsButton.tabName">{{tabsButton.label}}</ion-label>
+          <ion-label class="label_two" *ngIf="tabFlag==tabsButton.tabName">{{tabsButton.label}}</ion-label>
+          <ion-badge></ion-badge>
+      </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -1,0 +1,64 @@
+<ion-header no-border>
+    <!--导航栏-->
+    <ion-toolbar >
+        <div class="toolbar" >
+            <h4 style="color: #ffffff;">已购</h4>
+            <div  class="toolbarAcount"  >
+                <div style="display: flex;flex-direction: column;border-right: 1px solid #fff;padding-right: 20px;">
+                    <ion-text>
+                        总持仓(￥)
+                    </ion-text>
+                   
+                    <ion-text style="font-size: 25px;">
+                        {{amount}}1111￥
+                    </ion-text>
+                </div>
+
+               <div style="display: flex;flex-direction: column;margin-left: 20px;">
+                <ion-text >
+                    总收益(￥)
+                </ion-text>
+                
+                <ion-text style="font-size: 25px;">
+                    {{balance}}5555￥
+                </ion-text>
+               </div>
+            </div>                  
+        </div>
+        <!--收益卡片-->
+        
+               
+                   
+                     
+            
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card *ngFor="let item of productList" class="card2" [routerLink]="['/product-details']" [queryParams]="{id:item.id, name:item.name, info:item.description, rate:item.rateReturn, income:item.income, endTime:item.endTime, yesterdayIncome:item.yesterdayIncome, amount:item.nowAmount,productType:item.productType,endTime:item.endTime}"  routerLinkActive="router-link-active">
+        <ion-list >
+            <ion-item lines="none">
+                <ion-label class="row1">{{item.name}}<button *ngIf="item.productType ==1">活期</button>
+                    <button *ngIf="item.productType ==0">定期</button></ion-label>
+            </ion-item>
+            <ion-item lines="none" class="row2">
+                <ion-label style="" class="rate">{{item.rateReturn}}%</ion-label>
+                <ion-label style="" class="date">￥{{item.income}}</ion-label>
+            </ion-item>
+            <ion-item lines="none" class="row3">
+                <ion-label class="title2">七日年化收益率</ion-label>
+                <ion-label class="title2">昨日收益</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <!--    返回顶部-->
+    <ion-row class="bLine">
+        <ion-text  (click)="top()" style="color: #666;">您已经触底，<a>点击返回顶部</a></ion-text>
+    </ion-row>
+
+<!--    <ion-button  color="white" style="color: red;" (click)="top()">返回顶部</ion-button>-->
+</ion-content>
+
+

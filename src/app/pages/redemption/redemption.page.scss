@@ -1,0 +1,162 @@
+// 顶部banner背景
+.toolbar{
+  width:100%;
+  text-align: center;
+  position: relative;
+  height: 240px;
+  background-image:  url("../../../assets/images/产品banner背景.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+.toolbarAcount{
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: row;
+}
+ion-text{
+  font-size: 12px;
+  color: #ffffff;
+}
+// 导航栏文字
+.toolbar h4{
+  position: absolute;
+  top:8px;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+// 产品详情背景
+.card {
+  width: 90%;
+  // height:600px;
+  margin: -15px auto;
+  border-radius: 5px;
+  padding-top: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px -2px #C3D7FF;
+  position: relative;
+
+}
+.rate {
+  margin-right: 84px;
+  color: #FD263B ;
+  margin-top: -8px;
+  // margin-bottom: 10px;
+  font-size: 37px;
+}
+.date {
+  color: #FF2511;
+  font-size: 22px;
+  margin-top: -8px;
+}
+//产品详情内容
+ion-item{
+  --padding-end:20px;
+}
+
+//第一行样式
+//第一行样式
+.row1 {
+  font-size: 16px;
+  color: #333333;
+  font-weight: bolder;
+}
+.row1 button{
+  padding: 2px 4px;
+  background: #5D6DFB;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #FFFEFE;
+  line-height: 16px;
+  margin-left: 4px;
+}
+
+//第二行样式
+.row2 {
+  height: 55px;
+  font-size: 22px;
+  top: 2px;
+}
+.sum1 {
+  color: #FF9A11;
+  margin-top: -8px;
+}
+
+
+// 第三行样式
+.row3 {
+  top: -20px;
+}
+.title2{
+  font-size: 11px;
+  color: #999999;
+  margin-top: 10px;
+}
+.title1{
+  font-size: 11px;
+  color: #999999;
+  margin-top: -6px;
+}
+
+//输入框样式
+.input {
+  margin: 16px auto;
+  border: 1px solid #5E6DFB;
+  width: 300px;
+  height: 40px;
+  border-radius: 11px;
+  top: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  ion-text{
+    font-size: 12px;
+    color: red;
+  }
+}
+
+//按钮样式
+ion-button {
+  //    height: 38px;
+  margin-top: 0px;
+  background: url('../../../assets/images/登录按钮.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+//按钮
+.redemption{
+  position: absolute;
+  width: 316px;
+  font-size: 15px;
+  height:60px;
+  margin: 0 auto;
+  background-color: red($color: #000000);
+  letter-spacing: 3px;
+  z-index: 999999;
+  margin-left: 30px;
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
+//按钮
+.topButton{
+  width: 90%;
+  margin-left: 18px;
+   font-size: 18px;
+  //  position: relative;
+   font-weight: 700;
+  }
+

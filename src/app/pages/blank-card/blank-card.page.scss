@@ -1,0 +1,89 @@
+// 顶部banner背景
+.toolbar{
+  width:102%;
+  text-align: center;
+  position: relative;
+  height: 174px;
+  background-image:  url("../../../assets/hdImages/银行卡banner背景.png") ;
+  // background-image:  url("../../../assets/hdImages/银行卡banner背景.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  margin-bottom: 19px;
+  margin-top: 0;
+  margin-left: -2%;
+}
+// 导航栏文字
+.toolbar h4{
+  position: absolute;
+  top:8px;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+// 产品详情背景
+.card {
+  width: 85%;
+  height:175px;
+  margin: 24px auto;
+  border-radius: 10px;
+  padding: 14px 18px;
+  //background-color: #ffffff;
+  box-shadow: 0 7px 8px -6px #8585CD;
+  background: linear-gradient(-48deg, #6442A8 0%, #4370FE 100%);
+  color: #fff;
+}
+
+.row1 {
+  font-size: 18px;
+}
+
+.line1 {
+  //float: left;
+
+}
+.line2 {
+  float: right;
+}
+
+.row2 {
+  text-align: center;
+  font-size: 24px;
+  height: 94px;
+  line-height: 94px;
+}
+
+.row3 {
+  font-size: 9px;
+}
+
+.row4 {
+  font-size: 12px;
+}
+
+.add {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top:20px;
+  right:2%;
+  transform: translateX(-50%);
+  background-image: url("../../../assets/images/添加按钮 2.png");
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  z-index: 100;
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+// 去掉toolbar下的边框
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0 0;
+}

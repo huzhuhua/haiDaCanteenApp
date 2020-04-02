@@ -1,0 +1,79 @@
+<ion-header no-border>
+  <ion-toolbar >
+    
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">开户</h4>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="openAcountForm">
+    <ion-list>
+      
+      <ion-item  style="background-color: rgb(248, 26, 26);">
+        <ion-icon src="../../../assets/images/姓名.svg" ></ion-icon>
+        <ion-input placeholder="请输入姓名"  style="font-size: 14px;font-weight: 700;" formControlName="realName"></ion-input>
+        <ion-text *ngIf="realName.touched&&realName.hasError('required')">请输入</ion-text>
+        <ion-text *ngIf="realName.touched&&realName.hasError('pattern')">姓名格式不正确</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-icon src="../../../assets/images/id card.svg" ></ion-icon>
+          <ion-input placeholder="请输入身份证号"  style="font-size: 14px;font-weight: 700;" formControlName="idCard"></ion-input>
+          <ion-text *ngIf="idCard.touched&&idCard.hasError('required')">请输入</ion-text>
+        
+          <ion-text *ngIf="idCard.touched&&idCard.hasError('pattern')">身份证格式不正确</ion-text>
+          </ion-item>
+          <ion-input class="idCard" (click)="upload(true)" formControlName="idPhoto1" disabled="true" style="color: #fff;">
+          <div class="iconImg" >
+            
+            <!-- <ion-icon src="../../../assets/images/加号.svg" ></ion-icon> -->
+            <img src="../../../assets/images/上传图片图标.png" alt="">
+           <ion-text>请上传身份证正面(jpg、png)</ion-text>
+          </div>
+          </ion-input>
+          <div class="idCard" *ngIf="flag ==true" >
+
+          
+            <div class="cardImg" >
+              <img src={{url}} alt="" style="width: 100%;height: 100%;max-width: 100%;">
+            </div>
+          </div>
+          <ion-input class="idCard" (click)="upload(false)" formControlName="idPhoto2" disabled="true" style="color: #fff;">
+            <div class="iconImg" style="display: flex;
+            flex-direction: column;
+            justify-content: center;" >
+              <img src="../../../assets/images/上传图片图标.png" alt="">
+              <!-- <ion-icon src="../../../assets/images/加号.svg" ></ion-icon> -->
+              <ion-text>请上传身份证反面(jpg、png)</ion-text>
+             
+            </div>
+          </ion-input>
+            <div class="idCard" *ngIf="flag1 ==true" >
+
+            
+              <div class="cardImg" >
+                <img src={{url1}} alt="" style="width: 100%;height: 100%;max-width: 100%;">
+              </div>
+            </div>
+      
+
+          <ion-item>
+            <ion-icon src="../../../assets/images/锁.svg" ></ion-icon>
+            <ion-input placeholder="请设置交易密码" type="{{pwshow?'text':'password'}}" style="font-size: 14px;font-weight: 700;" formControlName="password" ></ion-input>
+            <!-- <ion-text *ngIf="password.touched&&password.hasError('required')">请输入密码</ion-text> -->
+            
+            <ion-text *ngIf="password.touched&&password.hasError('pattern')">6位纯数字</ion-text>
+            <a href="javascript:;" rel="external nofollow" item-end (click)="pwshow=!pwshow" [ngClass]="pwshow?'eyeshow':'eyehide'">
+              <ion-icon src="../../../assets/images/眼睛.svg" color="dark" class="eye-hide" *ngIf="!pwshow"></ion-icon>　　<!--闭眼图标-->
+              <ion-icon src="../../../assets/images/眼睛开.svg" color="dark" class="eye-show" *ngIf="pwshow"></ion-icon>　　<!--睁眼图标-->
+             </a>
+            </ion-item>
+          </ion-list>
+            <ion-button (click)="openAccount()" color="white"  expand="block" size="small" class="openAccount"    [disabled]='!openAcountForm.valid'>确认开户</ion-button>
+           
+       
+  </form>
+</ion-content>

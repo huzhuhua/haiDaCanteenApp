@@ -1,0 +1,28 @@
+
+<ion-header style="margin-top: 10px;">
+  <ion-toolbar style="position: relative;">
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>收货地址</ion-title>
+    <span (click)="addAddress()" style="color: #15c185;font-size: 32px;position: absolute;right:20px;top:3px">+</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="">
+  <div class="map">
+    <ion-icon src="../../../assets//HdImage/位置.svg" ></ion-icon> 
+    <ion-text style="">{{address}}</ion-text>
+    <div class="align-bottom" #map id="map_container" style="width:100%;height:20vh;border-radius: 7px;"></div>
+  </div>
+    <ion-item lines="none"> 
+       <ion-text style="font-size: 16px;font-weight: 700;">我的地址</ion-text>  
+    </ion-item>
+<ion-item class="card" lines="none"> 
+  <div style="position:relative">
+    <span>姓名: <ion-text style="margin-left: 33px;">王奇奇</ion-text></span> <br>
+    <span>手机号:<ion-text style="margin-left: 24px;">17886792817</ion-text></span><br>
+    <span>收货地址:<ion-text style="margin-left: 10px;">海南大学七栋201</ion-text></span><br>
+    <ion-icon src="../../../assets/HdImage/修改.svg" style="position: absolute;right: -72px;top:20px" ></ion-icon> 
+    <!-- <img src="../../../assets/HdImage/修改.svg" alt=""> -->
+  </div>
+</ion-item>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header no-border>
+  <ion-toolbar >
+    
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">个人信息</h4>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item lines="none" (click)=" presentActionSheet()">
+    <img src="../../../assets/hdImages/头像 icon.png" alt="">
+    <ion-text>姓名：hhd</ion-text>
+    <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+  </ion-item>
+
+  <ion-item lines="none">
+    <img src="../../../assets/hdImages/身份证图标.png" alt=""  >
+    <ion-text>身份证号：{{infomationList}}</ion-text>
+    <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+  </ion-item>
+
+  <ion-item lines="none">
+    <img src="../../../assets/hdImages/证件照图标.png" alt="" >
+    <ion-text>证件照片：{{text}}</ion-text>
+    <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+  </ion-item>
+
+</ion-content>

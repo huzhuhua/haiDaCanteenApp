@@ -1,0 +1,63 @@
+.toolbar{
+    width:100%;
+   text-align: center;
+   position: relative;
+    position: relative;
+    height: 180px;
+    // background-image:  url("../../../assets/hdImages/修改密码banner背景.png") ;
+    background-image:  url("../../../assets/hdImages/修改密码banner背景.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+    margin-bottom: 19px;
+}
+
+.toolbar h4{
+        position: absolute;
+       top:8px;
+       left:50%;
+        transform: translateX(-50%);
+       
+}
+
+  // 去掉顶部banner边框
+  ion-toolbar {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-buttom: 0px;
+    --padding-top: 0px;
+    height: 210px;
+  }
+  
+  // 去掉toolbar下的边框
+  .header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0 0;
+  }
+
+  
+  // 图标
+img{
+    width: 40px;
+    height: 40px;
+    margin-right: 13px;
+}
+//ion-item全局处理
+ion-item{
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+ion-text{
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+//箭头
+.arrow{
+  position: absolute; 
+  right: 45px;
+  font-size: 24px;
+  color: #999999;
+  width: 10px;
+  height: 16px;
+}

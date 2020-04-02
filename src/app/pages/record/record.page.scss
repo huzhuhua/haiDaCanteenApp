@@ -1,0 +1,175 @@
+//通栏
+.toolbar{
+  width:100%;
+ text-align: center;
+ position: relative;
+  position: relative;
+  height: 200px;
+  background-image:  url("../../../assets/hdImages/交易记录产品banner背景.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+.toolbar h4{
+      position: absolute;
+     top:8px;
+     left:50%;
+      transform: translateX(-50%);    
+}
+ion-list{
+  text-align: center;
+  //padding-left: 20px;
+}
+// 输入框项目
+ion-item{
+    margin: 8px auto;
+   //border: 1px solid #D65EFA;
+   width: 330px;
+  border-radius: 11px;
+  box-shadow: 0 2px 7px 0 #C3D7FF;
+   //border-radius: 4px;
+   //font-size: 16px;
+   //margin-top: 20px;
+   //border-top: none;
+   //height: 38px;
+}
+
+
+.primary{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .icon{
+    width: 26px;
+    height: 44px;
+    background-image:  url("../../../assets/hdImages/交易记录充值图标.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  }
+  ion-text{
+    color: #7353FF;
+  }
+  .money{
+    :before{
+      content:"+";
+      color:#7353FF;
+    }
+  }
+  
+}
+.danger{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .icon{
+    width: 26px;
+    height: 44px;
+    background-image:url("../../../assets/hdImages/交易记录提现图标.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  }
+  ion-text{
+    color:#4454F7;
+  }
+  .money{
+    :before{
+      content:"-";
+      color:#4454F7;
+    }
+  }
+}
+.medium{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .icon{
+    width: 28px;
+    height: 44px;
+    // background-image:  url("../../../assets/hdImages/交易记录赎回图标.png") ;
+    background-image:  url("../../../assets//hdImages//交易记录赎回图标.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  }
+  ion-text{
+    color: #FE5D5D;
+  }
+  .money{
+    :before{
+      content:"+";
+      color:#FE5D5D;
+    }
+  }
+}
+.success{
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .icon{
+    width: 26px;
+    height: 44px;
+    background-image:  url("../../../assets/hdImages/交易记录申购图标.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  }
+  ion-text{
+    color:#FB53FF;
+  }
+  .money{
+    :before{
+      content:"-";
+      color:#FB53FF;
+    }
+  }
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+
+//返回顶部
+.bLine {
+  //border: 1px solid black;
+  font-size: 14px;
+  color: #999999;
+  margin: 0 auto;
+}
+
+.bLine ion-text {
+  margin: 20px auto;
+}
+
+
+// 去掉toolbar下的边框
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0 0;
+}
+
+// 顶部信息
+.top {
+  // top: -30px;
+  color: #ffffff;
+  margin-top: 42px;
+  
+}
+
+.row1 {
+  font-size: 12px;
+}
+
+.row2 {
+  font-size: 16px;
+}

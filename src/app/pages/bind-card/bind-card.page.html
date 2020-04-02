@@ -1,0 +1,75 @@
+<ion-header no-border>
+  <ion-toolbar>
+
+    <div class="toolbar">
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+      <h4 style="color: #ffffff;">绑卡</h4>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="bindCardForm">
+    <ion-list>
+      <ion-item style="background-color: rgb(248, 26, 26);">
+        <ion-icon src="../../../assets/images/姓名.svg"></ion-icon>
+        <ion-input placeholder="请输入姓名" style="font-size: 14px;" formControlName="realName"></ion-input>
+        <ion-text *ngIf="realName.touched&&realName.hasError('required')">请输入</ion-text>
+        <ion-text *ngIf="realName.touched&&realName.hasError('pattern')">姓名格式错误</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon src="../../../assets/images/id card.svg"></ion-icon>
+        <ion-input placeholder="请输入身份证号" style="font-size: 14px;" formControlName="idCard"></ion-input>
+        <ion-text *ngIf="idCard.touched&&idCard.hasError('required')">请输入</ion-text>
+
+        <ion-text *ngIf="idCard.touched&&idCard.hasError('pattern')">身份证格式不正确</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon src="../../../assets/images/银行卡号.svg"></ion-icon>
+        <ion-input placeholder="请输入银行卡号" style="font-size: 14px;" formControlName="bankCardNum"></ion-input>
+        <ion-text *ngIf="bankCardNum.touched&&bankCardNum.hasError('required')">请输入</ion-text>
+
+        <ion-text *ngIf="bankCardNum.touched&&bankCardNum.hasError('pattern')">银行卡格式不正确</ion-text>
+      </ion-item>
+      <ion-input class="idCard" (click)="upload()" formControlName="cardPic" disabled="true" style="color: #fff;">
+
+        <!-- <ion-icon src="../../../assets/images/加号.svg" ></ion-icon> -->
+        <div style="display: flex;
+              flex-direction: column;
+              justify-content: center;">
+          <img src="../../../assets/images/上传图片图标.png" alt="">
+          <ion-text>请上传银行卡(jpg、png)</ion-text>
+        </div>
+
+      </ion-input>
+      <div class="idCard" *ngIf="flag ==true" >
+
+        <!-- <ion-icon src="../../../assets/images/加号.svg" ></ion-icon> -->
+        <div class="cardImg" >
+          <img src={{url}} alt="" style="width: 100%;height: 100%;max-width: 100%;">
+        </div>
+      </div>
+
+
+
+      
+        <ion-item>
+          <ion-icon src="../../../assets/images/手机.svg"></ion-icon>
+          <ion-input placeholder="请输入预留手机号" style="font-size: 14px;" formControlName="mobile"></ion-input>
+          <ion-text *ngIf="mobile.touched&&mobile.hasError('required')">请输入</ion-text>
+          <ion-text *ngIf="mobile.touched&&mobile.hasError('pattern')">手机号码格式错误</ion-text>
+        </ion-item>
+        <ion-item class="code">
+          <ion-icon src="../../../assets/images/安全、盾、验证码.svg"></ion-icon>
+          <ion-input placeholder="请输入验证码" style="font-size: 14px;" formControlName="code"></ion-input>
+          <app-get-code countAmount="60" [mobile]="mobile.value"></app-get-code>
+        </ion-item>
+    </ion-list>
+    <ion-button (click)="bindingCard()" class="bindCard" color="white" expand="block" size="small"
+      [disabled]='!bindCardForm.valid'>绑卡</ion-button>
+
+
+  </form>
+</ion-content>

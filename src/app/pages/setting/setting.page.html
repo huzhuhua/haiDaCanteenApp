@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar >
+    <div class="toolbar" >
+      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+         <h4 style="color: #ffffff;">设置</h4>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+
+  <ion-item lines="none" [routerLink]="['/personal-infomation']" >
+    <img src="../../../assets/images/个人信息图标.png" alt="">
+    <ion-text>个人信息</ion-text>
+  </ion-item>
+
+  <ion-item lines="none" [routerLink]="['/transition-password']">
+    <img src="../../../assets/images/交易密码图标.png" alt="">
+    <ion-text>交易密码</ion-text>
+  </ion-item>
+
+  <ion-item lines="none">
+    <img src="../../../assets/images/指纹登录图标.png" alt="">
+    <ion-text>指纹登陆</ion-text>
+    <ion-icon (click)=(finger()) src={{fingerUrl}} id="icon1"></ion-icon>
+  </ion-item>
+
+  <ion-item lines="none">
+    <img src="../../../assets/images/人脸登录图标.png" alt="">
+    <ion-text>人脸登录</ion-text>
+    <ion-icon (click)=(hFace()) src={{hFaceUrl}} id="icon2"></ion-icon>
+  </ion-item>
+
+  <ion-item lines="none" (click)="outLogin()">
+    <img src="../../../assets/images/退出登录图标.png" alt="">
+    <ion-text>退出</ion-text>
+    <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+  </ion-item>
+
+</ion-content>

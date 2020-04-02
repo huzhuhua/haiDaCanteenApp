@@ -1,0 +1,55 @@
+// 大盒子
+ion-content{
+    text-align: center;
+    
+
+  }
+  //通栏
+  .toolbar{
+    width:100%;
+    position: relative;
+    height: 233px;
+    background-image:  url("../../../assets/images/登录注册banner.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+  }
+  
+  // 去掉顶部banner边框
+  ion-toolbar {
+    --padding-start:0px;
+    --padding-end:0px;
+    --padding-buttom:0px;
+    --padding-top:0px;
+  }
+  
+  h5 {
+   
+    font-weight: 700px;
+  }
+  
+  .list-ios{
+    margin-bottom: -10px;
+  }
+  
+  //logo
+  .logo{
+    position: absolute;
+    left:50%;
+    top:42%;
+    transform: translate(-50%,-50%);
+    width: 63px;
+    height: 73px;
+  }
+  //同意协议按钮
+  .agree{
+    font-size: 20px;
+    padding-bottom: 3px;
+    text-decoration: none;
+    margin: 0 auto;
+    border-bottom: 1px solid #6187FD;
+    position: absolute;
+    width: 80%;
+    bottom:-20px;
+    left:34px;
+  }

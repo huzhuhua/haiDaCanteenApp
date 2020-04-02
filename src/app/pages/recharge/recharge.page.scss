@@ -1,0 +1,150 @@
+ion-text{
+  font-size: 10px;
+  color: red;
+  font-weight: 700;
+}
+//通栏
+.toolbar{
+  width:100%;
+  text-align: center;
+  position: relative;
+  height: 180px;
+  // background-image:  url("../../../assets/hdImages/修改密码banner背景.png") ;
+  background-image:  url("../../../assets/hdImages/修改密码banner背景.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+.toolbar h4{
+  position: absolute;
+  top:8px;
+  left:50%;
+  transform: translateX(-50%);
+}
+ion-list{
+  text-align: center;
+}
+// 输入框项目
+ion-item{
+  margin: 20px auto;
+  border: 1.5px solid #5E6DFB;
+  width: 300px;
+  height: 40px;
+  border-radius: 11px;
+}
+
+//form{
+//  padding-left: 36px;
+//}
+
+//按钮
+.recharge{
+  width: 316px;
+  font-size: 15px;
+  height:60px;
+  margin: 20px auto;
+  background-color: red($color: #000000);
+  letter-spacing: 3px;
+}
+
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+
+ion-button{
+  //    height: 38px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  background: url('../../../assets/images/登录按钮.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+.list-ios{
+  margin-bottom: 0px;
+}
+//图标
+ion-icon{
+
+  width: 22px;
+  height: 22px;
+  margin-right: 3px;
+ 
+ }
+
+  // 去掉顶部banner边框
+  ion-toolbar {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-buttom: 0px;
+    --padding-top: 0px;
+    height: 210px;
+  }
+  
+  // 去掉toolbar下的边框
+  .header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0 0;
+  }
+
+  //输入框input
+  .i-mobile {
+    font-size: 14px;
+    font-weight: 700px;
+    letter-spacing:2px
+  }
+
+    //提示文字样式
+    .warnText {
+      color: #FF0404;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-top: -4px;
+    }
+  
+    //验证码样式
+    .code {
+      margin-right: -15px;
+      margin-top: -4px;
+    }
+  
+    //输入框位置调整
+    ion-input{
+      height: 40px;
+      margin-top: -4px;
+    }
+
+     //输入框模块
+  ion-item {
+    margin: 20px auto;
+    border: 1.5px solid #5E6DFB ;
+    width: 300px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  //按钮样式
+  #button {
+    margin: 20px auto;
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(270deg, #8371FF 0%, #5C6DFB 100%); 
+    box-shadow: 0 8px 9px -8px #30377C;
+    border-radius: 8px;
+    color: white;
+    letter-spacing: 3px;
+  }
+
+    //图标样式
+    .icon {
+      width: 13px;
+      height: 22px;
+      margin-right: 3px;
+      z-index: 20;
+      margin-right: 14px;
+     }

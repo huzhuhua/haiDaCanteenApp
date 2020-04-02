@@ -1,0 +1,67 @@
+<ion-header no-border>
+    <ion-toolbar >
+
+        <div class="toolbar" >
+            <h4 style="color: #ffffff;">理财产品</h4>
+        </div>
+
+    </ion-toolbar>
+    <form [formGroup]="selectForm" >
+        <ion-list class="select">
+
+
+            <ion-col size="6">
+                期限
+                <select   formControlName="month">
+                    <option value="0" selected="">全部期限</option>
+                    <option value="100">活期</option>
+                    <option value="1000">预售</option>
+                    <option value="3">3个月</option>
+                    <option value="6">6个月</option>
+                    <option value="8">8个月</option>
+                    <option value="12">12个月</option>
+                </select>
+            </ion-col>
+
+
+            <ion-col size="6">
+                收益率
+                <label>
+                    <select  formControlName="rate">
+                        <option value="0" selected="" >全部收益</option>
+                        <option value="2">2%</option>
+                        <option value="4">4%</option>
+                        <option value="6">6%</option>
+                        <option value="8">8%</option>
+                    </select>
+                </label>
+            </ion-col>
+        </ion-list>
+
+
+    </form >
+</ion-header>
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="释放刷新"
+          refreshingSpinner="circles"
+          refreshingText="更新完成">
+        </ion-refresher-content>
+      </ion-refresher>
+
+    <app-product-list [productList]="productList"></app-product-list>
+    <ion-infinite-scroll threshold="10%" (ionInfinite)="ionInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="加载中...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+<!--    返回顶部-->
+    <ion-row class="bLine">
+        <ion-text *ngIf="!hasMore" (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text>
+        <!-- <ion-text  (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text> -->
+    </ion-row>
+<!--    <ion-button color="white" style="color: red;" (click)="top()">返回顶部</ion-button>-->
+
+</ion-content>
