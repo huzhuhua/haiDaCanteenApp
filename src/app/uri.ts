@@ -6,26 +6,33 @@ export const URI = {
     // 验证码
     code: '/getCode',
     //验证码登录
-    codeLogin:'/codeLogin',
+    codeLogin: '/codeLogin',
     // 密码登录
     login: '/login',
     //修改密码
-     changePassword:'index/changePwd',
-     //轮播图
-     sliders:'/sliders',
+    changePassword: 'index/changePwd',
+    //轮播图
+    sliders: '/sliders',
     //首页推荐产品
-    recommendProducts:'/recommend',
+    recommendProducts: '/recommend',
     // 验证手机号是否存在
     testMobile: '/index/mobileExist',
     // 注册
     register: '/register',
-   //添加收货地址
-   addReceiverAddress:'/addReceiverAddress',
-
-
-
-
-
+    //添加收货地址
+    addReceiverAddress: '/addReceiverAddress',
+    //查询收货地址
+    findAddress: '/findAddress',
+    //删除收货地址
+    deleteAddress: '/deleteAddress',
+    //修改收货地址
+    modify: '/modifyAddress',
+    //切换默认收货地址
+    switch: '/switchAddress',
+ //查询热门搜索
+ recommendDishes:'/recommendDishes',
+ //搜索菜品
+ searchDishes:'/searchDishes',
 
 
 
@@ -35,13 +42,13 @@ export const URI = {
     // 开户
     openAccount: '/openAccount/openAccount',
     //开户信息
-    showAccountInfo:'/openAccount/showAccountInfo',
+    showAccountInfo: '/openAccount/showAccountInfo',
     // 绑卡
     bindCard: '/bindCard/bindCard',
     //更换主卡
-    changeCard:'bindCard/changeCard',
+    changeCard: 'bindCard/changeCard',
     //解绑卡
-    deleteCard:'bindCard/deleteCard',
+    deleteCard: 'bindCard/deleteCard',
     // 用户状态
     userInfo: '/openAccount/checkStatus',
     // 产品
@@ -51,7 +58,7 @@ export const URI = {
     // 获取银行卡
     getCard: '/rechargeController/bindCard',
     //获取银行卡限额
-    limit:'/rechargeController/limit',
+    limit: '/rechargeController/limit',
     // 充值
     recharge: '/rechargeController/recharge',
     // 提现
@@ -74,14 +81,14 @@ export const URI = {
     // 产品详情
     productDetails: '/product/productInfo',
     //获取曲线图数据
-     graph:  '/product/rateReturnById',
+    graph: '/product/rateReturnById',
     //充值记录查询
-    rechargeOrder:'/eAccount/rechargeOrder',
+    rechargeOrder: '/eAccount/rechargeOrder',
     //提现记录查询
-    withdrawOrder:'/eAccount/withdrawOrder',
+    withdrawOrder: '/eAccount/withdrawOrder',
     //申购记录
-    purchaseOrder:'/eAccount/purchaseOrder',
- 
+    purchaseOrder: '/eAccount/purchaseOrder',
+
     // 退出登录
     exit: '/index/exit',
     // 余额
@@ -89,16 +96,16 @@ export const URI = {
     // 总收益
     earning: '/HomeController/incomeAmount',
     //头像
-     head: '/homeController/head',
-  
-      //上传图片
-      uploadImg:'/picture',
-      //找回密码
-     findPassword:'/findPassword',
-      //添加收藏产品
-    addLove:'/addLove',
+    head: '/homeController/head',
+
+    //上传图片
+    uploadImg: '/picture',
+    //找回密码
+    findPassword: '/findPassword',
+    //添加收藏产品
+    addLove: '/addLove',
     //移除收藏产品
-    removeLove:'/removeLove',
+    removeLove: '/removeLove',
     //查询收藏产品
     allLove: '/allLove',
 };

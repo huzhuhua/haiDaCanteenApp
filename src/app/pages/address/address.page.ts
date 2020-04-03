@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from "@ionic-native/geolocation/ngx"
 import { Router } from '@angular/router';
+import { AddressService } from 'src/app/services/address.service';
+import { NativeService } from 'src/app/services/native.service';
+import { StorageService } from 'src/app/services/storage.service';
 declare var BMap;
 declare var BMapLib;
 @Component({
@@ -9,7 +12,7 @@ declare var BMapLib;
   styleUrls: ['./address.page.scss'],
 })
 export class AddressPage implements OnInit {
-
+  public addressList: any;
   map: any;
 
   myGeo: any;
@@ -18,11 +21,14 @@ export class AddressPage implements OnInit {
   public address: any;
   @ViewChild('map', name) map_container: ElementRef;
   constructor(private geolocation: Geolocation,
-              private router:Router
-    ) { }
- 
-  ngOnInit() {
+    private storageService: StorageService,
+    private router: Router,
+    private addressService: AddressService,
+    private nativeService: NativeService,
+  ) { }
 
+  ngOnInit() {
+    this.findAddress()
     this.myIcon = new BMap.Icon("../../assets//HdImage/位置.svg", new BMap.Size(32, 32));
     this.map = new BMap.Map("map_container");
 
@@ -116,17 +122,62 @@ export class AddressPage implements OnInit {
     });
 
   }
-  //添加收货地址
-  async addAddress(){
-    this.router.navigate(["add-address"],{queryParams:{address:this.address}})
+  //切换收货地址
+  async switch(addressId:any){
+this.nativeService.showConfirm("是否将此地址设为默认地址","确定",()=>{   
+    console.log(addressId)
+ const a= this.addressService.switch(addressId)
+    a.then((data)=>{
+      if(data=="1"){
+   this.findAddress()
+      }
+    }) 
+})
+
   }
+  //修改收货地址
+  async modify(addressId: any,location:any){
+    this.router.navigate(["modify-address"], { queryParams: { addressId:addressId,location:location } })
+  }
+  //删除收获地址
+  async delete(addressId: any) {
+    // console.log(addressId)
+    this.nativeService.showConfirm("是否删除收货地址", "确定", () => {
+      let a = this.addressService.deleteAddress(addressId)
+      a.then((data) => {
+        if (data == "1") {
+          this.findAddress()
+        }
+      })
+    })
+  }
+  //获取收货地址
+  async findAddress() {
+    this.addressList = await this.addressService.findAddress()
+    let arr;
+    for(let i=0;i<this.addressList.length;i++){
+      
+      if(this.addressList[i].isPrimary == "1"){
+        arr = this.addressList.splice(i,1)
+        console.log(arr)
+      }
+
+    }
+    this.addressList.unshift(arr[0])
+    console.log(this.addressList.length)
+  }
+  //添加收货地址
+  async addAddress() {
+    this.router.navigate(["add-address"], { queryParams: { address: this.address } })
+  }
+
   async onPageWillClose() {
 
 
   }
 
   async onPageWillEnter() {
-    //  this.ngOnInit()
+    this.ngOnInit()
 
   }
 }

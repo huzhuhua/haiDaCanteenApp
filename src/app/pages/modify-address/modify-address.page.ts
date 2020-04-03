@@ -1,15 +1,17 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AddressService } from 'src/app/services/address.service';
 import { NavController } from '@ionic/angular';
 @Component({
-  selector: 'app-add-address',
-  templateUrl: './add-address.page.html',
-  styleUrls: ['./add-address.page.scss'],
+  selector: 'app-modify-address',
+  templateUrl: './modify-address.page.html',
+  styleUrls: ['./modify-address.page.scss'],
 })
-export class AddAddressPage implements OnInit {
-public address:any;
+export class ModifyAddressPage implements OnInit {
+public addressId:any;
+public loca:any;
 addAddressForm: FormGroup;
 location:AbstractControl;
 addr:AbstractControl;
@@ -20,10 +22,11 @@ Tmobile:AbstractControl;
     private nav:NavController,
     private router:Router,
     private addressService:AddressService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private activatedRoute:ActivatedRoute,
     ) {
-   this.address = this.activateRoute.snapshot.queryParamMap.get("address")
-
+   this.addressId = this.activateRoute.snapshot.queryParamMap.get("addressId")
+   this.loca = this.activateRoute.snapshot.queryParamMap.get("location")
    this.addAddressForm = this.fb.group(
     {
       location: new FormControl('', {
@@ -45,16 +48,17 @@ this.addr = this.addAddressForm.controls.addr;
 this.name = this.addAddressForm.controls.name;
 this.gender = this.addAddressForm.controls.gender;
 this.Tmobile = this.addAddressForm.controls.Tmobile;
-this.location.setValue(this.address)
+this.location.setValue(this.loca)
      }
 
   ngOnInit() {
 
   }
-async add(){
-  const add = this.addAddressForm.getRawValue();
-  console.log(add)
-const a= await this.addressService.addReceiverAddress(this.addAddressForm.getRawValue())
+async modify(){
+  let b = this.addAddressForm.getRawValue();
+   b.addressId = this.addressId
+   console.log(b)
+const a= await this.addressService.modify(b)
 if(a=="1"){
   this.nav.navigateBack("address")
 }

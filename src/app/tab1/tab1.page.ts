@@ -16,6 +16,8 @@ import {ElementRef} from '@angular/core';
 import { FinanceProduct } from '../model/financeProduct';
 import { CryptoService } from '../services/crypto.service';
 import {Geolocation} from "@ionic-native/geolocation/ngx"
+import { AddressService } from '../services/address.service';
+
 // import { Geolocation } from '@ionic-native/geolocation'
 declare var BMap;
 declare var BMapLib;
@@ -25,12 +27,14 @@ declare var BMapLib;
     styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+   public fl=false;
     map: any;
-
+   
   myGeo: any;
 
   myIcon: any;
   public address:any;
+  public name:any;
 @ViewChild('map',name) map_container: ElementRef;
     // @ViewChild(IonInfiniteScroll,{static:true}) infiniteScroll: IonInfiniteScroll;
     page = 0;
@@ -79,11 +83,49 @@ export class Tab1Page implements OnInit {
 
     // tslint:disable-next-line:max-line-length
     constructor(
-       
+       private addressService:AddressService,
         private geolocation: Geolocation,
         private crypto:CryptoService, 
         private el: ElementRef, public nav: NavController, private statusService: StatusService, private nativeService: NativeService, private storageService: StorageService, private router: Router, private productService: ProductService, private getProductsService: GetProductsService) {
 
+    }
+//搜索框
+async search(){
+    
+}
+    //监听屏幕卷曲的高度,显示隐藏搜索框
+    logScrollStart(){
+        console.log("开始")
+    }
+    logScrolling(e){
+        if(e.detail.scrollTop>="80"){
+            this.fl=true;
+            console.log("chengg")
+            console.log(this.fl)
+        }
+        if(e.detail.scrollTop<="30"){
+            this.fl=false;
+        }
+ console.log(e)
+    }
+    logScrollEnd(){
+        console.log("结束")
+    }
+
+    //查询收货地址
+    async findAddress(){
+        const addressList = await this.addressService.findAddress()
+        if(addressList.length==0){
+            this.address = "未选择收货地址"
+            
+        }else{
+            for(let i=0;i<addressList.length;i++){
+                if(addressList[i].isPrimary=="1"){
+                    this.address = addressList[i].addr
+                    this.name = addressList[i].name
+                }
+            }
+        }
     }
     async ads(){
        await  this.router.navigateByUrl("address") 
@@ -92,11 +134,11 @@ export class Tab1Page implements OnInit {
         // this.myIcon = new BMap.Icon("../../assets//HdImage/位置.svg", new BMap.Size(32, 32));
         // this.userInfo = await this.storageService.get(StorageKey.USER_INFO);
         this.token = await this.storageService.get(StorageKey.TOKEN);
-      
+        this.findAddress()
         this.page = 1;
       
         this.hasMore = true;
-
+      
        
         await this.getSlider();
         await this.getRecommendProduct(this.page,this.num);
@@ -311,7 +353,7 @@ export class Tab1Page implements OnInit {
         console.log(this.page);    
         this.sliders = await this.productService.getSlider()
         console.log('RegisterPage页面即将进入，开始初始化数据。。。');
-
+       this.findAddress()
     }
 
 }

@@ -181,6 +181,14 @@ const routes: Routes = [
     path: 'add-address',
     loadChildren: () => import('./pages/add-address/add-address.module').then( m => m.AddAddressPageModule)
   },
+  {
+    path: 'modify-address',
+    loadChildren: () => import('./pages/modify-address/modify-address.module').then( m => m.ModifyAddressPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },
 ];
 
 @NgModule({

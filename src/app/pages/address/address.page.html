@@ -16,13 +16,14 @@
     <ion-item lines="none"> 
        <ion-text style="font-size: 16px;font-weight: 700;">我的地址</ion-text>  
     </ion-item>
-<ion-item class="card" lines="none"> 
-  <div style="position:relative">
-    <span>姓名: <ion-text style="margin-left: 33px;">王奇奇</ion-text></span> <br>
-    <span>手机号:<ion-text style="margin-left: 24px;">17886792817</ion-text></span><br>
-    <span>收货地址:<ion-text style="margin-left: 10px;">海南大学七栋201</ion-text></span><br>
-    <ion-icon src="../../../assets/HdImage/修改.svg" style="position: absolute;right: -72px;top:20px" ></ion-icon> 
+<ion-item class="card" lines="none" *ngFor="let item of addressList" > 
+  <div style="position:relative;width:90%"  (click)="switch(item.addressId)">
+    <span style="width: 80px;">定位位置: <ion-text style="margin-left: 8px;width: 100%;">{{item.location}}</ion-text></span> <br>
+    <span>姓名: <ion-text style="margin-left: 33px;">{{item.name}}</ion-text></span> <br>
+    <span>手机号:<ion-text style="margin-left: 24px;">{{item.Tmobile}}</ion-text></span><br>
+    <span>收货地址:<ion-text style="margin-left: 10px;">{{item.addr}}</ion-text></span><br>
+    <ion-icon  (click)="modify(item.addressId,address)" src="../../../assets/HdImage/修改.svg" style="position: absolute;right: -26px;top:5px;font-size: 24px;" ></ion-icon> 
+    <ion-icon (click)="delete(item.addressId)" src="../../../assets/HdImage/删除.svg" style="position: absolute;right: -26px;top:47px;font-size: 24px;" ></ion-icon> 
     <!-- <img src="../../../assets/HdImage/修改.svg" alt=""> -->
   </div>
 </ion-item>
-</ion-content>

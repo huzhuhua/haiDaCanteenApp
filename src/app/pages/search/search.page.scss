@@ -1,0 +1,29 @@
+//搜索输入框
+.input{
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    width: 70%;
+    background-color: rgb(228, 220, 220);
+    border-radius: 10px;
+    height: 30px;
+    margin-left: 32px;
+}
+//搜索文字
+.search{
+    color: #15c185;
+    font-size: 16px;
+    position: absolute;
+    right:20px;
+    top:11px
+}
+//评论
+.comment{
+   font-size: 12px;
+   color: #333;
+   border-radius: 7px;
+   border: 1px solid rgb(165, 156, 156);
+   box-shadow: 7px 7px 7px #666;
+   margin-left: 10px;
+   margin-top: 10px;
+}

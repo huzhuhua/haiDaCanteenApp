@@ -19,6 +19,7 @@ import { ChooseFileService } from './choose-file.service';
 import { FileTransferService } from './file-transfer.service';
 import { ChooseImgService } from './choose-img.service';
 import { AddressService } from './address.service';
+import { SearchService } from './search.service';
 // import { WebSocketService } from './web-socket.service';
 // import { ChooseFileService } from './choose-file.service';
 export const Services = [
@@ -33,7 +34,7 @@ export const Services = [
     ProductService,
     GetUserInfoService,
     RechargeService,
-    
+    SearchService,
     RouterHandlerService,
     CryptoService,
     ResetPasswordService,

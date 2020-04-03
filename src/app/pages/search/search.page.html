@@ -1,0 +1,41 @@
+<ion-header style="margin-top: 17px;">
+  <ion-toolbar style="position: relative;align-items: center;width: 100%;">
+    <ion-back-button slot="start"></ion-back-button>
+   <ion-input value="麻辣干锅，火龙果" class="input"></ion-input>
+    <span (click)="search()" class="search" >搜索</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item lines="none">
+  <ion-text>历史搜索</ion-text>
+</ion-item>
+<ion-item lines="none">
+  
+    <ion-grid >
+      <ion-row >
+        <ion-col size="3" *ngFor="let item of serachList"  class="comment">
+        {{item}}
+          </ion-col>
+
+        </ion-row>
+    </ion-grid>
+  
+</ion-item>
+
+<ion-item lines="none">
+  <ion-text>热门搜索</ion-text>
+</ion-item>
+<ion-item lines="none">
+  
+    <ion-grid >
+      <ion-row >
+        <ion-col size="6" *ngFor="let item of recommderList"  class="comment">
+        {{item.name}}
+          </ion-col>
+
+        </ion-row>
+    </ion-grid>
+  
+</ion-item>
+</ion-content>

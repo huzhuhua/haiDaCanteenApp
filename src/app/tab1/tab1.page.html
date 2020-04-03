@@ -1,17 +1,37 @@
-<ion-header >
-  <ion-toolbar class="toolbar">
-    <div style="position: absolute;left: 0px;top:35%;"  (click)=" ads()">
-      <ion-icon src="../../assets//HdImage/位置.svg" ></ion-icon> 
-      <ion-text>未选择</ion-text>
-    </div>
-    
-     
-  </ion-toolbar>
+<ion-header *ngIf="fl==false" style="height: 0px;" no-border>
+
+<!--     
+     <div style="position: absolute;left: 0px;top:35%;width: 100%;"  >
+        <ion-icon src="../../assets//HdImage/位置.svg" ></ion-icon> 
+        <ion-text>{{address}}</ion-text>
+        <ion-text style="position: absolute;right: 10px;">hello!{{name}}</ion-text>
+      </div>
+    -->
+ 
+</ion-header>
+<ion-header *ngIf="fl==true" >
+  <ion-button   [routerLink]="['/search']" color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+    <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
+   <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
+   <ion-text>鱼香肉丝</ion-text>
+
+ </ion-button>
 </ion-header>
 
-<ion-content color="background">
-  <div style="align-items: center;width: 100%;position: relative;">
-  <ion-button  color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+<ion-content color="background" [scrollEvents]="true"
+(ionScrollStart)="logScrollStart()"
+(ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+  <div class="toolbar">
+    <div style="position: absolute;left: 0px;top:35%;width: 100%;"  (click)=" ads()">
+      <ion-icon src="../../assets//HdImage/位置.svg" ></ion-icon> 
+      <ion-text>{{address}}</ion-text>
+      <ion-text style="position: absolute;right: 10px;">hello!{{name}}</ion-text>
+    </div>
+  </div>
+  
+  <div style="align-items: center;width: 100%;position: relative;margin-top: 47px;">
+  <ion-button [routerLink]="['/search']"  color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
     <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
    <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
    <ion-text>鱼香肉丝</ion-text>

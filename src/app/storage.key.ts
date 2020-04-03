@@ -4,4 +4,5 @@ export const StorageKey = {
     FIRST: 'first',
     MOBILE: 'mobile',
     HADLOGIN:'false',
+    HISTORYDISHES:'history'
 };

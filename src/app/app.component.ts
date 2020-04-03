@@ -31,18 +31,21 @@ export class AppComponent {
     // private androidFingerprintAuth: AndroidFingerprintAuth
     private androidFingerprintAuth:AndroidFingerprintAuth
   ) {
-    
+ 
     this.initializeApp();
 
     console.log(this.rootOutlet)
  
   }
-
   async initializeApp() {
+   
     this.platform.ready().then(() => {
-        //  this.initializeFirstPage()
+        //  this.initializeFirstPage()   
+      
       this.statusBar.overlaysWebView(true);
-      this.statusBar.styleDefault();
+      this.statusBar.styleDefault() 
+      // this.statusBar.styleLightContent();
+     
       console.log(this.rootOutlet)
       this.routerHandlerService.routerHandle(this.rootOutlet);
       // this.storageService.add.
@@ -100,8 +103,6 @@ if(isFirstOpen != null){
           }
         })
         .catch(error => console.error(error));
-
-
 
 
        }
