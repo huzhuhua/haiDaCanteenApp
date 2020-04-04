@@ -12,8 +12,12 @@ export class SearchService {
   async find() {
     return await this.httpService.get(URI.recommendDishes, {});
   }
-  //搜索
-  async search(name:any) {
-    return await this.httpService.get(URI.searchDishes, {name:name});
+  // id搜索
+  async searchId(id:any ) {
+    return await this.httpService.get(URI.searchDishes, {id:id});
   }
+    //名字搜索
+    async search(name:any ) {
+      return await this.httpService.get(URI.searchDishes, {name:name});
+    }
 }

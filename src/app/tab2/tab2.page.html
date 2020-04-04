@@ -1,67 +1,58 @@
-<ion-header no-border>
-    <ion-toolbar >
+<ion-header style="margin-top: 10px;">
+    <ion-toolbar style="position: relative;">
 
-        <div class="toolbar" >
-            <h4 style="color: #ffffff;">理财产品</h4>
-        </div>
+        <ion-title>我的购物车</ion-title>
 
     </ion-toolbar>
-    <form [formGroup]="selectForm" >
-        <ion-list class="select">
-
-
-            <ion-col size="6">
-                期限
-                <select   formControlName="month">
-                    <option value="0" selected="">全部期限</option>
-                    <option value="100">活期</option>
-                    <option value="1000">预售</option>
-                    <option value="3">3个月</option>
-                    <option value="6">6个月</option>
-                    <option value="8">8个月</option>
-                    <option value="12">12个月</option>
-                </select>
-            </ion-col>
-
-
-            <ion-col size="6">
-                收益率
-                <label>
-                    <select  formControlName="rate">
-                        <option value="0" selected="" >全部收益</option>
-                        <option value="2">2%</option>
-                        <option value="4">4%</option>
-                        <option value="6">6%</option>
-                        <option value="8">8%</option>
-                    </select>
-                </label>
-            </ion-col>
-        </ion-list>
-
-
-    </form >
 </ion-header>
 <ion-content>
 
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="释放刷新"
-          refreshingSpinner="circles"
-          refreshingText="更新完成">
-        </ion-refresher-content>
-      </ion-refresher>
+    <ion-card>
+        <ion-list *ngFor="let item of  productList">
+            <ion-item lines="none">
+                <a href="javascript:;" rel="external nofollow" item-end (click)="item.flag = !item.flag" >
+                    <ion-icon src="../../assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!item.flag">
+                    </ion-icon>　　
+                    <ion-icon src="../../assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="item.flag"></ion-icon>
+                    　
+                </a>
+                <!-- <ion-icon src="../../assets/HdImage/圆圈.svg"></ion-icon>
+               <ion-icon src="../../assets/HdImage/圆勾.svg"></ion-icon> -->
+                <div class="img" [style.background-image]="  'url(' +item.picUrl + ')'  "> </div>
+                <div style="display: flex;flex-direction: column;margin-left: 10px;">
+                    <div style="margin-top: 20px;color: #333;font-size: 16px;"> {{item.name}}</div>
+                    <div style="margin-top: 40px;display: flex;flex-direction: row">
+                        <div>
+                            <ion-text style="color: #15c185;"> ￥{{item.money}}</ion-text>
+                        </div>
+                      
+                      <div style="margin-left: 40px;display: flex;flex-direction: row;border: 1px solid rgb(202, 198, 198);border-radius: 4px;">
+                          <ion-text style="border-right: 1px solid rgb(202, 198, 198);width: 26px;text-align: center;color: rgb(202, 198, 198);">-</ion-text>
+                        <ion-text style="width: 50px;text-align: center;color:#666">1</ion-text>
+                        <ion-text style="border-left: 1px solid rgb(202, 198, 198);width: 26px;text-align: center;color: rgb(202, 198, 198);">+</ion-text> 
+                      </div>
+                            
+                        </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+<ion-item lines="none" style="border-top: 1px solid rgb(216, 214, 214);position: fixed;bottom: -63px;width: 100%;">
+    <div style="display: flex;flex-direction: row;text-align: center;align-items: center;" >
 
-    <app-product-list [productList]="productList"></app-product-list>
-    <ion-infinite-scroll threshold="10%" (ionInfinite)="ionInfinite($event)">
-        <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="加载中...">
-        </ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-<!--    返回顶部-->
-    <ion-row class="bLine">
-        <ion-text *ngIf="!hasMore" (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text>
-        <!-- <ion-text  (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text> -->
-    </ion-row>
-<!--    <ion-button color="white" style="color: red;" (click)="top()">返回顶部</ion-button>-->
-
+    <div style="text-align: center;align-items: center;padding-top: 14px;" >
+    <a href="javascript:;" rel="external nofollow" item-end (click)="flag=!flag" >
+        <ion-icon src="../../assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!flag">
+        </ion-icon>　　
+        <ion-icon src="../../assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="flag"></ion-icon>
+        　
+    </a>
+    <ion-text style="margin-top: -5px;">全选</ion-text>
+</div>
+<div style="margin-left: 100px;padding-top: 21px;">
+    <ion-text>合计： <span style="color:#15c185">￥0</span> </ion-text>
+    <ion-button color="secondary" style="margin-top:-5px;font-size:16px;width: 90px;border-radius: 10px;margin-left: 10px;" >结算</ion-button>
+</div>
+</div>
+</ion-item>
 </ion-content>

@@ -27,12 +27,9 @@
       <div>
         <ion-item lines="none" >
             <ion-label class="row1">{{item.name}}
-              <button *ngIf="item.productType ==1">活期</button>
-              <button *ngIf="item.productType ==0">定期</button>
-              <button *ngIf="item.preorderType ==1" style="background: #FF4F60;">预售</button>
-              <!-- <button *ngIf="item.productType ==0 " style="background: #FF4F60;">预售</button> -->
+          
             </ion-label>
-           
+              
         </ion-item>
         <ion-item lines="none" class="row2">
             <ion-text style="" class="rate">￥{{item.money}}元</ion-text>

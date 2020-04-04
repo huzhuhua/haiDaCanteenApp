@@ -118,7 +118,7 @@ const routes: Routes = [
     // },
   {
     path: 'redemption',
-    loadChildren: () => import('./pages/redemption/redemption.module').then( m => m.RedemptionPageModule),
+    loadChildren: () => import('./pages/test/redemption/redemption.module').then( m => m.RedemptionPageModule),
     canActivate: [LoginGuardService],
     canActivateChild: [LoginGuardService]
   },
@@ -188,6 +188,10 @@ const routes: Routes = [
   {
     path: 'search',
     loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'search-dishes',
+    loadChildren: () => import('./pages/search-dishes/search-dishes.module').then( m => m.SearchDishesPageModule)
   },
 ];
 

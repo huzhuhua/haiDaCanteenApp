@@ -33,7 +33,8 @@ export const URI = {
  recommendDishes:'/recommendDishes',
  //搜索菜品
  searchDishes:'/searchDishes',
-
+//购物车
+carDishes:'/carDishes',
 
 
 

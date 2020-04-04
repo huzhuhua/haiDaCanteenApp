@@ -4,5 +4,8 @@ export const StorageKey = {
     FIRST: 'first',
     MOBILE: 'mobile',
     HADLOGIN:'false',
-    HISTORYDISHES:'history'
+    //历史搜素
+    HISTORYDISHES:'history',
+    //购物车
+    SHOPPINGCAR:'car'
 };

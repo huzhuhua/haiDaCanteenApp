@@ -28,6 +28,7 @@ export class ProductListComponent implements OnInit {
     this.router.navigateByUrl('product-buy');
   }
   navigate(id:string){
+    console.log(id)
     this.router.navigate(['/product-buy'],{queryParams: {id:id}})
   }
   

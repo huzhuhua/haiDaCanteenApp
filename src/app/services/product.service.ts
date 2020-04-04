@@ -13,6 +13,11 @@ export class ProductService {
     async getSlider(){
         return await this.httpService.get(URI.sliders, {} );
     }
+    //tab2获取购物车商品
+    async getCar(idList:any) {
+ 
+        return await this.httpService.get(URI.carDishes,{idList:idList});
+    }
     //首页推荐分页加载
     async getRecommend( page:number,num:number) {
  

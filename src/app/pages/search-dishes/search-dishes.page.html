@@ -1,0 +1,11 @@
+<ion-header style="margin-top: 17px;">
+  <ion-toolbar style="position: relative;align-items: center;width: 100%;">
+    <ion-back-button slot="start"></ion-back-button>
+   <ion-input value="鱼香肉丝" class="input2"></ion-input>
+    <span (click)="search()" class="search" >搜索</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-product-list [productList]="searchList"></app-product-list>
+</ion-content>

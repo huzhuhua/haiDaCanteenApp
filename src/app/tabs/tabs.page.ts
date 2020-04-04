@@ -26,16 +26,24 @@ export class TabsPage  implements OnInit {
           iconSrc2: 'assets/HdImage/首页亮.svg'
       },
       {
-          url: '/tabs/tab2',
-          iconName: 'tab2',
-          tabName: 'tab2',
+        url: '/tabs/tab2',
+        iconName: 'tab2',
+        tabName: 'tab2',
+        label: '购物车',
+        iconSrc: 'assets/HdImage/购物车.svg',
+        iconSrc2: 'assets/HdImage/购物车亮.svg'
+    },
+      {
+          url: '/tabs/tab3',
+          iconName: 'tab3',
+          tabName: 'tab3',
           label: '订单',
           iconSrc: 'assets/HdImage/订单.svg',
           iconSrc2: 'assets/HdImage/订单亮.svg'
       },  {
-          url: '/tabs/tab3',
-          iconName: 'tab3',
-          tabName: 'tab3',
+          url: '/tabs/tab4',
+          iconName: 'tab4',
+          tabName: 'tab4',
           label: '我的',
           iconSrc: 'assets/HdImage/我的.svg',
           iconSrc2: 'assets/HdImage/我的亮.svg'

@@ -4,7 +4,7 @@
   text-align: center;
   position: relative;
   height: 240px;
-  background-image:  url("../../../assets/images/产品banner背景.png") ;
+  background-image:  url("../../../../assets/images/产品banner背景.png") ;
   background-size: cover;
   -webkit-background-size: cover;
   overflow: hidden;
@@ -123,7 +123,7 @@ ion-item{
 ion-button {
   //    height: 38px;
   margin-top: 0px;
-  background: url('../../../assets/images/登录按钮.png');
+  background: url('../../../../assets/images/登录按钮.png');
   background-size: cover;
   overflow: hidden;
 }

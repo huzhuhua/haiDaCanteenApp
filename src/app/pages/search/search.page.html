@@ -14,7 +14,7 @@
   
     <ion-grid >
       <ion-row >
-        <ion-col size="3" *ngFor="let item of serachList"  class="comment">
+        <ion-col size="3" *ngFor="let item of serachList"  class="comment" (click)="search(item)">
         {{item}}
           </ion-col>
 
@@ -30,7 +30,7 @@
   
     <ion-grid >
       <ion-row >
-        <ion-col size="6" *ngFor="let item of recommderList"  class="comment">
+        <ion-col size="6" *ngFor="let item of recommderList"  class="comment" (click)="search(item.name)">
         {{item.name}}
           </ion-col>
 
