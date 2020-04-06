@@ -1,10 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // 导入依赖
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {NativeService} from 'src/app/services/native.service';
-import {ProductPayService} from 'src/app/services/product-pay.service';
-import {Router} from '@angular/router';
+import { NativeService } from 'src/app/services/native.service';
+import { ProductPayService } from 'src/app/services/product-pay.service';
+import { Router } from '@angular/router';
+import { AddressService } from 'src/app/services/address.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { StorageKey } from 'src/app/storage.key';
+import { SearchService } from 'src/app/services/search.service';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -13,121 +17,174 @@ import {Router} from '@angular/router';
     styleUrls: ['./product-pay.page.scss'],
 })
 export class ProductPayPage implements OnInit {
-    url: string = "../../../assets/images//Success.svg";
-    flag = 'true';
-    pId: any = 1;
-    pName: string = 'dddddd';
-    pRate: string= '3';
-    value: string ;
-    pDay: string = '7';
-    pAmount: string = '100';
-    productType:string = '1';
-    endDate:string;
-    public productInfo: any = {
-        amount: AbstractControl,
-        vcode: AbstractControl,
-
-    };
-    productpayForm: FormGroup;
-
-
-    constructor(private activateRoute: ActivatedRoute, private productpayservice: ProductPayService, private fb: FormBuilder, private router: Router, private nativeService: NativeService ) {
-        this.pId = this.activateRoute.snapshot.queryParamMap.get('id');
-       
-
-        this.pName = this.activateRoute.snapshot.queryParamMap.get('name');
-       
-        this.pRate = this.activateRoute.snapshot.queryParamMap.get('rate');
-       
-        this.pDay = this.activateRoute.snapshot.queryParamMap.get('day');
-      
-        this.pAmount = this.activateRoute.snapshot.queryParamMap.get('amount');
-      
-         this.productType = this.activateRoute.snapshot.queryParamMap.get('productType');
-          this.endDate = this.activateRoute.snapshot.queryParamMap.get('endDate');
-          console.log(this.endDate)
-        this.productpayForm = this.fb.group(
-            {
-                amount: new FormControl('', {
-                    validators: [Validators.required, ]
-                }),
-
-                vcode: new FormControl('', {
-                    validators: [Validators.required, ]
-                }),
-                // rate: new FormControl('', {
-                //   validators: [ ]
-                // }),
-
-
-            }
-        )
-
-        this.productInfo.amount = this.productpayForm.controls.amount;
-        this.productInfo.vcode = this.productpayForm.controls.vcode;
-        // this.productInfo.rate= this.productpayForm.controls.rate;
-
-
+    public productList: any;
+    public allMoney: any;
+    public nowMoney: any;
+    public addressList: any;
+    public mainAddress: any = [];
+    public timeText: any = "送达时间";
+    public time: any;
+    public toolNum:any="1";
+    constructor(private activateRoute: ActivatedRoute,
+        private nav:NavController,
+        private searchService:SearchService,
+        private storageService:StorageService,
+        private productpayservice: ProductPayService,
+        private router: Router,
+        private addressService: AddressService,
+        private nativeService: NativeService) {
+    
+        this.allMoney = this.activateRoute.snapshot.queryParamMap.get("allMoney")
+        this.nowMoney = this.allMoney * 0.9
+        console.log(this.allMoney)
     }
-
     ngOnInit() {
+        const a = new Date();
+        const b = a.getHours();
+
+        this.time = this.formatTime(a);
+
+        this.getAddress()
+
         
         // this.productInfo.productId = this.pId;
     }
-
-    async productPay() {
-        const productpay = this.productpayForm.getRawValue();
-
-        productpay.productid = this.pId;
-        console.log(productpay);
-        const productPayContent = await this.productpayservice.productPay(productpay);
-
-        if (productPayContent === '交易成功') {
-            this.nativeService.showAlert('购买成功', '确定', () => {
-                this.router.navigateByUrl('tabs/tab2');
-            }, '温馨提示');
-
+    //格式化时间并且时间加15分钟
+    formatTime(time: any) {
+        let c = time.getHours();
+        let d = time.getMinutes() + 15
+        if (time.getMinutes() + 15 > 60) {
+            c += 1;
+            d -= 60;
         }
-    }
 
-    okButtonHandler() {
 
+        return c + ":" + d
     }
-
-    returnCode(code: string) {
-        this.value = code;
-    }
-
-    //勾选协议
-  async change() {
-    if(this.flag == 'true'){
-      this.flag = 'false';
-    }else{
-      this.flag = 'true';
-    }
+    //获取默认地址
+    async getAddress() {
        
-        if (this.flag == 'true') {
-          this.url = '../../../assets/images//Success(1).svg'
-        } else {
-          this.url = '../../../assets/images//Success.svg'
+        this.mainAddress = []
+        this.addressList = await this.addressService.findAddress()
+        console.log(this.addressList)
+        let arr;
+        for (let i = 0; i < this.addressList.length; i++) {
+
+            if (this.addressList[i].isPrimary == "1") {
+                this.mainAddress.push(this.addressList[i])
+            }
+        }
+        // this.mainAddress = arr[0];
+        console.log(this.mainAddress)
+    }
+//餐具份数
+async tool(){
+   
+    this.nativeService.presentActionSheet("选择餐具", [ 
+        {
+            text: "不需要餐具" ,
+            role: '',
+            icon: 'restaurant-outline',
+            handler: () => {
+                this.toolNum = 0 ;
+            }
+        },
+        {
+        text: "1份" ,
+        role: '',
+        icon: 'restaurant-outline',
+        handler: () => {
+            this.toolNum = 1 ;
+        }
+    },
+    {
+        text: "2份",
+        role: '',
+        icon: 'restaurant-outline',
+        handler: () => {
+            this.toolNum = 2 ;
+        }
+    },
+    {
+        text: "3份" ,
+        role: '',
+        icon: 'restaurant-outline',
+        handler: () => {
+            this.toolNum = 3 ;
+        }
+    },
+])
+}
+    //选择收货时间
+    async choiceTime() {
+        let list = [];
+        const a = new Date();
+      
+        let b = a.getHours();
+        let c = a.getMinutes()
+        for (b; b < 24; c += 15) {
+            if (c > 60) {
+                b++
+                c = c % 60;
+            }
+            const str = b + ":" + c
+
+            list.push(
+                {
+                    text: str,
+                    role: '',
+                    icon: 'time',
+                    handler: () => {
+                        this.time = str
+                    }
+                }
+            )
         }
     
-      }
-    
-      async onPageWillClose() {
-    
-        console.log('RegisterPage页面即将关闭，开始清除数据。。。');
+ 
+
+        this.nativeService.presentActionSheet("选择预定送达时间", list)
     }
-    
-    async onPageWillEnter() {
-     //获取值
-     console.log("fffff")
-      this.flag = 'true';
-     this.flag=  this.activateRoute.snapshot.queryParamMap.get('flag');
-     if(this.flag == 'false'){
-      this.url = '../../../assets/images//Success(1).svg'
-     }
-    
-     console.log(this.flag)
+//确认支付
+async submit(){
+    let input = <HTMLElement><unknown>document.getElementsByClassName("remark");
+    let list=await this.storageService.get(StorageKey.PAY)
+    let arr=[];
+    let str="";
+    for(let i=0;i<list.length;i++){
+       str += list[0].name +list[0].num +"-"
+
     }
+    arr.push(str)
+   let trueAdd = this.mainAddress[0].name+"-"+this.mainAddress[0].addr+this.mainAddress[0].Tmobile
+ 
+    arr.push(this.time) 
+
+    arr.push(trueAdd) 
+    arr.push(this.toolNum)
+    arr.push(input[0].value)
+    arr.push(this.nowMoney)
+    console.log(arr)  ;
+    const a = await this.searchService.pay(arr)
+    if(a){
+        this.storageService.remove(StorageKey.PAY)
+        this.storageService.remove(StorageKey.SHOPPINGCAR)
+        this.nativeService.showAlert("支付成功","确定",()=>{
+            this.nav.navigateForward("tabs/tab3")
+        })
+    }
+    console.log(a)
+    // console.log(arr)
+
+}
+async onPageWillClose() {
+
+    console.log('RegisterPage页面即将关闭，开始清除数据。。。');
+}
+
+async onPageWillEnter() {
+    console.log("即将进入product-pay")
+    this.getAddress()
+}
+
 }

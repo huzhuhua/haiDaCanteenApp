@@ -35,7 +35,7 @@ export const URI = {
  searchDishes:'/searchDishes',
 //购物车
 carDishes:'/carDishes',
-
+pay:'/pay',
 
 
 

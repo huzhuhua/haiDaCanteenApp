@@ -1,84 +1,59 @@
-<ion-header no-border>
+<ion-header style="margin-top: 10px;">
+  <ion-toolbar style="position: relative;">
+    <ion-back-button></ion-back-button>
+      <ion-title>支付</ion-title>
 
-  <!--导航栏-->
-  <ion-toolbar >
-    <div class="toolbar" >
-      <ion-back-button style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;padding-right: 10px;"></ion-back-button>
-      <h4 style="color: #ffffff;">产品买入</h4>
-      <!-- <div style="display: flex;flex-direction: row;position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);">
-        <div style="display: flex;flex-direction: column;border-right: 1px solid #fff;">
-          <ion-text>
-              持仓金额(￥)
-          </ion-text>
-         
-          <ion-text style="font-size: 18px;">
-            ￥ {{amount}}1111
-          </ion-text>
-      </div>
-  
-     <div style="display: flex;flex-direction: column;">
-      <ion-text >
-          涨幅率(￥)
-      </ion-text>
-      <ion-text style="font-size: 18px;">
-       3%
-    </ion-text>
-   
-     </div>
-      </div> -->
-     
-</div>                  
-    
   </ion-toolbar>
-
 </ion-header>
 
 
 
 <ion-content>
-
-  <!--产品详情内容-->
-  <ion-card class="card">
-    <form [formGroup]=" productpayForm">
-      <ion-list>
-        <ion-item lines="none">
-          <ion-label class="row1">{{pName}}<button *ngIf="productType ==1">活期</button>
-            <button *ngIf="productType ==0">定期</button>
-            <button *ngIf="preorderType ==1" style="background: #FF4F60;">预售</button>
-          </ion-label>
-        </ion-item>
-        <ion-item lines="none" class="row2">
-          <ion-label class="title2">七日年化收益率</ion-label>
-          <ion-label class="title2">产品周期</ion-label>
-        </ion-item>
-        <ion-item lines="none" class="row3">
-          <ion-label style="" class="rate">{{pRate}}%</ion-label>
-          <ion-label style="" class="date">{{pDay}}天</ion-label>
-        </ion-item>
-        <ion-item class="row4">
-          <ion-label class="title2">{{pAmount}}元起购|中低风险</ion-label>
-          <ion-label class="title3" >{{endDate|date:'yyyy-MM-dd HH:mm:ss'}}</ion-label>
-        </ion-item>
-       
-        <ion-item lines="" class="input">
-          <ion-icon src="../../../assets/images/安全、盾、验证码.svg" ></ion-icon>
-          <ion-input placeholder="买入金额"   formControlName="amount"> </ion-input>
-          <ion-text *ngIf="productInfo.amount.touched&&productInfo.amount.hasError('required')" style="color: red">请输入金额</ion-text>
-         
-         
-        </ion-item>
-
-        <ion-item class="input" >
-          <ion-icon src="../../../assets/images/锁.svg" ></ion-icon>
-          <ion-input placeholder="验证码"  formControlName="vcode" [value]="value"></ion-input>
-          <app-get-code countAmount="60" (outputEvent)="returnCode($event)"></app-get-code>
-        </ion-item>
-        <div style="color: #666;font-size: 12px;display: flex;flex-direction: row;justify-content: center;margin-top: -15px;"> <img src={{url}} alt=""      (click)="change()" style=" width:20px;height:20px;margin-top: 10px;margin-right: 5px;"> <div style="margin-top: 11px;"><span style="letter-spacing:3px">我已阅读并同意</span > <a  [routerLink]="['/agreement']" [queryParams]="{id:2}"   routerLinkActive="router-link-active" class="agreement">《艾尚理财服务协议》</a></div></div>
-
-      </ion-list>
-    </form>
+  <ion-card>
+    <ion-item class="card"  *ngFor="let item of mainAddress"  [routerLink]="['/address']"> 
+      <div style="position:relative;width:90%;display: flex;flex-direction: row;align-items: center;"  (click)="switch(item.addressId)">
+        <ion-icon   class="img" src="../../../assets/HdImage/收货位置.svg" style="font-size: 24px;" ></ion-icon> 
+        <div>
+          <span> <ion-text style="margin-left: 10px;">{{item.name}}</ion-text></span> 
+          <span><ion-text style="margin-left: 24px;">{{item.Tmobile}}</ion-text></span><br>
+          <span><ion-text style="margin-left: 10px;">{{item.addr}}</ion-text></span><br>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item [routerLink]="[]" (click)="choiceTime()">
+      <ion-label>{{timeText}}</ion-label>
+      <ion-text>{{time}}</ion-text>
+    </ion-item>
+    <ion-item [routerLink]="[]">
+      <ion-label>订单备注</ion-label>
+      <ion-input class="remark"></ion-input>
+    </ion-item>
+    <ion-item  [routerLink]="[]" (click)="tool()">
+      <ion-label>餐具份数</ion-label>   
+      <ion-text>{{toolNum}}</ion-text>
+    </ion-item>
+    <ion-item lines="none" >
+      <ion-label style="font-size: 14px;">温馨提示</ion-label>
+    </ion-item>
+    <div   class="row7">
+      <div>米饭:只要购买了菜品，默认送一份饭。如需多份，请备注</div>
+      <div>优惠:全场9折，为全校师生加油</div>
+      <div>食无忧:所有餐品均来自于食堂，卫生可供保障</div>
+      <div>时间快:若不是预约单号，可在15分钟之内送达</div>
+      <div>取消订单:必须在两分钟之内取消</div>
+      <div>送餐时间11:00-14:00,17:00-24:00</div>
+    </div>
   </ion-card>
-  <ion-button class='pay' expand="block" color="white" (click)=" productPay()" [disabled]='!productpayForm.valid'>确认支付</ion-button>
+ <ion-item class="bottom">
+
+    <ion-text>原价 <span style="color:red;text-decoration: line-through; font-size: 16px;">￥{{allMoney}}</span> </ion-text>
+    <ion-text style="">|现价 <span style="color:#15c185;font-size: 16px;">￥{{nowMoney}}</span> </ion-text>
+    <ion-button class="button" color="secondary" (click)="submit()">确认支付</ion-button>
+
+   
+ </ion-item>
+ 
+
 
 </ion-content>
 

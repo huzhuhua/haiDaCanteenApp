@@ -1,145 +1,89 @@
-// 顶部banner背景
+//通栏
+
 .toolbar{
   width:100%;
   text-align: center;
   position: relative;
-  height: 182px;
-  background-image:  url("../../../assets/images/产品banner背景.png") ;
-  background-size: cover;
-  -webkit-background-size: cover;
-  overflow: hidden;
+  
   margin-bottom: 19px;
 }
-// 导航栏文字
 .toolbar h4{
   position: absolute;
   top:8px;
   left:50%;
   transform: translateX(-50%);
 }
+//地址卡片
+.card{
 
-// 产品详情背景
-.card {
-  width: 85%;
-  height:400px;
-  margin: 40px auto;
-  border-radius: 10px;
-  padding-top: 10px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px -2px #C3D7FF;
+  margin: 10px auto;
+  // border-radius: 7px;
+  // border:1px solid rgb(235, 230, 230);
+  // box-shadow: 5px 5px 10px #888888 ;
+  position: relative;
 }
-
-//产品详情内容
-ion-item{
-  --padding-end:20px;
+span{
+font-size: 12px;
+font-weight: 700;
+color: #666;
+ion-text{
+  
 }
-
-//第一行样式
-.row1 {
-  font-size: 16px;
-  color: #333333;
-  font-weight: bolder;
 }
-.row1 button{
-  padding: 2px 4px;
-  background: #5C6DFB ;
-  border-radius: 5px;
+//左边图片
+.img{
+  width: 50px;
+height: 50px;
+border-radius: 7px;
+margin-left: 7px;
+}
+.arrow{
+  position: absolute;
+  font-size: 35px;
+  color: #15c185;
+  right: -17px;
+}
+.bottom{
+  border-top: 1px solid rgb(216, 214, 214);
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.row7{
+  color: #666;
   font-size: 11px;
-  color: #FFFEFE;
-  line-height: 16px;
-  margin-left: 4px;
-}
-
-//第二行样式
-.row2{
-  top: -11px;
-}
-.title2{
-  font-size: 11px;
-  color: #999999;
-  margin-top: 2px;
-}
-.title3{
-  font-size: 11px;
-  color: #999999;
-  margin-top: 12px;
-  margin-left: 18px;
-}
-
-//第三行样式
-.row3 {
-  font-size: 28px;
-  top: -28px;
-}
-.rate {
-  color: #FD263B ;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 30px;
-}
-.date {
-  color: #FF2511;
-  font-size: 22px;
-  margin-top: 9px;
-}
-
-// 第四行样式
-.row4 {
-  top: -45px;
-}
-
-//输入框样式
-.input {
-  margin: 16px auto;
-  border: 1.5px solid #5E6DFB ;
-  width: 300px;
-  height: 40px;
-  border-radius: 11px;
-  top: -28px;
-  font-size: 12px;
-
-}
-
-//按钮样式
-ion-button {
-  //    height: 38px;
-  //margin-top: 0px;
-  background: url('../../../assets/images/登录按钮.png');
-  background-size: cover;
-  overflow: hidden;
-}
-
-
-// 去掉顶部banner边框
-ion-toolbar {
-  --padding-start:0px;
-  --padding-end:0px;
-  --padding-buttom:0px;
-  --padding-top:0px;
-}
-
-//按钮
-.pay {
-  width: 316px;
-  font-size: 15px;
-  height:60px;
-  margin: -68px auto;
-  background-color: red($color: #000000);
-  letter-spacing: 3px;
-}
-//图标
-ion-icon{
-
-  width: 22px;
-  height: 22px;
-  margin-right: 3px;
+  margin-bottom: 20px;
+  display: flex;
  
- }
- .title2{
-  font-size: 11px;
-  color: #999999;
-  margin-top: 10px;
+  flex-direction: column;
+  :before{
+    content:"●";
+    // width: 30px;
+    // height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    color: #7970FE;
+    font-weight: 500;
+  }
+  div{
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-top: -7px;
+    margin-left: 20px;
+  }
+  top: -14px;
+  
+}
+.button{
+  margin-left: 88px;
+  font-size: 16px;
+}
+ion-input{
+  font-size: 14px;
+  color: #333;
 }
 ion-text{
-  color: #fff;
+  font-size: 14px;
+  color: #333;
 }

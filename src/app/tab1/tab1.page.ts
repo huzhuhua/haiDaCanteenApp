@@ -350,6 +350,7 @@ async search(){
     }
 
     async onPageWillEnter() {
+        await this.getRecommendProduct(this.page,this.num);
         console.log(this.page);    
         this.sliders = await this.productService.getSlider()
         console.log('RegisterPage页面即将进入，开始初始化数据。。。');

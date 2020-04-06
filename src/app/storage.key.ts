@@ -7,5 +7,7 @@ export const StorageKey = {
     //历史搜素
     HISTORYDISHES:'history',
     //购物车
-    SHOPPINGCAR:'car'
+    SHOPPINGCAR:'car',
+    //所要支付的商品
+    PAY:'pay'
 };

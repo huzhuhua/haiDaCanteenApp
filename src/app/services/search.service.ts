@@ -20,4 +20,8 @@ export class SearchService {
     async search(name:any ) {
       return await this.httpService.get(URI.searchDishes, {name:name});
     }
+    //支付
+    async pay(list:any){
+      return await this.httpService.get(URI.pay, {list:list});
+    }
 }
