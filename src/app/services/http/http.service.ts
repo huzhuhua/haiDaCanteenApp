@@ -40,6 +40,7 @@ export class HttpService {
                 await this.nativeService.showLoading();
             }
             let token = await this.storageService.get(StorageKey.TOKEN)
+            console.log(params)
             // const token = this.storageService.get(StorageKey.TOKEN)
            params.token = token?token:undefined;
             console.log(params.token)

@@ -1,6 +1,6 @@
 <ion-header style="margin-top: 10px;">
   <ion-toolbar style="position: relative;">
-    <ion-back-button></ion-back-button>
+    <ion-back-button slot="start"></ion-back-button>
       <ion-title>支付</ion-title>
 
   </ion-toolbar>
@@ -47,8 +47,8 @@
  <ion-item class="bottom">
 
     <ion-text>原价 <span style="color:red;text-decoration: line-through; font-size: 16px;">￥{{allMoney}}</span> </ion-text>
-    <ion-text style="">|现价 <span style="color:#15c185;font-size: 16px;">￥{{nowMoney}}</span> </ion-text>
-    <ion-button class="button" color="secondary" (click)="submit()">确认支付</ion-button>
+    <ion-text style="">|现价 <span style="color:#15c185;font-size: 16px;">￥{{nowMoney| number:'1.2-4'}}</span> </ion-text>
+    <ion-button class="okButton" color="secondary" (click)="submit()" >确认支付</ion-button>
 
    
  </ion-item>

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+// 产品详情背景
+.card2 {
+    width: 85%;
+    // height: 150px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding-top: 0px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px -2px #C3D7FF;
+    position: relative;
+    align-items: center;
+    
+}
+ion-label{
+    font-size: 12px;
+    
+    color: rgb(150, 243, 107);
+}
+ion-text{
+    font-size: 12px;
+    color: #666;
+}
+span{
+    width: 30%;
+    font-size: 11px;
+    margin: 20px 8px;
+    height: 28px;
+   color: #fff;
+    background-color: #0ffa22;
+border-radius: 5px;
+text-align: center;
+padding-top: 5px;
+}
+ion-item{
+    width: 100%;
+}
+
+

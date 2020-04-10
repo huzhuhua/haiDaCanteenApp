@@ -21,6 +21,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { Base64 } from '@ionic-native/base64/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 // import {PipesModule} from './pipes/pipes.module';
+// import { Alipay } from '@ionic-native/alipay/ngx';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ HttpClientModule],
     SplashScreen,
     FileTransfer,
     ImagePicker ,
-  
+    // Alipay,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Services,

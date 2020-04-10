@@ -154,6 +154,7 @@ this.nativeService.showConfirm("是否将此地址设为默认地址","确定",(
   //获取收货地址
   async findAddress() {
     this.addressList = await this.addressService.findAddress()
+    console.log(this.addressList)
     let arr;
     for(let i=0;i<this.addressList.length;i++){
       
@@ -163,7 +164,11 @@ this.nativeService.showConfirm("是否将此地址设为默认地址","确定",(
       }
 
     }
+  console.log(arr)
+  if(arr!=undefined){
     this.addressList.unshift(arr[0])
+  }
+   
     console.log(this.addressList.length)
   }
   //添加收货地址

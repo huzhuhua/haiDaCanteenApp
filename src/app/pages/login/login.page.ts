@@ -10,10 +10,12 @@ import { GetUserInfoService } from 'src/app/services/get-user-info.service';
 import { CryptoService } from 'src/app/services/crypto.service';
 import { webSocket } from 'rxjs/webSocket';
 import { WebSocketService } from 'src/app/services/web-socket.service';
+
 declare var baidu_location
 // import * as io from 'socket.io-client';
 import * as io from 'socket.io-client';
 import { NavController } from '@ionic/angular';
+// import { Alipay } from '@ionic-native/alipay/ngx';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -40,6 +42,7 @@ msg:string;
     // private ws:WebSocketService,
     public nav: NavController,
     private cy:CryptoService, 
+    // private alipay:Alipay,
     private getUserInfoService: GetUserInfoService, 
     private fb: FormBuilder, 
     private loginService: LoginService, 
@@ -67,6 +70,14 @@ msg:string;
    }
 
   ngOnInit() {
+  //   this.alipay.pay(alipayOrder)
+  //  .then(result => {
+  //     console.log(result); // Success
+  //  })
+  //  .catch(error => {
+  //     console.log(error); // Failed
+  //  });
+
     // baidu_location.getCurrentPosition( function successCallback(data){
     //   console.log("lontitude:" + data.longitude);
     //   console.log("latitude:" + data.latitude);

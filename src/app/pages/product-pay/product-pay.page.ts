@@ -41,21 +41,32 @@ export class ProductPayPage implements OnInit {
     ngOnInit() {
         const a = new Date();
         const b = a.getHours();
-
+        console.log(a)
+     console.log(a.getFullYear())
+     console.log(a.getMonth())
+     console.log(a.getDate())
         this.time = this.formatTime(a);
 
         this.getAddress()
 
-        
+      
+       
         // this.productInfo.productId = this.pId;
     }
     //格式化时间并且时间加15分钟
     formatTime(time: any) {
         let c = time.getHours();
+        // let c = 3;
         let d = time.getMinutes() + 15
-        if (time.getMinutes() + 15 > 60) {
+        if (time.getMinutes() + 15 >= 60) {
             c += 1;
             d -= 60;
+            if(d<10){
+     d = "0" + d
+            }
+            if(c<10){
+                c = "0" + c
+            }
         }
 
 
@@ -121,11 +132,19 @@ async tool(){
         const a = new Date();
       
         let b = a.getHours();
-        let c = a.getMinutes()
+        let c = a.getMinutes() +15
+        let d="";
         for (b; b < 24; c += 15) {
             if (c > 60) {
                 b++
-                c = c % 60;
+                c = c % 60 ;
+                // if(c<10){
+                //     c = "0" +c 
+                //     // c=Number("0" +c )
+                // }
+            }
+            if(c<10){
+                const str = b + ":" + " 0"+c
             }
             const str = b + ":" + c
 
@@ -152,13 +171,18 @@ async submit(){
     let arr=[];
     let str="";
     for(let i=0;i<list.length;i++){
-       str += list[0].name +list[0].num +"-"
+       str += list[i].name +"x"+ list[i].num +" ￥"+list[i].money*list[i].num +"-"
 
     }
     arr.push(str)
    let trueAdd = this.mainAddress[0].name+"-"+this.mainAddress[0].addr+this.mainAddress[0].Tmobile
- 
-    arr.push(this.time) 
+   //格式化时间
+   const da = new Date()
+    const y = da.getFullYear()
+    const m = da.getMonth()+1
+    const d = da.getDate()
+    let trueTime = y+"-"+m + "-" + d + " " + this.time
+    arr.push(trueTime) 
 
     arr.push(trueAdd) 
     arr.push(this.toolNum)

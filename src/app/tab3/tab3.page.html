@@ -1,36 +1,21 @@
-<ion-header style="margin-top: 10px;">
+<ion-header style="margin-top: 10px;" no-border>
     <ion-toolbar style="position: relative;">
-
-        <ion-title>订单</ion-title>
-
+        <ion-button   [routerLink]="['/search-order']" routerLinkActive="router-link-active" color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+            <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
+           <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
+           <ion-text>搜索我的订单</ion-text>       
+         </ion-button>
     </ion-toolbar>
 </ion-header>
-
-
 <ion-content>
-    <ion-card *ngFor="let item of productList" class="card2" [routerLink]="['/product-details']" [queryParams]="{id:item.id, name:item.name, info:item.description, rate:item.rateReturn, income:item.income, endTime:item.endTime, yesterdayIncome:item.yesterdayIncome, amount:item.nowAmount,productType:item.productType,endTime:item.endTime}"  routerLinkActive="router-link-active">
-        <ion-list >
-            <ion-item lines="none">
-                <ion-label class="row1">{{item.name}}<button *ngIf="item.productType ==1">活期</button>
-                    <button *ngIf="item.productType ==0">定期</button></ion-label>
-            </ion-item>
-            <ion-item lines="none" class="row2">
-                <ion-label style="" class="rate">{{item.rateReturn}}%</ion-label>
-                <ion-label style="" class="date">￥{{item.income}}</ion-label>
-            </ion-item>
-            <ion-item lines="none" class="row3">
-                <ion-label class="title2">七日年化收益率</ion-label>
-                <ion-label class="title2">昨日收益</ion-label>
-            </ion-item>
-        </ion-list>
-    </ion-card>
+    <ion-item lines="none">
+        <span>全部</span>
+        <span>待评价</span>
+        <span>退款</span>
 
-    <!--    返回顶部-->
-    <ion-row class="bLine">
-        <ion-text  (click)="top()" style="color: #666;">您已经触底，<a>点击返回顶部</a></ion-text>
-    </ion-row>
+    </ion-item>
+    <app-order [productList]="productList"></app-order>
 
-<!--    <ion-button  color="white" style="color: red;" (click)="top()">返回顶部</ion-button>-->
 </ion-content>
 
 

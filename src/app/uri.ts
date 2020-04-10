@@ -35,8 +35,16 @@ export const URI = {
  searchDishes:'/searchDishes',
 //购物车
 carDishes:'/carDishes',
+//支付
 pay:'/pay',
-
+//所有交易记录
+allorder:'/checkOrder',
+//搜索交易记录
+searchOrder:'/searchOrder',
+//退款
+refund:'/refund',
+//评价
+evaluate:'/evaluate',
 
 
 

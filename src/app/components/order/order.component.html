@@ -1,0 +1,46 @@
+<ion-card *ngFor="let item of productList" class="card2">
+  <ion-list  style="margin: 0 auto;padding-left: 30px;">
+    <div style="display: flex;flex-direction: row;">
+   
+   
+     <!-- <div class="img"    >
+     <img src="{{item.picUrl}}" alt="">
+    </div> -->
+   
+    <div>
+      <ion-item  >
+          <ion-label style="font-size: 14px" color="success">订单编号{{item.orderNumber}}
+        
+          </ion-label>
+            
+      </ion-item>
+      <ion-item lines="none"  *ngFor="let item1 of item.allProducts">
+        <!-- <ion-item lines="none" class="row2" > -->
+         <!-- <ion-text style="" class="rate"> {{item.money}}</ion-text> -->
+          <ion-label style="" color="tertiary">{{item1.name}}</ion-label>
+          <ion-text>{{item1.money}}元</ion-text>
+      </ion-item>
+      <ion-item  >
+        <ion-label style="" color="tertiary">实际支付</ion-label>
+        <ion-text style="" >￥{{item.money| number:'1.2-2'}}元</ion-text>
+      
+    </ion-item>
+      <ion-item lines="none"  >
+        <ion-label style="" color="tertiary">交易成功时间</ion-label>
+        <ion-text >{{item.time}}</ion-text>
+       
+    </ion-item>
+    <ion-item lines="none">
+      <span *ngIf="item.status==0" (click)="refund(item.orderNumber)">退款</span>
+      <span *ngIf="item.status==1" style="background-color: #15c185;">已配送</span>
+      <span *ngIf="item.status==2" style="background-color: rgb(245, 58, 58);">已退款</span>
+      <span *ngIf="item.evaluate==''" (click)="evaluate(item.orderNumber)">去评价</span>
+      <span *ngIf="item.evaluate!=''" style="background-color: #333;">已评价</span>
+      <span>再来一单</span>
+
+  </ion-item>
+  
+    </div>
+  </div>
+  </ion-list>
+</ion-card>

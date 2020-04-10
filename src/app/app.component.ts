@@ -40,7 +40,7 @@ export class AppComponent {
   async initializeApp() {
    
     this.platform.ready().then(() => {
-        //  this.initializeFirstPage()   
+         this.initializeFirstPage()   
       
       this.statusBar.overlaysWebView(true);
       this.statusBar.styleDefault() 

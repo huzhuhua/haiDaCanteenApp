@@ -24,4 +24,12 @@ export class SearchService {
     async pay(list:any){
       return await this.httpService.get(URI.pay, {list:list});
     }
+    //退款
+    async refund(orderNumber:any){
+      return await this.httpService.get(URI.refund, {orderNumber:orderNumber});
+    }
+    //评价
+    async evaluate(evaluate:any,orderNumber:any){
+      return await this.httpService.get(URI.evaluate, {evaluate:evaluate,orderNumber:orderNumber});
+    }
 }

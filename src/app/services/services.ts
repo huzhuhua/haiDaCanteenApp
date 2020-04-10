@@ -20,6 +20,7 @@ import { FileTransferService } from './file-transfer.service';
 import { ChooseImgService } from './choose-img.service';
 import { AddressService } from './address.service';
 import { SearchService } from './search.service';
+import { OrderService } from './order.service';
 // import { WebSocketService } from './web-socket.service';
 // import { ChooseFileService } from './choose-file.service';
 export const Services = [
@@ -42,6 +43,7 @@ export const Services = [
    ChooseFileService,
    FileTransferService,
    ChooseImgService,
-   AddressService
+   AddressService,
+   OrderService
 //    WebSocketService
 ];

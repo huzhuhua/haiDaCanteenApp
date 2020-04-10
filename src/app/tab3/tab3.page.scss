@@ -1,132 +1,18 @@
-//通栏
-
-.toolbar{
-    width:100%;
-    text-align: center;
-    position: relative;
-    
-    margin-bottom: 19px;
-  }
-  .toolbar h4{
-    position: absolute;
-    top:8px;
-    left:50%;
-    transform: translateX(-50%);
-  }
-
-ion-item{
-    --padding-end:20px;
-}
 ion-text{
     font-size: 12px;
-    color: #ffffff;
+    color:#666;
 }
-
-//总收益背景
-.card1 {
-    width: 85%;
-    height:88px;
-    margin: 40px auto;
-    border-radius: 10px;
-    padding-top: 0;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px -2px #C3D7FF;
-    top: -88px;
+.router-link-active{
+color:#fff;
 }
-//总收益内容
-.top1 {
-    font-size: 14px;
-
-}
-.top2 {
-    font-size: 16px;
-}
-.top3 {
-    color: red($color: #000000);
-    font-size: 14px;
-    z-index: 99999;
-}
-.top4 {
-    color: red($color: #000000);
-    font-size: 16px;
-}
-// 产品详情背景
-.card2 {
-    width: 85%;
-    height: 140px;
-    margin: 20px auto;
-    border-radius: 10px;
-    padding-top: 0px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px -2px #C3D7FF;
-}
-
-//第一行样式
-.row1 {
-    font-size: 16px;
-    color: #333333;
-    font-weight: bolder;
-}
-.row1 button{
-    padding: 2px 4px;
-    background: #5D6DFB;
-    border-radius: 5px;
-    font-size: 11px;
-    color: #FFFEFE;
-    line-height: 16px;
-    margin-left: 4px;
-}
-
-//第三行样式
-.row3{
-    top: 0px;
-}
-.title2{
-    font-size: 11px;
-    color: #999999;
-    margin-top: -16px;
-}
-
-//第二行样式
-.row2 {
-    font-size: 24px;
-    top: -2px;
-}
-.rate {
-    color: #FD263B ;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-.date {
-    color: #FF2511;
-    font-size: 22px;
-    margin-top: -8px;
-}
-
-
-//顶部栏整体高度
-ion-toolbar {
-    height: 248px;
-}
-
-
-// 去掉顶部banner边框
-ion-toolbar {
-    --padding-start:0px;
-    --padding-end:0px;
-    --padding-buttom:0px;
-    --padding-top:0px;
-}
-
-//返回顶部
-.bLine {
-    //border: 1px solid black;
-    font-size: 14px;
-    color: #999999;
-    margin: 0 auto;
-}
-
-.bLine ion-text {
-    margin: 20px auto;
+span{
+    width: 30%;
+    font-size: 13px;
+    margin: 20px 20px;
+    height: 28px;
+   color: #fff;
+    background-color: #15c185;
+border-radius: 5px;
+text-align: center;
+padding-top: 5px;
 }

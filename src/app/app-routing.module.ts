@@ -193,6 +193,10 @@ const routes: Routes = [
     path: 'search-dishes',
     loadChildren: () => import('./pages/search-dishes/search-dishes.module').then( m => m.SearchDishesPageModule)
   },
+  {
+    path: 'search-order',
+    loadChildren: () => import('./pages/search-order/search-order.module').then( m => m.SearchOrderPageModule)
+  },
 ];
 
 @NgModule({

@@ -11,6 +11,67 @@ export class NativeService {
 
     constructor(public actionSheetController: ActionSheetController, private alertCtrl: AlertController, private toastCtrl: ToastController, private loadingCtrl: LoadingController) {
     }
+    //弹出输入框
+    //弹出表单
+  async showPrompt(header:string,inputs:any,buttons:any) {
+    const alert = await this.alertCtrl.create({header,inputs,buttons})
+    //   header: 'Prompt!',
+    //   inputs: [
+    //     {
+    //       name: 'name1',
+    //       type: 'text',
+    //       value: 'hello',
+    //       placeholder: 'Placeholder 1'
+    //     },
+    //     {
+    //       name: 'name3',
+    //       value: 'http://ionicframework.com',
+    //       type: 'url',
+    //       placeholder: 'Favorite site ever'
+    //     },
+    //     // input date with min & max
+    //     {
+    //       name: 'name4',
+    //       type: 'date',
+    //       min: '2017-03-01',
+    //       max: '2018-01-12'
+    //     },
+    //     // input date without min nor max
+    //     {
+    //       name: 'name5',
+    //       type: 'date'
+    //     },
+    //     {
+    //       name: 'name6',
+    //       type: 'number',
+    //       min: -5,
+    //       max: 10
+    //     },
+    //     {
+    //       name: 'name7',
+    //       type: 'number'
+    //     }
+    //   ],
+    //   buttons: [
+    //     {
+    //       text: 'Cancel',
+    //       role: 'cancel',
+    //       cssClass: 'secondary',
+    //       handler: () => {
+    //         console.log('Confirm Cancel');
+    //       }
+    //     }, {
+    //       text: 'Ok',
+    //       handler: (result) => {    //获取表单输入的值
+    //         console.log(result);
+    //       }
+    //     }
+    //   ]
+    // });
+ 
+    await alert.present();
+  }
+
 
 //下拉弹窗
 async presentActionSheet(header:string,buttons:any) {
