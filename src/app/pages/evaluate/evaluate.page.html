@@ -1,0 +1,33 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>我的评价</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item *ngFor="let item of list">
+ <div>
+
+ 
+   <div>
+    <ion-text>订单号 : {{item.orderNumber}} </ion-text>
+   </div>
+      <div>
+        <ion-text>时间: {{item.time}}</ion-text>
+      </div>
+     
+   <div>
+    <ion-text>我的评价:{{item.evaluate}}</ion-text>
+   </div>
+  </div>
+
+      
+ 
+
+ 
+
+
+</ion-item>
+
+</ion-content>

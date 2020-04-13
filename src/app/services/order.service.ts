@@ -13,6 +13,14 @@ export class OrderService {
   async allOrder(){
     return await this.http.get(URI.allorder,{})
   }
+  //待评价订单
+  async  noRemarkOrder(){
+    return await this.http.get(URI.noRemarkOrder,{})
+  }
+  //退款订单
+  async refundOrder(){
+    return await this.http.get(URI.refundOrder,{})
+  }
   //根据名字获取查询订单
   async searchOrderByName(name:string ){
     return await this.http.get(URI.searchOrder,{name:name})

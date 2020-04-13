@@ -11,21 +11,21 @@
 
 <ion-content>
 
-  <ion-item lines="none" (click)=" presentActionSheet()">
-    <img src="../../../assets/hdImages/头像 icon.png" alt="">
-    <ion-text>姓名：hhd</ion-text>
+  <ion-item lines="none"  (click)="upload()">
+    <img src={{url}} alt="" style="border: 2px solid #5C6DFB;border-radius: 50%;">
+    <ion-text>修改头像</ion-text>
     <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
   </ion-item>
 
   <ion-item lines="none">
     <img src="../../../assets/hdImages/身份证图标.png" alt=""  >
-    <ion-text>身份证号：{{infomationList}}</ion-text>
+    <ion-text>手机号：{{mobile}}</ion-text>
     <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
   </ion-item>
 
-  <ion-item lines="none">
+  <ion-item lines="none" (click)="modifyName()">
     <img src="../../../assets/hdImages/证件照图标.png" alt="" >
-    <ion-text>证件照片：{{text}}</ion-text>
+    <ion-text>姓名：{{name}}</ion-text>
     <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
   </ion-item>
 

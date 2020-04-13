@@ -197,6 +197,18 @@ const routes: Routes = [
     path: 'search-order',
     loadChildren: () => import('./pages/search-order/search-order.module').then( m => m.SearchOrderPageModule)
   },
+  {
+    path: 'classify',
+    loadChildren: () => import('./pages/classify/classify.module').then( m => m.ClassifyPageModule)
+  },
+  {
+    path: 'collection',
+    loadChildren: () => import('./pages/collection/collection.module').then( m => m.CollectionPageModule)
+  },
+  {
+    path: 'evaluate',
+    loadChildren: () => import('./pages/evaluate/evaluate.module').then( m => m.EvaluatePageModule)
+  },
 ];
 
 @NgModule({

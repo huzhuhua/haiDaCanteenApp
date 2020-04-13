@@ -13,8 +13,8 @@ export class ResetPasswordService {
   // return '1'
   };
 
-  transitionPassword(param: { mobile: string; password: string; verificationCode: string }){
-    //  return this.httpService.post(URI. transitionPassword,param)
-    return '1';
+  transitionPassword(param: { mobile: string; password: string; code: string }){
+     return this.httpService.get(URI.resetPassword,param)
+    // return '1';
   };
 }

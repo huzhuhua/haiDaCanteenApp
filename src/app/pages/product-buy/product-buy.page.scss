@@ -1,21 +1,33 @@
-// 顶部banner背景
 .toolbar{
   width:100%;
-  text-align: center;
+ text-align: center;
+ position: relative;
   position: relative;
-  height: 182px;
-  background-image:  url("../../../assets/images/产品banner背景.png") ;
+  height: 180px;
+  background-image:  url("../../../assets/images/开户绑卡banner.png") ;
   background-size: cover;
   -webkit-background-size: cover;
   overflow: hidden;
-  margin-bottom: 19px;
+  margin-bottom: 75px;
+  margin-top: -10px;
 }
-// 导航栏文字
 .toolbar h4{
-  position: absolute;
-  top:8px;
-  left:50%;
-  transform: translateX(-50%);
+      position: absolute;
+     top:8px;
+     left:50%;
+      transform: translateX(-50%);
+     
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+.list-ios{
+  margin-bottom: -10px;
 }
 
 //产品详情背景

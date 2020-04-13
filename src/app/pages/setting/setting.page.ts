@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-public hFaceUrl = "../../../assets/hdImages/开关 关.svg";
-public fingerUrl = "../../../assets/hdImages/开关 关.svg";
+
+public fingerUrl = "../../../assets/HdImage/开关关（自定义）.svg";
 hFaceFlag : boolean = false;
 fingerFlag : boolean = false;
   constructor(private storage:StorageService,private router:Router) { }
@@ -22,23 +22,50 @@ finger(){
   console.log('111')
   this.fingerFlag = !this.fingerFlag
   if(this.fingerFlag){
-    this.fingerUrl = "../../../assets/hdImages/开关开.svg";
+    this.fingerUrl = "../../../assets/HdImage/开关开（自定义）.svg";
+    this.storage.add(StorageKey.HADLOGIN,'true');
+    console.log( this.storage.get(StorageKey.HADLOGIN))
   }else{
-    this.fingerUrl = "../../../assets/hdImages/开关 关.svg";
+    this.fingerUrl = "../../../assets/HdImage/开关关（自定义）.svg";
+    this.storage.add(StorageKey.HADLOGIN,'false');
+    console.log(this.storage.get(StorageKey.HADLOGIN))
   }
 }
   //人脸识别
-hFace(){
-  this.hFaceFlag = !this.hFaceFlag
-  if(this.hFaceFlag){
-    this.hFaceUrl = "../../../assets/hdImages/开关开.svg";
-  }else{
-    this.hFaceUrl = "../../../assets/hdImages/开关 关.svg";
-  }
-}
+// hFace(){
+//   this.hFaceFlag = !this.hFaceFlag
+//   if(this.hFaceFlag){
+//     this.hFaceUrl = "../../../assets/icon/开关开（自定义）.svg";
+//   }else{
+//     this.hFaceUrl = "../../../assets/icon/开关关（自定义）.svg";
+//   }
+// }
 //退出登录
 outLogin(){
   this.storage.remove(StorageKey.TOKEN);
+  this.storage.remove(StorageKey.HADLOGIN)
   this.router.navigateByUrl('/login');
+}
+
+onClick1(){
+  this.router.navigateByUrl('/personal-infomation');
+}
+
+onClick2(){
+  this.router.navigateByUrl('/transition-password');
+}
+
+async onPageWillClose() {
+   
+  console.log('RegisterPage页面即将关闭，开始清除数据。。。');
+}
+
+async onPageWillEnter() {
+ const a=await this.storage.get(StorageKey.HADLOGIN)
+ console.log(a)
+ if(a=="true"){
+  this.fingerUrl = "../../../assets/HdImage/开关开（自定义）.svg";
+ }
+
 }
 }

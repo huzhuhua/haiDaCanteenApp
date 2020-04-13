@@ -33,18 +33,38 @@ export const URI = {
  recommendDishes:'/recommendDishes',
  //搜索菜品
  searchDishes:'/searchDishes',
+ //分类搜索
+ dishesKind:'/dishesKind',
 //购物车
 carDishes:'/carDishes',
 //支付
 pay:'/pay',
 //所有交易记录
 allorder:'/checkOrder',
+//待评价交易记录
+noRemarkOrder:'/noRemarkOrder',
+//退款交易记录
+refundOrder:'/refundOrder',
 //搜索交易记录
 searchOrder:'/searchOrder',
 //退款
 refund:'/refund',
 //评价
 evaluate:'/evaluate',
+//获取个人信息
+getmy: '/personalInfomation',
+//修改头像
+modifyHead:'/modifyPersonalInfomation',
+
+//上传
+upload:'/upload',
+//获取评价
+getEvaluate:'/getEvaluate',
+  //找回密码
+  findPassword: '/findPassword',
+  //修改密码
+  resetPassword:'/resetPassword',
+
 
 
 
@@ -83,7 +103,7 @@ evaluate:'/evaluate',
     // 获取余额
     getbalance: '/showMyBalance/showBalance',
     // home信息
-    getmy: '/homeController/home',
+  
 
     // 交易记录
     getrecord: '/eAccount/findAllOrderByTime',
@@ -109,8 +129,7 @@ evaluate:'/evaluate',
 
     //上传图片
     uploadImg: '/picture',
-    //找回密码
-    findPassword: '/findPassword',
+  
     //添加收藏产品
     addLove: '/addLove',
     //移除收藏产品

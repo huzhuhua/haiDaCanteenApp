@@ -15,7 +15,7 @@ export class ChooseImgService {
       width: 0,
       height: 0,
       quality: 20,
-      outputType: 1,
+      outputType: 0,
     };
   return  this.imagePicker.getPictures(options).then((results) => {
       for (var i = 0; i < results.length; i++) {

@@ -27,7 +27,20 @@ export class Tab3Page {
     //获取全部订单
     async allOrder(){
         this.productList =await this.orderService.allOrder()
+        this.productList.reverse()
      await this.handle()
+    }
+    //获取未评价订单
+    async noRemarkOrder(){
+        this.productList =await this.orderService.noRemarkOrder()
+        this.productList.reverse()
+        await this.handle()
+    }
+    //获取退款订单
+    async refundOrder(){
+        this.productList =await this.orderService.refundOrder()
+        this.productList.reverse()
+        await this.handle()
     }
     //处理菜品格式
 async handle(){
@@ -44,10 +57,14 @@ async handle(){
         let m = list[i].split(" ")
         let o ={
             name:"",
-            money:""
+            money:"",
+            num:"",
+            id:"",
         }
-        o.name = m[0]
-        o.money = m[1]
+        o.id = m[0]
+        o.name = m[1]
+        o.num = m[2]
+        o.money = m[3]
         list[i] = o;
     }
     console.log(list)

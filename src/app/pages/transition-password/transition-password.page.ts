@@ -39,7 +39,7 @@ export class TransitionPasswordPage implements OnInit {
           mobile: new FormControl('', {
             validators: [Validators.required, Validators.pattern(new RegExp(/^1[3456789]\d{9}$/))]
           }),
-          password: ['', [Validators.required, Validators.pattern(new RegExp(/^\d{6}$/))]]
+          password: ['', [Validators.required, Validators.pattern(''), Validators.minLength(8), Validators.maxLength(16), Validators.pattern(new RegExp(/^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?!([^(0-9a-zA-Z)])+$).{6,}$/))]]
           ,
           confirmPassword: []
           ,
@@ -76,7 +76,7 @@ export class TransitionPasswordPage implements OnInit {
     const transitionPasswordParam = this.passwordForm.getRawValue();
     const result = await this.resetPasswordService.transitionPassword(transitionPasswordParam)
     if(result){
-      this.nativeService.showAlert('交易密码修改成功',  '确定', ()=>{this.router.navigateByUrl('setting')},  '温馨提示')
+      this.nativeService.showAlert('登录密码修改成功',  '确定', ()=>{this.router.navigateByUrl('setting')},  '温馨提示')
     }
 
   }

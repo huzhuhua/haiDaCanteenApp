@@ -46,7 +46,7 @@ ion-text{
 //箭头
 .arrow {
     position: absolute; 
-    right: 4px;
+    right: 8px;
     font-size: 24px;
     color: #999999;
     width: 10px;
@@ -68,7 +68,7 @@ ion-button{
 }
 ion-icon{
     position: absolute; 
-    right: 20px;
+    right: 26px;
 //     width: 40px;
 //     height: 20px;
 }
@@ -86,8 +86,4 @@ ion-icon{
   // 去掉toolbar下的边框
   .header-ios ion-toolbar:last-of-type {
     --border-width: 0 0 0 0;
-  }
-
-  .item-detail-icon{
-      display: none;
   }

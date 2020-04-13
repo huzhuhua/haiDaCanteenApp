@@ -132,7 +132,7 @@ async login() {
   console.log(token)
        // 把token存下来，直到退出登录或者退出APP后再删除
   if (token) { 
-    this.storageService.add(StorageKey.HADLOGIN,'true');
+   
      
         await this.storageService.add(StorageKey.TOKEN, token);
           console.log('sss')

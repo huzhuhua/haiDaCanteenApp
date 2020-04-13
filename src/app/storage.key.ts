@@ -9,5 +9,7 @@ export const StorageKey = {
     //购物车
     SHOPPINGCAR:'car',
     //所要支付的商品
-    PAY:'pay'
+    PAY:'pay',
+    //再来一单
+    buyOnece:'onces'
 };

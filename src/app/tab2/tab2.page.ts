@@ -29,10 +29,12 @@ export class Tab2Page implements OnInit {
   ) {
 
   }
+ 
   //获取购物车商品
   async getCard() {
-    const a = await this.storageService.get(StorageKey.SHOPPINGCAR)
 
+    const a = await this.storageService.get(StorageKey.SHOPPINGCAR)
+console.log(a)
     this.productList = await this.productService.getCar(a)
     if (this.productList.length == "0") {
       this.display = false

@@ -41,8 +41,8 @@ export class AppComponent {
    
     this.platform.ready().then(() => {
          this.initializeFirstPage()   
-      
-      this.statusBar.overlaysWebView(true);
+        this.statusBar.overlaysWebView(true);
+      // this.statusBar.overlaysWebView(false);
       this.statusBar.styleDefault() 
       // this.statusBar.styleLightContent();
      
@@ -70,8 +70,8 @@ if(isFirstOpen != null){
        //没有登陆过app
       //  alert(StorageKey.HADLOGIN)
       let hadLogin = await this.storageService.get(StorageKey.HADLOGIN);
-       if(hadLogin == 'false'){
-         alert(hadLogin)
+       if(hadLogin == 'false' || hadLogin == undefined){
+       
         //  alert("token未定义")
         this.router.navigateByUrl('login')
        }else{

@@ -17,8 +17,8 @@
       <ion-item lines="none"  *ngFor="let item1 of item.allProducts">
         <!-- <ion-item lines="none" class="row2" > -->
          <!-- <ion-text style="" class="rate"> {{item.money}}</ion-text> -->
-          <ion-label style="" color="tertiary">{{item1.name}}</ion-label>
-          <ion-text>{{item1.money}}元</ion-text>
+          <ion-label style="" color="tertiary">{{item1.name}}x{{item1.num}}</ion-label>
+          <ion-text>￥{{item1.money}}元</ion-text>
       </ion-item>
       <ion-item  >
         <ion-label style="" color="tertiary">实际支付</ion-label>
@@ -36,7 +36,7 @@
       <span *ngIf="item.status==2" style="background-color: rgb(245, 58, 58);">已退款</span>
       <span *ngIf="item.evaluate==''" (click)="evaluate(item.orderNumber)">去评价</span>
       <span *ngIf="item.evaluate!=''" style="background-color: #333;">已评价</span>
-      <span>再来一单</span>
+      <span (click)="anotherList(item.allProducts)">再来一单</span>
 
   </ion-item>
   

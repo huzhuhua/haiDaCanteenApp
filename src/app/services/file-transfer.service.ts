@@ -17,7 +17,9 @@ upload(file:any,url:any) {
   let options: FileUploadOptions = {
      fileKey: 'file',
      fileName: 'name.jpg',
-     headers: {} ,
+     headers : {
+      Connection: "close",
+ },
      params: {
       type: 'file',
       action: 'upload',
@@ -26,15 +28,16 @@ upload(file:any,url:any) {
   },
   }
   console.log('1111')
-  this.fileTransfer.upload(file,'https://localhost:3000/upload' , options)
-   .then((data) => {
-    console.log('成功')
-     console.log(data)
-     // success
-   }, (err) => {
-     console.log(err)
-     // error
-   })
+ const a = this.fileTransfer.upload(file,'http://qqahl.com:3000/upload' , options)
+ return a
+  //  .then((data) => {
+  //   console.log('成功')
+  //    console.log(data)
+  //    // success
+  //  }, (err) => {
+  //    console.log(err)
+  //    // error
+  //  })
 }
 
 download() {

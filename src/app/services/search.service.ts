@@ -20,9 +20,17 @@ export class SearchService {
     async search(name:any ) {
       return await this.httpService.get(URI.searchDishes, {name:name});
     }
+    //分类搜索
+    async searchByKind(kind:string ) {
+      return await this.httpService.get(URI.dishesKind, {kind:kind});
+    }
     //支付
     async pay(list:any){
       return await this.httpService.get(URI.pay, {list:list});
+    }
+    //获取评论
+    async getEvaluate(){
+      return await this.httpService.get(URI.getEvaluate, {});
     }
     //退款
     async refund(orderNumber:any){

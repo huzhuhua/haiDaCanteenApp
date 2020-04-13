@@ -171,7 +171,7 @@ async submit(){
     let arr=[];
     let str="";
     for(let i=0;i<list.length;i++){
-       str += list[i].name +"x"+ list[i].num +" ￥"+list[i].money*list[i].num +"-"
+       str += list[i].id+" "+list[i].name +" "+ list[i].num +" "+list[i].money*list[i].num +"-"
 
     }
     arr.push(str)

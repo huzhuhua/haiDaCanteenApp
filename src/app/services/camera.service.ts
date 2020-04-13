@@ -15,8 +15,8 @@ export class CameraService {
     targetWidth: 500,
     targetHeight: 500,
     quality: 20,
-    destinationType: this.camera.DestinationType.DATA_URL,
-    // destinationType: this.camera.DestinationType.FILE_URI,
+    // destinationType: this.camera.DestinationType.DATA_URL,
+    destinationType: this.camera.DestinationType.FILE_URI,
     encodingType: this.camera.EncodingType.PNG,
     mediaType: this.camera.MediaType.PICTURE
   }

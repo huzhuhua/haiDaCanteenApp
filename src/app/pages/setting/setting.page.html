@@ -9,27 +9,25 @@
 
 <ion-content>  
 
-  <ion-item lines="none" [routerLink]="['/personal-infomation']" >
-    <img src="../../../assets/images/个人信息图标.png" alt="">
-    <ion-text>个人信息</ion-text>
-  </ion-item>
+ 
 
-  <ion-item lines="none" [routerLink]="['/transition-password']">
+  <ion-item lines="none" (click)="onClick2()">
     <img src="../../../assets/images/交易密码图标.png" alt="">
-    <ion-text>交易密码</ion-text>
+    <ion-text>修改密码</ion-text>
+    <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
   </ion-item>
 
   <ion-item lines="none">
     <img src="../../../assets/images/指纹登录图标.png" alt="">
-    <ion-text>指纹登陆</ion-text>
+    <ion-text>安全登陆</ion-text>
     <ion-icon (click)=(finger()) src={{fingerUrl}} id="icon1"></ion-icon>
   </ion-item>
 
-  <ion-item lines="none">
+  <!-- <ion-item lines="none">
     <img src="../../../assets/images/人脸登录图标.png" alt="">
     <ion-text>人脸登录</ion-text>
     <ion-icon (click)=(hFace()) src={{hFaceUrl}} id="icon2"></ion-icon>
-  </ion-item>
+  </ion-item> -->
 
   <ion-item lines="none" (click)="outLogin()">
     <img src="../../../assets/images/退出登录图标.png" alt="">

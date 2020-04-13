@@ -341,7 +341,11 @@ async search(){
     }
     console.log(this.productList)
   }
-
+//菜品分类
+async classify(kind:string){
+    this.router.navigate(['classify'],{ queryParams: { kind: kind } })
+   
+}
     async onPageWillClose() {
       
         // this.productList = res.list;

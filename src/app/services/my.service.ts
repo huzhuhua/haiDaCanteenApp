@@ -9,24 +9,21 @@ import { URI } from '../uri';
 export class MyService {
 
   constructor(private httpService: HttpService) { }
-async getBalance(){
-  return await this.httpService.post(URI.balance, {});
-}
-async getEarnings(){
-  return await this.httpService.get(URI.earning, {});
-}
+
+//获取个人信息
   async getmy() {
 
     // 返回uri中请求到的数据
-    return await this.httpService.post(URI.getmy, {});
+    return await this.httpService.get(URI.getmy, {});
+  }
 
-
-    // 模拟数据
-    // return [
-    //   { balance: 8897.32,
-    //     card: 15147218548,
-    //     name: '郝海东'},
-    // ];
+  //修改头像
+  async modifyHead(headPortrait:any){
+    return await this.httpService.get(URI.modifyHead, {headPortrait:headPortrait});
+  }
+  //修改姓名
+  async modifyName(name:any){
+    return await this.httpService.get(URI.modifyHead, {name:name});
   }
 
 }

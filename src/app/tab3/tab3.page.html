@@ -9,9 +9,9 @@
 </ion-header>
 <ion-content>
     <ion-item lines="none">
-        <span>全部</span>
-        <span>待评价</span>
-        <span>退款</span>
+        <span (click)="allOrder()">全部</span>
+        <span (click)="noRemarkOrder()">待评价</span>
+        <span (click)="refundOrder()">退款</span>
 
     </ion-item>
     <app-order [productList]="productList"></app-order>
