@@ -193,7 +193,7 @@ export class WithdrawPage implements OnInit {
     }
 //可提现余额
     async getbalance(){
-        this.balance = await this.myService.getBalance();
+        this.balance = 1
 
     }
 //提现
