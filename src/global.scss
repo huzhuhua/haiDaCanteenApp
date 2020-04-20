@@ -29,6 +29,9 @@ ion-back-button{
     color:#15c185;
     font-size: 14px;
   }
-  ion-header{
-    margin-top: 10px;
+  // ion-header{
+  //   margin-top: 10px;
+  // }
+  .header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0 0px;
   }

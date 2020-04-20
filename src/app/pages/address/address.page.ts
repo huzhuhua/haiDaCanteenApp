@@ -136,11 +136,13 @@ this.nativeService.showConfirm("是否将此地址设为默认地址","确定",(
 
   }
   //修改收货地址
-  async modify(addressId: any,location:any){
+  async modify(e:any,addressId: any,location:any){
+    e.stopPropagation();
     this.router.navigate(["modify-address"], { queryParams: { addressId:addressId,location:location } })
   }
   //删除收获地址
-  async delete(addressId: any) {
+  async delete(e:any,addressId: any) {
+    e.stopPropagation();
     // console.log(addressId)
     this.nativeService.showConfirm("是否删除收货地址", "确定", () => {
       let a = this.addressService.deleteAddress(addressId)
@@ -173,6 +175,7 @@ this.nativeService.showConfirm("是否将此地址设为默认地址","确定",(
   }
   //添加收货地址
   async addAddress() {
+    console.log("ff")
     this.router.navigate(["add-address"], { queryParams: { address: this.address } })
   }
 

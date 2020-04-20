@@ -1,7 +1,7 @@
-<ion-header *ngIf="fl==false" style="height: 0px;" no-border>
+<ion-header *ngIf="fl==false" style="height: 0px;">
 </ion-header>
 <ion-header *ngIf="fl==true" >
-  <ion-button   [routerLink]="['/search']" color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+  <ion-button   [routerLink]="['/search']" color="white" style="width: 70%;margin-top: 20px;box-shadow: 0 3px 4px 0 rgba(216,211,211,0.50);background-color: rgb(233, 225, 225);border-radius: 10px;height: 30px;color:black;margin-left: 56px;">
     <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
    <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
    <ion-text>搜索我的订单</ion-text>
@@ -11,19 +11,20 @@
 (ionScrollStart)="logScrollStart()"
 (ionScroll)="logScrolling($event)"
 (ionScrollEnd)="logScrollEnd()">
-  <div class="toolbar">
+  <!-- <div class="toolbar">
     <div style="position: absolute;left: 0px;top:35%;width: 100%;"  (click)=" ads()">
       <ion-icon src="../../assets//HdImage/位置.svg" ></ion-icon> 
       <ion-text>{{address}}</ion-text>
       <ion-text style="position: absolute;right: 10px;">hello!{{name}}</ion-text>
     </div>
-  </div>
-  <div style="align-items: center;width: 100%;position: relative;margin-top: 47px;">
-  <ion-button [routerLink]="['/search']"  color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
+  </div> -->
+  <div style="width: 100%;position: absolute;margin-top: 20px;z-index: 999999;">
+  <ion-button [routerLink]="['/search']"  color="white" style="width: 70%;opacity: 0.7;box-shadow: 0 3px 4px 0 rgba(216,211,211,0.50);background-color: #FFF9F9;border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
     <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
    <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
    <ion-text>鱼香肉丝</ion-text>
  </ion-button>
+ <ion-icon (click)=" ads()" src="../../assets//HdImage/位置.svg" style="font-size: 20px;position: relative;right:-10px;top:10px"></ion-icon> 
 </div>
   <!-- <div class="align-bottom" #map id="map_container" style="width:100%;height:20vh;"></div> -->
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
@@ -35,14 +36,14 @@
     </ion-refresher-content>
   </ion-refresher>
   <!-- <div class="slider" style="background-image: url('http://pic2.16pic.com/00/22/04/16pic_2204173_b.jpg');" ></div> -->
-<ion-slides #slider  pager="true" speed=250 lines=none>
+<ion-slides #slider  speed=250 lines=none>
   <ion-slide  *ngFor="let product of sliders" [routerLink]="['/product-buy']" [queryParams]="{id:product.id}"  routerLinkActive="router-link-active" no-line>
     <div class="slider" [style.background-image]="  'url(' +product.picUrl + ')'  " >
       <!-- <div class="slider" style="background-image: url('http://pic2.16pic.com/00/22/04/16pic_2204173_b.jpg');" > -->      
-    <h5 style="color: #ffffff;margin: 16px auto;">{{product.name}}</h5> 
-    <ion-text >
+    <h6 style="color: #10c689;position: relative;right: 0px;bottom: -131px;">{{product.name}}</h6> 
+    <!-- <ion-text >
       <h6 style="margin-left: 280px;margin-top: 170px;color: #0ffebc;">{{product.money}}￥</h6>
-      </ion-text>
+      </ion-text> -->
     </div>
 
       </ion-slide>
@@ -72,7 +73,7 @@
 
 </ion-row>
 <ion-row style="margin: 20px 16px;">
-  <ion-text color="dark"  class="text1">推荐</ion-text>
+  <ion-text color="dark"  class="text1">美食推荐| <span style="font-size: 12px;color:rgb(133, 130, 130);">  网红美食、用户推荐、店长推荐</span>  </ion-text>
  
 </ion-row> 
 <app-product-list [productList]="productList"></app-product-list>
@@ -81,6 +82,6 @@
   </ion-infinite-scroll-content>
 </ion-infinite-scroll>
   <ion-row class="bLine">
-    <ion-text *ngIf="!hasMore" (click)="top()">您已经触底，<a>点击返回顶部</a></ion-text>
+    <ion-text *ngIf="!hasMore" (click)="top()">您已经触底，<a style="color: #10c689;">点击返回顶部</a></ion-text>
   </ion-row>
 </ion-content>

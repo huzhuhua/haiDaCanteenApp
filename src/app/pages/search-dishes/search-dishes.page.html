@@ -1,8 +1,12 @@
-<ion-header style="margin-top: 17px;">
-  <ion-toolbar style="position: relative;align-items: center;width: 100%;">
-    <ion-back-button slot="start"></ion-back-button>
-   <ion-input value="鱼香肉丝" class="input2"></ion-input>
-    <span (click)="search()" class="search" >搜索</span>
+<ion-header style=" margin-bottom: 20px;">
+  <ion-toolbar style="position: relative;">
+  
+    <div class="toolbar">
+      <ion-back-button slot="start" style="margin-left: -320px;color: #ffffff;margin-top: 25px;"></ion-back-button>
+        <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+        <ion-input placeholder="麻辣干锅，火龙果" class="input2" >   <ion-icon src="../../assets//HdImage/搜索.svg" style="font-size: 25px;"></ion-icon> </ion-input>
+        <span (click)="search()" class="search" >搜索</span>
+    </div>
   </ion-toolbar>
 </ion-header>
 

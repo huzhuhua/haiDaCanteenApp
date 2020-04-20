@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http/http.service';
@@ -9,7 +9,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ComponentsModule } from 'src/app/components/components.module';
 import { RegisterService } from 'src/app/services/register.service';
 import { NativeService } from '../../services/native.service';
-import { NavController } from '@ionic/angular';
+import { NavController, IonContent } from '@ionic/angular';
 import { ResetPasswordService } from 'src/app/services/reset-password.service';
 @Component({
   selector: 'app-find-pass',
@@ -22,6 +22,7 @@ description:
 date:2020/3/13
 */
 export class FindPassPage implements OnInit {
+  @ViewChild(IonContent, name) content: IonContent;
   mobile: AbstractControl;
  
   code: AbstractControl;
@@ -53,6 +54,29 @@ export class FindPassPage implements OnInit {
 
   ngOnInit() {
     this.code = this.value;
+  //   window.addEventListener('native.keyboardshow',(e:any) =>{
+  //     console.log(e)
+     
+  //     let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("findpassCard");
+  // console.log(scrollDiv)
+  // scrollDiv[0].style.height= "444px"
+  // console.log( scrollDiv[0].style.height)
+  // this.content.scrollToBottom(0)
+     
+
+  // // 　　　　this.content.scrollToTop(e.keyboardHeight) 
+  
+ 
+  // // this.productInfo.productId = this.pId;
+  // 　});
+  // window.addEventListener('native.keyboardhide',  (e)=> {
+  //     // todo 进行键盘不可用时操作
+  //     let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("findpassCard");
+  // console.log(scrollDiv)
+  // scrollDiv[0].style.height="300px"
+  // this.content.scrollToTop(0)
+  //     console.log(e)
+  // });
   }
  
 
@@ -74,4 +98,34 @@ export class FindPassPage implements OnInit {
   returnCode(code: string) {
     this.value = code;
   }
+  async onPageWillClose() {
+   
+    console.log('RegisterPage页面即将关闭，开始清除数据。。。');
+}
+
+async onPageWillEnter() {
+  window.addEventListener('native.keyboardshow',(e:any) =>{
+    console.log(e)
+   
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("findpassCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height= "444px"
+console.log( scrollDiv[0].style.height)
+this.content.scrollToBottom(0)
+   
+
+// 　　　　this.content.scrollToTop(e.keyboardHeight) 
+
+
+// this.productInfo.productId = this.pId;
+　});
+window.addEventListener('native.keyboardhide',  (e)=> {
+    // todo 进行键盘不可用时操作
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("findpassCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height="300px"
+this.content.scrollToTop(0)
+    console.log(e)
+});
+}
 }

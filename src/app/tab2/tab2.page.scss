@@ -1,17 +1,29 @@
-//通栏
 
+
+//通栏
 .toolbar{
   width:100%;
-  text-align: center;
   position: relative;
-  
-  margin-bottom: 19px;
+  height: 80px;
+  background-image:  url("../../assets//HdImage/tab2Banner.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
 }
-.toolbar h4{
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+// 标题文字
+h4{
   position: absolute;
   top:8px;
   left:50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);    
 }
 //左边图片
 .img{
@@ -40,17 +52,20 @@ ion-item{
 }
 //右边底部
 .right-bottom{
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
+  // margin-top: 40px;
+  // display: flex;
+  // flex-direction: row;
 }
 //加减
 .number{
-  margin-left: 40px;
+  // margin-left: 40px;
   display: flex;
   flex-direction: row;
-  border: 1px solid rgb(202, 198, 198);
-  border-radius: 4px;
+  // border: 1px solid rgb(202, 198, 198);
+  // border-radius: 4px;
+  icon{
+    font-size: 18px;
+  }
 }
 //减号
 .reduce{
@@ -62,7 +77,7 @@ ion-item{
 }
 //数字
 .num{
-  width: 50px;
+  width: 34px;
   text-align: center;
   color:#666;
 }
@@ -76,7 +91,7 @@ ion-item{
 .bottom{
   border-top: 1px solid rgb(216, 214, 214);
   position: fixed;
-  bottom: -63px;
+  bottom: -75px;
   width: 100%;
 }
 .bottom-outer{
@@ -87,18 +102,25 @@ ion-item{
   .bottom-left{
     text-align: center;
     align-items: center;
-    padding-top: 9px;
+    padding-top: 1px;
    
   }
   .bottom-right{
-    margin-left: 82px;
-    padding-top: 16px;
+    margin-left: 70px;
+    padding-top: 3px;
+    position: relative;
   }
 }
 .button{
-  margin-top:-5px;
-  font-size:16px;
-  width: 90px;
-  border-radius: 10px;
-  margin-left: 10px;
+  position: absolute;
+  right: 0px;
+  bottom:0px;
+  background-color:#15c185 ;
+  height: 100%;
+  width: 26%;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 9px;
+  letter-spacing: 7px;
+  
 }

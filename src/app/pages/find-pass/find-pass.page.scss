@@ -6,8 +6,8 @@ ion-content{
   .toolbar{
     width:100%;
     position: relative;
-    height: 233px;
-    background-image:  url("../../../assets/images/登录注册banner.png") ;
+    height: 225px;
+    background-image:  url("../../../assets/HdImage//loginBanner.png") ;
     background-size: cover;
     -webkit-background-size: cover;
     overflow: hidden;
@@ -30,15 +30,15 @@ ion-content{
     margin-bottom: -10px;
   }
   
-  //logo
-  .logo{
-    position: absolute;
-    left:50%;
-    top:42%;
-    transform: translate(-50%,-50%);
-    width: 63px;
-    height: 73px;
-  }
+//logo
+.logo{
+  position: absolute;
+  left:50%;
+  top:42%;
+  transform: translate(-50%,-50%);
+  width: 63px;
+  height: 54px;
+}
   ion-list{
     text-align: center;
   }
@@ -47,8 +47,8 @@ ion-content{
   ion-item{
   
     margin: 20px auto;
-    border: 1.5px solid #5E6DFB ;
-    width: 300px;
+    border: 1.5px solid #10c689 ;
+    width: 83%;
     height: 45px;
     border-radius: 11px;
   
@@ -75,9 +75,9 @@ ion-content{
     //    height: 38px;
     margin-top: 0px;
     margin-bottom: 20px;
-    background: url('../../../assets/images/登录按钮.png');
-    background-size: cover;
-    overflow: hidden;
+    // background: url('../../../assets/images/登录按钮.png');
+    // background-size: cover;
+    // overflow: hidden;
   }
   .button-native{
     background: #ffffff;
@@ -93,28 +93,16 @@ ion-content{
     letter-spacing: 3px;
   
   }
-  //注册
-  .register{
-    font-size: 15px;
-    padding-bottom: 3px;
-    text-decoration: none;
-    border-bottom: 1px solid #6187FD;
-  }
-  //睁眼，闭眼图标
-  // .eyeshow{
-  // display: inline-block;
-  // }
-  // .eyehide{
-  //   display: none;
-  // }
+ 
   .resetPassword{
-    margin-top: 30px;
-    text-decoration: none;
-    font-size: 16px;
+    width: 83%;
+    font-size: 18px;
+    height:43px;
+    margin: 20px auto;
+    background-color: #10c689;
     letter-spacing: 3px;
-    height: 45px;
-    width: 80%;
-    border-radius: 12px;
+    border-radius: 7px;
+    box-shadow: 0px 4px 10px #333;
   }
   //图标
 ion-icon{

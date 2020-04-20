@@ -1,13 +1,22 @@
 
-<ion-header style="margin-top: 10px;">
+<ion-header style=" margin-bottom: 20px;">
   <ion-toolbar style="position: relative;">
-    <ion-back-button slot="start"></ion-back-button>
-    <ion-title>收货地址</ion-title>
-    <span (click)="addAddress()" style="color: #15c185;font-size: 32px;position: absolute;right:20px;top:3px">+</span>
+    <!-- <div>
+      <ion-back-button slot="start"></ion-back-button>
+      <ion-title>收货地址</ion-title>
+      <span (click)="addAddress()" style="color: #15c185;font-size: 32px;position: absolute;right:20px;top:3px">+</span>
+    </div> -->
+    <div class="toolbar">
+      <ion-back-button slot="start" style="margin-left: -320px;color: #ffffff;margin-top: 18px;"></ion-back-button>
+        <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+        <h4 style="color: #ffffff;">收货地址</h4>
+        <span (click)="addAddress()" style="color: #ffffff;font-size: 32px;position: absolute;right:20px;top:19px;z-index: 9999;">+</span>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content style="">
+  <ion-card>
   <div class="map">
     <ion-icon src="../../../assets//HdImage/位置.svg" ></ion-icon> 
     <ion-text style="">{{address}}</ion-text>
@@ -22,9 +31,10 @@
     <span>姓名: <ion-text style="margin-left: 33px;">{{item.name}}</ion-text></span> <br>
     <span>手机号:<ion-text style="margin-left: 24px;">{{item.Tmobile}}</ion-text></span><br>
     <span>收货地址:<ion-text style="margin-left: 10px;">{{item.addr}}</ion-text></span><br>
-    <ion-icon  (click)="modify(item.addressId,address)" src="../../../assets/HdImage/修改.svg" style="position: absolute;right: -26px;top:5px;font-size: 24px;" ></ion-icon> 
-    <ion-icon (click)="delete(item.addressId)" src="../../../assets/HdImage/删除.svg" style="position: absolute;right: -26px;top:47px;font-size: 24px;" ></ion-icon> 
+    <ion-icon  (click)="modify($event,item.addressId,address)" src="../../../assets/HdImage/修改.svg" style="position: absolute;right: -26px;top:5px;font-size: 24px;" ></ion-icon> 
+    <ion-icon (click)="delete($event,item.addressId)" src="../../../assets/HdImage/删除.svg" style="position: absolute;right: -26px;top:47px;font-size: 24px;" ></ion-icon> 
     <!-- <img src="../../../assets/HdImage/修改.svg" alt=""> -->
   </div>
 </ion-item>
+</ion-card>
 </ion-content>

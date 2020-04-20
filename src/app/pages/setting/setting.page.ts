@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SettingPage implements OnInit {
 
-public fingerUrl = "../../../assets/HdImage/开关关（自定义）.svg";
+public fingerUrl = "assets/HdImage/开关关（自定义）.svg";
 hFaceFlag : boolean = false;
 fingerFlag : boolean = false;
   constructor(private storage:StorageService,private router:Router) { }
@@ -22,11 +22,11 @@ finger(){
   console.log('111')
   this.fingerFlag = !this.fingerFlag
   if(this.fingerFlag){
-    this.fingerUrl = "../../../assets/HdImage/开关开（自定义）.svg";
+    this.fingerUrl = "assets/HdImage/开关开.svg";
     this.storage.add(StorageKey.HADLOGIN,'true');
     console.log( this.storage.get(StorageKey.HADLOGIN))
   }else{
-    this.fingerUrl = "../../../assets/HdImage/开关关（自定义）.svg";
+    this.fingerUrl = "assets/HdImage/开关关（自定义）.svg";
     this.storage.add(StorageKey.HADLOGIN,'false');
     console.log(this.storage.get(StorageKey.HADLOGIN))
   }
@@ -64,7 +64,7 @@ async onPageWillEnter() {
  const a=await this.storage.get(StorageKey.HADLOGIN)
  console.log(a)
  if(a=="true"){
-  this.fingerUrl = "../../../assets/HdImage/开关开（自定义）.svg";
+  this.fingerUrl = "assets/HdImage/开关开.svg";
  }
 
 }

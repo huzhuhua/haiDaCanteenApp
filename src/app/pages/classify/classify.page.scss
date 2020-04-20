@@ -1,0 +1,25 @@
+//通栏
+.toolbar{
+    width:100%;
+    position: relative;
+    height: 80px;
+    background-image:  url("../../../assets//HdImage/tab2Banner.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+  }
+  
+  // 去掉顶部banner边框
+  ion-toolbar {
+    --padding-start:0px;
+    --padding-end:0px;
+    --padding-buttom:0px;
+    --padding-top:0px;
+  }
+  // 标题文字
+  h4{
+    position: absolute;
+    top:8px;
+    left:50%;
+    transform: translateX(-50%);    
+  }

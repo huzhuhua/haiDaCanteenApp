@@ -2,18 +2,62 @@
     <ion-toolbar style="position: relative;">
         <ion-button   [routerLink]="['/search-order']" routerLinkActive="router-link-active" color="white" style="width: 80%;background-color: rgb(228, 220, 220);border-radius: 10px;height: 30px;color:black;margin-left: 35px;">
             <ion-icon src="../../assets//HdImage/搜索.svg"></ion-icon> 
-           <!-- <img src="../../assets//HdImage/搜索.svg" alt=""> -->
+           <!-- <img src="../../assets//HdImage/空订单.png" alt=""> -->
            <ion-text>搜索我的订单</ion-text>       
          </ion-button>
     </ion-toolbar>
 </ion-header>
 <ion-content>
+ 
     <ion-item lines="none">
-        <span (click)="allOrder()">全部</span>
-        <span (click)="noRemarkOrder()">待评价</span>
-        <span (click)="refundOrder()">退款</span>
+        <div (click)="allOrder()" style="margin-left: 11px;">
+            <label for="banana">      
+                <input type="radio" id="banana" name="fruit" checked>     
+                <span>全部</span>
+              </label>    
+        </div>
+        <div (click)="noRemarkOrder()">
+            <label for="apple">      
+                <input type="radio" id="apple" name="fruit" >     
+                <span>待评价</span>
+              </label>    
+        </div>
+        <div (click)="refundOrder()">
+            <label for="orange">      
+                <input type="radio" id="orange" name="fruit" >     
+                <span>退款</span>
+              </label>    
+        </div>
 
+        <!-- <ion-input (click)="allOrder()" type="radio"> <span>全部</span></ion-input>
+        <ion-input (click)="noRemarkOrder()" type="radio"> <span>待评价</span></ion-input>
+        <ion-input (click)="refundOrder()" type="radio"> <span>退款</span></ion-input> -->
+      
+        <!-- <ul>
+          <li>
+            <label for="banana">      
+              <ion-input type="radio" id="banana" name="fruit" checked>     
+              <span>香蕉</span>
+            </label>    
+          </li>
+          <li>
+            <label for="apple">      
+              <ion-input type="radio" id="apple" name="fruit">    
+              <span>苹果</span>
+            </label>    
+          </li>
+          <li>    
+            <label for="orange">      
+              <ion-input type="radio" id="orange" name="fruit">      
+              <span>橘子</span>
+            </label>    
+          </li>
+        </ul> -->
     </ion-item>
+    <div lines="none" *ngIf="hasOrder" style="margin-top: 50px;width: 300px;height:300px;margin-left: 26px;">
+        <img src="assets//HdImage/空订单.png" alt="" style="width: 100%;height: 100%;">
+
+    </div>
     <app-order [productList]="productList"></app-order>
 
 </ion-content>

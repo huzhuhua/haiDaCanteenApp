@@ -3,13 +3,13 @@
  text-align: center;
  position: relative;
   position: relative;
-  height: 180px;
-  background-image:  url("../../../assets/images/开户绑卡banner.png") ;
+  height: 80px;
+  background-image:  url("../../../assets/HdImage/tab2Banner.png") ;
   background-size: cover;
   -webkit-background-size: cover;
   overflow: hidden;
-  margin-bottom: 75px;
-  margin-top: -10px;
+  margin-bottom: 30px;
+  margin-top: -5px;
 }
 .toolbar h4{
       position: absolute;
@@ -34,7 +34,8 @@ ion-toolbar {
 .card {
   width: 85%;
   // height:100px;
-  margin: 40px auto;
+  margin: 0 auto;
+  margin-top: -5px;
   border-radius: 10px;
   padding-top: 10px;
   background-color: #ffffff;
@@ -82,7 +83,7 @@ ion-item{
 }
 .title2{
   font-size: 11px;
-  color: #d7e934;
+  color: #10c689;
   margin-top: 2px;
 }
 
@@ -92,8 +93,9 @@ ion-item{
   top: -28px;
 }
 .rate {
-  color: #FF9A11;
+  color: #FF0000;
   margin-top: -8px;
+  font-size: 18px;
 }
 .date {
   color: #333;
@@ -144,10 +146,10 @@ ion-item{
 //按钮样式
 ion-button {
   //    height: 38px;
-  margin-top: 0px;
-  background: url('../../../assets/images/登录按钮.png');
-  background-size: cover;
-  overflow: hidden;
+  // margin-top: 0px;
+  // background: url('../../../assets/images/登录按钮.png');
+  // background-size: cover;
+  // overflow: hidden;
 }
 
 
@@ -170,17 +172,18 @@ ion-toolbar {
   // margin-top: -50px;
   // z-index: 99999;
   
-    width: 316px;
+    width: 260px;
     font-size: 20px;
-    height:50px;
+    height:38px;
     margin: 0px auto;
-    background-color: red($color: #000000);
+    background-color: #10c689;
     letter-spacing: 3px;
     z-index: !important;
     margin-bottom: 50px;
-     margin-top: -58px;
-     margin-left: 30px;
+     margin-top: -8px;
+     margin-left: 48px;
     position: absolute;
+    border-radius: 7px;
   
 }
 .row7{

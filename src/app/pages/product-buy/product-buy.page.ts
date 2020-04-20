@@ -48,8 +48,15 @@ export class ProductBuyPage implements OnInit {
     // 加入购物车跳转事件
   async buy() {
     let a = await this.storageService.get(StorageKey.SHOPPINGCAR)
+    console.log(a)
     if (a == undefined) {
       a = []
+    }
+    for(let i=0;i<a.length;i++){
+      if(a[i]==this.productid){
+        this.nav.navigateBack('tabs/tab2')
+        return;
+      }
     }
     a.unshift(this.productid)
     console.log(this.productid)

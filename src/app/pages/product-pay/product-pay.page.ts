@@ -25,6 +25,7 @@ export class ProductPayPage implements OnInit {
     public timeText: any = "送达时间";
     public time: any;
     public toolNum:any="1";
+    public hasAddress:boolean = false;
     constructor(private activateRoute: ActivatedRoute,
         private nav:NavController,
         private searchService:SearchService,
@@ -47,7 +48,7 @@ export class ProductPayPage implements OnInit {
      console.log(a.getDate())
         this.time = this.formatTime(a);
 
-        this.getAddress()
+        // this.getAddress()
 
       
        
@@ -83,6 +84,7 @@ export class ProductPayPage implements OnInit {
 
             if (this.addressList[i].isPrimary == "1") {
                 this.mainAddress.push(this.addressList[i])
+                this.hasAddress = true;
             }
         }
         // this.mainAddress = arr[0];
@@ -143,10 +145,13 @@ async tool(){
                 //     // c=Number("0" +c )
                 // }
             }
+            let str=""
             if(c<10){
-                const str = b + ":" + " 0"+c
+                str = b + ":" + " 0"+c
+            }else{
+              str = b + ":" + c
             }
-            const str = b + ":" + c
+           
 
             list.push(
                 {
@@ -175,29 +180,34 @@ async submit(){
 
     }
     arr.push(str)
-   let trueAdd = this.mainAddress[0].name+"-"+this.mainAddress[0].addr+this.mainAddress[0].Tmobile
-   //格式化时间
-   const da = new Date()
-    const y = da.getFullYear()
-    const m = da.getMonth()+1
-    const d = da.getDate()
-    let trueTime = y+"-"+m + "-" + d + " " + this.time
-    arr.push(trueTime) 
-
-    arr.push(trueAdd) 
-    arr.push(this.toolNum)
-    arr.push(input[0].value)
-    arr.push(this.nowMoney)
-    console.log(arr)  ;
-    const a = await this.searchService.pay(arr)
-    if(a){
-        this.storageService.remove(StorageKey.PAY)
-        this.storageService.remove(StorageKey.SHOPPINGCAR)
-        this.nativeService.showAlert("支付成功","确定",()=>{
-            this.nav.navigateForward("tabs/tab3")
-        })
-    }
-    console.log(a)
+  if(this.mainAddress.length == "0"){
+      alert("您还未选择收货地址")
+  }else{
+    let trueAdd = this.mainAddress[0].name+"-"+this.mainAddress[0].addr+this.mainAddress[0].Tmobile
+    //格式化时间
+    const da = new Date()
+     const y = da.getFullYear()
+     const m = da.getMonth()+1
+     const d = da.getDate()
+     let trueTime = y+"-"+m + "-" + d + " " + this.time
+     arr.push(trueTime) 
+ 
+     arr.push(trueAdd) 
+     arr.push(this.toolNum)
+     arr.push(input[0].value)
+     arr.push(this.nowMoney)
+     console.log(arr)  ;
+     const a = await this.searchService.pay(arr)
+     if(a){
+         this.storageService.remove(StorageKey.PAY)
+         this.storageService.remove(StorageKey.SHOPPINGCAR)
+         this.nativeService.showAlert("支付成功","确定",()=>{
+             this.nav.navigateForward("tabs/tab3")
+         })
+     }
+     console.log(a)
+  }
+  
     // console.log(arr)
 
 }

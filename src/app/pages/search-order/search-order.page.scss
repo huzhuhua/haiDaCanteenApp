@@ -1,19 +1,52 @@
+
+//通栏
+.toolbar{
+    width:100%;
+    position: relative;
+    height: 80px;
+    background-image:  url("../../../assets//HdImage/tab2Banner.png") ;
+    background-size: cover;
+    -webkit-background-size: cover;
+    overflow: hidden;
+  }
+  
+  // 去掉顶部banner边框
+  ion-toolbar {
+    --padding-start:0px;
+    --padding-end:0px;
+    --padding-buttom:0px;
+    --padding-top:0px;
+  }
+  // 标题文字
+  h4{
+    position: absolute;
+    top:8px;
+    left:50%;
+    transform: translateX(-50%);    
+  }
+
 //搜索输入框
 .input{
-    text-align: center;
+    // text-align: center;
     font-size: 12px;
-    color: #666;
+    // color: #666;
     width: 70%;
-    background-color: rgb(228, 220, 220);
+    opacity: 0.51;
+background: #FFF9F9;
+box-shadow: 0 3px 4px 0 rgba(216,211,211,0.50);
+    // background-color: rgb(228, 220, 220);
     border-radius: 10px;
     height: 30px;
-    margin-left: 32px;
+    margin-left: 44px;
+    margin-top: -29px;
+    z-index: 9999;
 }
 //搜索文字
 .search{
-    color: #15c185;
+    color: #ffffff;
     font-size: 16px;
     position: absolute;
     right:20px;
-    top:11px
+    top:31px;
+    z-index: 9999;
 }

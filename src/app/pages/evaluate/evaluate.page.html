@@ -1,24 +1,32 @@
-<ion-header no-border>
-  <ion-toolbar>
-    <ion-back-button slot="start"></ion-back-button>
-    <ion-title>我的评价</ion-title>
+<ion-header style="margin-bottom: 20px;">
+
+  <ion-toolbar >
+    
+      <div class="toolbar">
+        <ion-back-button slot="start" style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+          <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+          <h4 style="color: #ffffff;">我的评价</h4>
+      </div>
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-item *ngFor="let item of list">
+<ion-item *ngFor="let item of list" lines="none">
  <div>
 
  
    <div>
-    <ion-text>订单号 : {{item.orderNumber}} </ion-text>
+    <!-- <ion-icon src="assets/HdImage/手机.svg"  style="margin-top: 3px;"></ion-icon> -->
+    <span>订单号 :<ion-text> {{item.orderNumber}} </ion-text></span>
    </div>
       <div>
-        <ion-text>时间: {{item.time}}</ion-text>
+        <span>时间:  <ion-text>{{item.time}}</ion-text></span>
       </div>
      
    <div>
-    <ion-text>我的评价:{{item.evaluate}}</ion-text>
+    <span>我的评价:<ion-text>{{item.evaluate}}</ion-text></span>
    </div>
   </div>
 

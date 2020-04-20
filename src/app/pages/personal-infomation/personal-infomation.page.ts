@@ -18,7 +18,7 @@ import { URI } from 'src/app/uri';
   styleUrls: ['./personal-infomation.page.scss'],
 })
 export class PersonalInfomationPage implements OnInit {
-  public url :string = "../../assets/hdImages/头像 icon.png"
+  public url :string = "assets/hdImages/头像 icon.png"
   // 声明数组：调用model
   public myInfo: any={
     name:"",

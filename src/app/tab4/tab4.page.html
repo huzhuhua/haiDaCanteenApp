@@ -7,7 +7,7 @@
          <div class="identityInformation" >
         <img src={{url}} alt="" style="width: 50px;height: 50px; border: 2px solid #ffffff;margin-left: 31px;margin-right: 15px;border-radius: 50%;"  >
         <div>
-          <ion-text style="font-size: 18px; margin-left: -44px;font-family: PingFangSC-Semibold;">{{myINfo.name}}</ion-text><br>
+          <ion-text style="font-size: 18px; margin-left: 0px;font-family: PingFangSC-Semibold;">{{myINfo.name}}</ion-text><br>
           <ion-text style="font-size: 13px;">账号:{{myINfo.mobile}}</ion-text>
         </div>  
          </div>
@@ -18,35 +18,50 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- <ion-header>
+  <ion-toolbar style="position: relative;">
+      <div class="toolbar">
+      
+          <h4 style="color: #ffffff;">购物车</h4>
+      </div>
+
+
+  </ion-toolbar>
+</ion-header> -->
+
+
 <ion-content>
-  <img src="../../assets/images2/我的服务.png" alt=""  style="height: 25px;padding-left:30px" >
+  <div style="width: 82px;height: 24px;margin-left: 33px;margin-top: 20px;">
+    <img src="assets/HdImage/我的服务.png" alt=""  style="width: 100%;height: 100%;" >
+  </div>
+
   <ion-list lines=none>
 
     <ion-item lines="none" (click)="onClick1()" >
-        <img src="../../assets/HdImage/个人信息.svg" alt="" class="icon">
+        <img src="assets/HdImage/个人信息.svg" alt="" class="icon">
         <ion-text class="title">个人信息</ion-text>
-        <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+        <img src="assets/images2/设置箭头.png" alt="" class="arrow" >
     </ion-item>
 
     <ion-item lines="none" (click)="onClick2()">
-        <img src="../../assets/HdImage/我的收藏.svg" alt="" class="icon">
+        <img src="assets/HdImage/我的收藏.svg" alt="" class="icon">
         <ion-text class="title">我的收藏</ion-text>
-        <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+        <img src="assets/images2/设置箭头.png" alt="" class="arrow" >
     </ion-item>
     <ion-item lines="none" (click)="onClick3()">
-        <img src="../../assets/HdImage/我的评价.svg" alt="" class="icon">
+        <img src="assets/HdImage/我的评价.svg" alt="" class="icon">
         <ion-text class="title">我的评价</ion-text>
-        <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+        <img src="assets/images2/设置箭头.png" alt="" class="arrow" >
     </ion-item>
     <ion-item lines="none" (click)="onClick4()">
-      <img src="../../assets/HdImage/收货地址.svg" alt="" class="icon">
+      <img src="assets/HdImage/收货地址.svg" alt="" class="icon">
       <ion-text class="title">收货地址</ion-text>
-      <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+      <img src="assets/images2/设置箭头.png" alt="" class="arrow" >
   </ion-item>
     <ion-item lines="none" (click)="onClick5()">
-        <img src="../../assets/HdImage/设 置.svg" alt="" class="icon">
+        <img src="assets/HdImage/设 置.svg" alt="" class="icon">
         <ion-text class="title">设置</ion-text>
-        <img src="../../assets/images2/设置箭头.png" alt="" class="arrow" >
+        <img src="assets/images2/设置箭头.png" alt="" class="arrow" >
     </ion-item>
  </ion-list> 
 </ion-content>

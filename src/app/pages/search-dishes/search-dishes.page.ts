@@ -52,7 +52,7 @@ export class SearchDishesPage implements OnInit {
   //搜索
   async search() {
     let input = <HTMLElement><unknown>document.getElementsByClassName("input2");
-    console.log(input[0].value)
+    console.log(input)
     const a = await this.productService.allLove();
     this.searchList = await this.searchService.search(input[0].value)
     for(var i=0;i<this.searchList.length;i++){

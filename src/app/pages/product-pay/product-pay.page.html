@@ -1,7 +1,13 @@
-<ion-header style="margin-top: 10px;">
+<ion-header>
+
   <ion-toolbar style="position: relative;">
-    <ion-back-button slot="start"></ion-back-button>
-      <ion-title>支付</ion-title>
+    
+      <div class="toolbar">
+        <ion-back-button slot="start" style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+          <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+          <h4 style="color: #ffffff;">支付</h4>
+      </div>
+
 
   </ion-toolbar>
 </ion-header>
@@ -10,25 +16,33 @@
 
 <ion-content>
   <ion-card>
-    <ion-item class="card"  *ngFor="let item of mainAddress"  [routerLink]="['/address']"> 
-      <div style="position:relative;width:90%;display: flex;flex-direction: row;align-items: center;"  (click)="switch(item.addressId)">
+    <ion-item *ngIf="!hasAddress" class="card" [routerLink]="['/address']" lines="none">
+      <div style="position:relative;width:55%;display: flex;flex-direction: row;align-items: center;"  >
+        <ion-icon   class="img" src="../../../assets/HdImage/收货位置.svg" style="font-size: 24px;" ></ion-icon> 
+      </div>
+          <div>
+            <ion-text>未选择收货地址</ion-text>
+          </div>
+    </ion-item>
+    <ion-item  class="card"  *ngFor="let item of mainAddress"  [routerLink]="['/address']" lines="none"> 
+      <div style="position:relative;width:90%;display: flex;flex-direction: row;align-items: center;"  >
         <ion-icon   class="img" src="../../../assets/HdImage/收货位置.svg" style="font-size: 24px;" ></ion-icon> 
         <div>
           <span> <ion-text style="margin-left: 10px;">{{item.name}}</ion-text></span> 
           <span><ion-text style="margin-left: 24px;">{{item.Tmobile}}</ion-text></span><br>
-          <span><ion-text style="margin-left: 10px;">{{item.addr}}</ion-text></span><br>
+          <span><ion-text style="margin-left: 10px; font-size: 12px;color: #666;">{{item.addr}}</ion-text></span><br>
         </div>
       </div>
     </ion-item>
-    <ion-item [routerLink]="[]" (click)="choiceTime()">
+    <ion-item [routerLink]="[]" (click)="choiceTime()" lines="none">
       <ion-label>{{timeText}}</ion-label>
       <ion-text>{{time}}</ion-text>
     </ion-item>
-    <ion-item [routerLink]="[]">
+    <ion-item [routerLink]="[]" lines="none">
       <ion-label>订单备注</ion-label>
       <ion-input class="remark"></ion-input>
     </ion-item>
-    <ion-item  [routerLink]="[]" (click)="tool()">
+    <ion-item  [routerLink]="[]" (click)="tool()" lines="none">
       <ion-label>餐具份数</ion-label>   
       <ion-text>{{toolNum}}</ion-text>
     </ion-item>
@@ -40,7 +54,7 @@
       <div>优惠:全场9折，为全校师生加油</div>
       <div>食无忧:所有餐品均来自于食堂，卫生可供保障</div>
       <div>时间快:若不是预约单号，可在15分钟之内送达</div>
-      <div>取消订单:必须在两分钟之内取消</div>
+      <div>取消订单:必须在订单完成时间十分钟之外取消</div>
       <div>送餐时间11:00-14:00,17:00-24:00</div>
     </div>
   </ion-card>
@@ -48,9 +62,10 @@
 
     <ion-text>原价 <span style="color:red;text-decoration: line-through; font-size: 16px;">￥{{allMoney}}</span> </ion-text>
     <ion-text style="">|现价 <span style="color:#15c185;font-size: 16px;">￥{{nowMoney| number:'1.2-4'}}</span> </ion-text>
-    <ion-button class="okButton" color="secondary" (click)="submit()" >确认支付</ion-button>
+    <!-- <ion-button class="okButton" color="secondary" (click)="submit()" >确认支付</ion-button> -->
 
-   
+    <span class="okButton"  (click)="submit()"
+    >确认支付</span>
  </ion-item>
  
 

@@ -1,26 +1,35 @@
-<ion-header no-border>
+<!-- <ion-header no-border>
   <ion-toolbar >
   
     <div class="toolbar" >
       <ion-back-button  style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
-      <img class="logo" src="../../../assets/images/logo.png" alt="" >
+      <img class="logo" src="assets/HdImage/logo 2.png" alt="" >
     </div>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+
+  <div class="toolbar" >
+    <ion-back-button  style="margin-left: -320px;z-index: 9999;color: #ffffff;margin-top: 20px;"></ion-back-button>
+    <img class="logo" src="assets/HdImage/logo 2.png" alt="" >
+  </div>
+
+  <div class="findpassCard">
+
+ 
   <h4 style="letter-spacing:10px">找回密码</h4>
   <form [formGroup]="resetPasswordForm">
     <ion-list lines=none>
       <ion-item >
-        <ion-icon src="../../../assets/images/手机.svg" ></ion-icon>
+        <ion-icon src="assets/HdImage/手机.svg" ></ion-icon>
         <ion-input placeholder="请输入您的手机号"  style="font-size: 14px;" formControlName="mobile"></ion-input>
         <ion-text *ngIf="mobile.touched&&mobile.hasError('required')">请输入</ion-text>
         <ion-text *ngIf="mobile.touched&&mobile.hasError('pattern')">手机格式错误</ion-text>
         </ion-item>
        
           <ion-item class="code" >
-            <ion-icon src="../../../assets/images/安全、盾、验证码.svg" ></ion-icon>
+            <ion-icon src="assets/HdImage/验证码.svg" ></ion-icon>
             <ion-input placeholder="验证码"  style="font-size: 14px;" formControlName="code" [value]="value"></ion-input>
             
               <app-get-code countAmount="20" (outputEvent)="returnCode($event)"[mobile]="mobile.value"> </app-get-code>
@@ -29,7 +38,8 @@
             </ion-item>
           </ion-list>
             <!-- <ion-button (click)="register()"    routerLinkActive="router-link-active"  expand="block" size="small" style="width: 93%;font-size: 10px;height:38px;margin-left: 16px;" [disabled]='!resetPasswordForm.valid'>注册</ion-button> -->
-            <ion-button (click)="resetPassword()"   size="small" class="resetPassword"  [disabled]='!resetPasswordForm.valid' >找回密码</ion-button>
+            <ion-button (click)="resetPassword()"  color="white" size="small" class="resetPassword"  [disabled]='!resetPasswordForm.valid' >找回密码</ion-button>
            
   </form>
+</div>
 </ion-content>

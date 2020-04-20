@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpService } from '../../services/http/http.service';
@@ -8,7 +8,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ComponentsModule } from 'src/app/components/components.module';
 import { RegisterService } from 'src/app/services/register.service';
 import { NativeService } from '../../services/native.service';
-import { NavController } from '@ionic/angular';
+import { NavController, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +21,8 @@ description:
 date:2020/3/13
 */
 export class RegisterPage implements OnInit {
-  url: string = "../../../assets/images/defeat.svg";
+  @ViewChild(IonContent, name) content: IonContent;
+  url: string = "assets/HdImage/勾选.svg";
 //  public flag: string = 'true';
  public flag: any = 'true';
   mobile: AbstractControl;
@@ -73,6 +74,30 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.code = this.value;
     console.log(this.flag)
+  //   window.addEventListener('native.keyboardshow',(e:any) =>{
+  //     console.log(e)
+     
+  //     let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("registerCard");
+  // console.log(scrollDiv)
+  // scrollDiv[0].style.height= "578px"
+  // console.log( scrollDiv[0].style.height)
+  // this.content.scrollToBottom(0)
+     
+
+  // // 　　　　this.content.scrollToTop(e.keyboardHeight) 
+  
+ 
+  // // this.productInfo.productId = this.pId;
+  // 　});
+  // window.addEventListener('native.keyboardhide', (e) =>{
+  //     // todo 进行键盘不可用时操作
+  //     let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("registerCard");
+  // console.log(scrollDiv)
+  // scrollDiv[0].style.height="150px"
+  // this.content.scrollToTop(0)
+ 
+  //     console.log(e)
+  // });
   }
   blurCheck() {
     console.log(this.password)
@@ -122,9 +147,9 @@ if(this.flag == 'true'){
   this.flag = 'true';
 }
 if (this.flag == 'false') {
-  this.url = '../../../assets/images//Success.svg'
+  this.url = 'assets/HdImage/勾选亮.svg'
 } else {
-  this.url = '../../../assets/images//defeat.svg'
+  this.url = 'assets/HdImage/勾选.svg'
 }
    
    
@@ -137,6 +162,34 @@ if (this.flag == 'false') {
 }
 
 async onPageWillEnter() {
+  window.addEventListener('native.keyboardshow',(e:any) =>{
+    console.log(e)
+   
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("registerCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height= "578px"
+console.log( scrollDiv[0].style.height)
+this.content.scrollToBottom(0)
+   
+
+// 　　　　this.content.scrollToTop(e.keyboardHeight) 
+
+
+// this.productInfo.productId = this.pId;
+　});
+window.addEventListener('native.keyboardhide', (e) =>{
+    // todo 进行键盘不可用时操作
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("registerCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height="150px"
+this.content.scrollToTop(0)
+
+    console.log(e)
+});
+
+
+
+
  //获取值
  
 
@@ -150,7 +203,7 @@ async onPageWillEnter() {
   }
 //点击协议后，变图片
  if(this.flag == 'false'){
-  this.url = '../../../assets/images//Success.svg'
+  this.url = 'assets/HdImage/勾选亮.svg'
  }
 
 

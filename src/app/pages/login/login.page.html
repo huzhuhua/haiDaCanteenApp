@@ -1,35 +1,39 @@
-<ion-header no-border>
-  <ion-toolbar >
+<!-- <ion-header no-border>
+  <ion-toolbar style="border: none;" >
     
     <div class="toolbar" >
-      <img class="logo" src="../../../assets/images/logo.png" alt="" >
+      <img class="logo" src="assets//HdImage/logo 2.png" alt="" >
     </div>
-  </ion-toolbar>
-
-</ion-header>
+  </ion-toolbar> -->
+<!-- 
+</ion-header> -->
 <ion-content>
+  <div class="toolbar" >
+    <img class="logo" src="assets//HdImage/logo 2.png" alt="" >
+  </div>
+<div class="card">
 <!--  <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3050513164,3428481198&fm=26&gp=0.jpg" alt="">-->
   <h3 style="letter-spacing:15px;font-weight: 700;">登录</h3>
 
   <form [formGroup]="loginForm">
     <ion-list lines=none>
       <ion-item  style="">
-        <!-- <img src="../../../assets/images/手机.svg" alt=""> -->
-        <ion-icon src="../../../assets/images/手机.svg" ></ion-icon>
+        <!-- <img src="../../../assets/HdImage/密码.svg" alt=""> -->
+        <ion-icon src="assets/HdImage/手机.svg" ></ion-icon>
         <ion-input placeholder="请输入手机号"  style="font-size: 14px;font-weight: 700;letter-spacing: 3px;" formControlName="mobile" ></ion-input>
         <ion-text *ngIf="mobile.touched&&mobile.hasError('required')">*请输入</ion-text>
         <ion-text *ngIf="mobile.touched&&mobile.hasError('pattern')">*手机格式错误</ion-text>
         </ion-item>
         <ion-item>
-          <ion-icon src="../../../assets/images/锁.svg" ></ion-icon>
+          <ion-icon src="assets/HdImage/密码.svg" ></ion-icon>
           <ion-input placeholder="请输入密码" type="{{pwshow?'text':'password'}}" style="letter-spacing: 3px;font-size: 14px;font-weight: 700;" formControlName="password" ></ion-input>
           <!-- <ion-text *ngIf="password.touched&&password.hasError('required')">*请输入</ion-text> -->
           <ion-text *ngIf="password.touched&&password.hasError('minlength')">密码为11位</ion-text>
           <ion-text *ngIf="password.touched&&password.hasError('maxlength')">密码为11位</ion-text>
           <ion-text *ngIf="password.touched&&password.hasError('pattern')">*密码两种以上</ion-text>
           <a href="javascript:;" rel="external nofollow" item-end (click)="pwshow=!pwshow" [ngClass]="pwshow?'eyeshow':'eyehide'" >
-            <ion-icon src="../../../assets/images/眼睛.svg" color="dark" class="eye-hide" *ngIf="!pwshow"></ion-icon>　　<!--闭眼图标-->
-            <ion-icon src="../../../assets/images/眼睛开.svg" color="dark" class="eye-show" *ngIf="pwshow"></ion-icon>　　<!--睁眼图标-->
+            <ion-icon src="assets/HdImage/眼睛.svg" color="dark" class="eye-hide" *ngIf="!pwshow"></ion-icon>　　<!--闭眼图标-->
+            <ion-icon src="assets/HdImage/眼睛睁.svg" color="dark" class="eye-show" *ngIf="pwshow"></ion-icon>　　<!--睁眼图标-->
            </a>
           </ion-item>
          <div>
@@ -54,5 +58,5 @@
        
   </form>
 
-  
+</div>
 </ion-content>

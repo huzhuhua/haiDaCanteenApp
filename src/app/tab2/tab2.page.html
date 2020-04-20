@@ -1,58 +1,75 @@
-<ion-header style="margin-top: 10px;">
+<ion-header>
     <ion-toolbar style="position: relative;">
+        <div class="toolbar">
+            <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+            <h4 style="color: #ffffff;">购物车</h4>
+        </div>
 
-        <ion-title>我的购物车</ion-title>
 
     </ion-toolbar>
 </ion-header>
 <ion-content>
+    <div lines="none" *ngIf="display==false" style="margin-top: 50px;">
+        <img src="assets//HdImage/空购物车.png" alt="">
 
+    </div>
     <ion-card>
-        <ion-list *ngFor="let item of  productList">
+        <ion-list *ngFor="let item of  productList" style="position: relative;">
             <ion-item lines="none">
-                <a href="javascript:;" rel="external nofollow" item-end (click)="change(item.id)" >
-                    <ion-icon src="../../assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!item.flag">
+                <a href="javascript:;" rel="external nofollow" item-end (click)="change(item.id)">
+                    <ion-icon src="assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!item.flag"
+                        style="font-size: 20px;">
                     </ion-icon>　　
-                    <ion-icon src="../../assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="item.flag"></ion-icon>
+                    <ion-icon src="assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="item.flag"
+                        style="font-size: 20px;"></ion-icon>
                     　
                 </a>
                 <!-- <ion-icon src="../../assets/HdImage/圆圈.svg"></ion-icon>
                <ion-icon src="../../assets/HdImage/圆勾.svg"></ion-icon> -->
                 <div class="img" [style.background-image]="  'url(' +item.picUrl + ')'  "> </div>
-                <div class="right" >
-                    <div class="name" > {{item.name}}</div>
-                    <div class="right-bottom" >
+                <div class="right">
+                    <div class="name"> {{item.name}}</div>
+                    <div class="right-bottom">
                         <div>
                             <ion-text style="color: #15c185;"> ￥{{item.money}}</ion-text>
                         </div>
-                      
-                      <div class="number" >
-                          <ion-text class="reduce" (click)="reduce(item.id)" >-</ion-text>
-                        <ion-text class="num"  >{{item.num}}</ion-text>
-                        <ion-text class="add" (click)="add(item.id)">+</ion-text> 
-                      </div>
-                            
+
+                        <div class="number">
+                            <ion-icon src="assets/HdImage/减号.svg" (click)="reduce(item.id)"></ion-icon>
+                            <!-- <ion-text class="reduce" (click)="reduce(item.id)" >-</ion-text> -->
+                            <ion-text class="num">{{item.num}}</ion-text>
+                            <ion-icon src="assets/HdImage/加号.svg" (click)="add(item.id)"></ion-icon>
+                            <!-- <ion-text class="add" (click)="add(item.id)">+</ion-text>  -->
                         </div>
+
+                    </div>
                 </div>
             </ion-item>
+            <div style="position: absolute;right: 0px;top: 0px;z-index: 99999;" (click)="remove(item.id)">
+                <ion-icon src="../../assets/HdImage/取消.svg" style="font-size: 20px;"></ion-icon>
+            </div>
         </ion-list>
     </ion-card>
-<ion-item lines="none" class="bottom" *ngIf="display==true">
-    <div class="bottom-outer"  >
+    <ion-item lines="none" class="bottom" *ngIf="display==true" >
+        <div class="bottom-outer">
 
-    <div class="bottom-left"  (click)="allChoice(flag)">
-    <a href="javascript:;" rel="external nofollow" item-end (click)="flag=!flag" >
-        <ion-icon src="../../assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!flag">
-        </ion-icon>　　
-        <ion-icon src="../../assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="flag"></ion-icon>
-        　
-    </a>
-    <ion-text style="margin-top: -5px;" >全选</ion-text>
-</div>
-<div class="bottom-right" >
-    <ion-text>合计： <span style="color:#15c185">￥{{allMoney}}</span> </ion-text>
-    <ion-button class="button" color="secondary" (click)="submit()">结算</ion-button>
-</div>
-</div>
-</ion-item>
+            <div class="bottom-left" (click)="allChoice(flag)">
+                <a href="javascript:;" rel="external nofollow" item-end (click)="flag=!flag">
+                    <ion-icon src="../../assets/HdImage/圆圈.svg" color="dark" class="eye-hide" *ngIf="!flag">
+                    </ion-icon>　　
+                    <ion-icon src="../../assets/HdImage/圆勾.svg" color="dark" class="eye-show" *ngIf="flag"></ion-icon>
+                    　
+                </a>
+                <ion-text style="margin-top: -5px;">全选</ion-text>
+            </div>
+            <div class="bottom-right">
+                <ion-text>合计： <span style="color:#15c185">￥{{allMoney}}</span> </ion-text>
+                <!-- <ion-button class="button" color="secondary" (click)="submit()">结算</ion-button> -->
+
+            </div>
+           
+        </div>
+        <span class="button" (click)="submit()"
+        >结算</span>
+    </ion-item>
 </ion-content>

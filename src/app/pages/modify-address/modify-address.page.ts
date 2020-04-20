@@ -1,15 +1,16 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AddressService } from 'src/app/services/address.service';
-import { NavController } from '@ionic/angular';
+import { NavController, IonContent } from '@ionic/angular';
 @Component({
   selector: 'app-modify-address',
   templateUrl: './modify-address.page.html',
   styleUrls: ['./modify-address.page.scss'],
 })
 export class ModifyAddressPage implements OnInit {
+  @ViewChild(IonContent, name) content: IonContent;
 public addressId:any;
 public loca:any;
 addAddressForm: FormGroup;
@@ -52,7 +53,30 @@ this.location.setValue(this.loca)
      }
 
   ngOnInit() {
-
+    window.addEventListener('native.keyboardshow',(e:any) =>{
+      console.log(e)
+     
+      let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("modiifyAddressCard");
+    console.log(scrollDiv)
+    scrollDiv[0].style.height= "578px"
+    console.log( scrollDiv[0].style.height)
+    this.content.scrollToBottom(0)
+     
+    
+    // 　　　　this.content.scrollToTop(e.keyboardHeight) 
+    
+    
+    // this.productInfo.productId = this.pId;
+    　});
+    window.addEventListener('native.keyboardhide', (e) =>{
+      // todo 进行键盘不可用时操作
+      let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("modiifyAddressCard");
+    console.log(scrollDiv)
+    scrollDiv[0].style.height="150px"
+    this.content.scrollToTop(0)
+    
+      console.log(e)
+    });
   }
 async modify(){
   let b = this.addAddressForm.getRawValue();
@@ -62,5 +86,36 @@ const a= await this.addressService.modify(b)
 if(a=="1"){
   this.nav.navigateBack("address")
 }
+}
+async onPageWillClose() {
+   
+  console.log('RegisterPage页面即将关闭，开始清除数据。。。');
+}
+
+async onPageWillEnter() {
+window.addEventListener('native.keyboardshow',(e:any) =>{
+  console.log(e)
+ 
+  let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("modiifyAddressCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height= "578px"
+console.log( scrollDiv[0].style.height)
+this.content.scrollToBottom(0)
+ 
+
+// 　　　　this.content.scrollToTop(e.keyboardHeight) 
+
+
+// this.productInfo.productId = this.pId;
+　});
+window.addEventListener('native.keyboardhide', (e) =>{
+  // todo 进行键盘不可用时操作
+  let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("modiifyAddressCard");
+console.log(scrollDiv)
+scrollDiv[0].style.height="150px"
+this.content.scrollToTop(0)
+
+  console.log(e)
+});
 }
 }

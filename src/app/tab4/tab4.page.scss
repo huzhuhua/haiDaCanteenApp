@@ -1,18 +1,27 @@
-//通栏背景图
-.toolbar {
-  width: 100%;
-  text-align: center;
+//通栏
+.toolbar{
+  width:100%;
   position: relative;
-  height: 143px;
-  background-color: #15c185;
-  padding-top: 72px;
-  // background-image: url("../../assets/hdImages/我的banner背景.png");
-  // background-image: url("../../assets/hdImages/我的banner背景.png");
-  // background-size: cover;
-  // -webkit-background-size: cover;
-  // overflow: hidden;
-  // margin-bottom: -50px;
-  // margin-top: -64px;
+  height: 151px;
+  background-image:  url("../../assets//HdImage/我的背景.png") ;
+  background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
+}
+
+// 去掉顶部banner边框
+ion-toolbar {
+  --padding-start:0px;
+  --padding-end:0px;
+  --padding-buttom:0px;
+  --padding-top:0px;
+}
+// 标题文字
+h4{
+  position: absolute;
+  top:8px;
+  left:50%;
+  transform: translateX(-50%);    
 }
 ion-header{
   height: 158px;
@@ -45,6 +54,7 @@ ion-header{
   margin: 0 auto;
   // margin-top: 74px;
   margin-bottom: 30px;
+  margin-top: 70px;
 }
 ion-text {
   color: #ffffff;
@@ -215,8 +225,8 @@ ion-list div {
 
 // 图标
 .icon{
-  width: 40px;
-  height: 40px;
+  width: 33px;
+  height: 37px;
   margin-right: 20px;
 }
 //ion-item全局处理

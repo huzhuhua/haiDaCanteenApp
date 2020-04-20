@@ -1,20 +1,38 @@
-<ion-header style="margin-top: 17px;">
+<!-- <ion-header style="margin-top: 17px;">
   <ion-toolbar style="position: relative;align-items: center;width: 100%;">
     <ion-back-button slot="start"></ion-back-button>
-   <ion-input value="麻辣干锅，火龙果" class="input"></ion-input>
+   <ion-input placeholder="麻辣干锅，火龙果" class="input"></ion-input>
     <span (click)="search()" class="search" >搜索</span>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header style=" margin-bottom: 20px;">
+  <ion-toolbar style="position: relative;">
+    <!-- <div>
+      <ion-back-button slot="start"></ion-back-button>
+      <ion-title>收货地址</ion-title>
+      <span (click)="addAddress()" style="color: #15c185;font-size: 32px;position: absolute;right:20px;top:3px">+</span>
+    </div> -->
+    <div class="toolbar">
+      <ion-back-button slot="start" style="margin-left: -320px;color: #ffffff;margin-top: 25px;"></ion-back-button>
+        <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+        <ion-input placeholder="麻辣干锅，火龙果" class="input" >   <ion-icon src="../../assets//HdImage/搜索.svg" style="font-size: 25px;"></ion-icon> </ion-input>
+        <span (click)="search()" class="search" >搜索</span>
+    </div>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
 <ion-item lines="none">
-  <ion-text>历史搜索</ion-text>
+  <ion-text style="color: #10c689;">历史搜索</ion-text>
+  <ion-icon src="../../assets//HdImage/历史搜索.svg"></ion-icon>
 </ion-item>
 <ion-item lines="none">
   
     <ion-grid >
       <ion-row >
-        <ion-col size="3" *ngFor="let item of serachList"  class="comment" (click)="search(item)">
+        <ion-col size="3" *ngFor="let item of serachList"  class="comment1" (click)="search(item)">
         {{item}}
           </ion-col>
 
@@ -24,13 +42,14 @@
 </ion-item>
 
 <ion-item lines="none">
-  <ion-text>热门搜索</ion-text>
+  <ion-text style="color: rgb(204, 35, 35);">热门搜索</ion-text>
+  <ion-icon src="../../assets//HdImage/火.svg"></ion-icon>
 </ion-item>
 <ion-item lines="none">
   
     <ion-grid >
       <ion-row >
-        <ion-col size="6" *ngFor="let item of recommderList"  class="comment" (click)="search(item.name)">
+        <ion-col size="6" *ngFor="let item of recommderList"  class="comment2" (click)="search(item.name)">
         {{item.name}}
           </ion-col>
 

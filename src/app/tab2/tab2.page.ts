@@ -67,7 +67,21 @@ console.log(a)
     }
     await this.nowMoney()
   }
-
+//移除购物车
+async remove(id:any){
+  console.log(id)
+  let a =await this.storageService.get(StorageKey.SHOPPINGCAR)
+  console.log(a)
+  for(let i=0;i<a.length;i++){
+    if(a[i]==id){
+      a.splice(i,1)
+    }
+  }
+  await this.storageService.add(StorageKey.SHOPPINGCAR,a)
+  await this.getCard()
+  await this.nowMoney()
+// console.log(a)
+}
   //数字减1
   async reduce(id: any) {
     for (let i = 0; i < this.productList.length; i++) {

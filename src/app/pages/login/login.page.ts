@@ -1,4 +1,4 @@
-import { Component, OnInit , ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit , ChangeDetectorRef, ViewChild} from '@angular/core';
 import {Storage} from '@ionic/storage';
 import {Router} from '@angular/router';
 import {HttpService} from '../../services/http/http.service';
@@ -14,7 +14,7 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 declare var baidu_location
 // import * as io from 'socket.io-client';
 import * as io from 'socket.io-client';
-import { NavController } from '@ionic/angular';
+import { NavController, IonContent } from '@ionic/angular';
 // import { Alipay } from '@ionic-native/alipay/ngx';
 @Component({
   selector: 'app-login',
@@ -27,6 +27,7 @@ description:
 date:2020/3/13
 */
 export class LoginPage implements OnInit {
+  @ViewChild(IonContent, name) content: IonContent;
   messages = [];
   connection;
   message;
@@ -77,40 +78,35 @@ msg:string;
   //  .catch(error => {
   //     console.log(error); // Failed
   //  });
-
-    // baidu_location.getCurrentPosition( function successCallback(data){
-    //   console.log("lontitude:" + data.longitude);
-    //   console.log("latitude:" + data.latitude);
-    //     // alert(data.longitude);
-    //  console.log(data)
-    //     //更新操作
-    //     // console.log("time:" + data.time);
-    //     console.log("describe:" + data.describe);
-    //     // alert("successCallback");
-    //     },
-    //     function failedCallback(data){
-    //      //  失败的提示操作
-    //     alert("failedCallback");
-    //     })
-
-
-
+  window.addEventListener('native.keyboardshow',(e:any) =>{
+    console.log(e)
+   
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("card");
+console.log(scrollDiv)
+scrollDiv[0].style.height= "480px"
+console.log( scrollDiv[0].style.height)
+this.content.scrollToBottom(0)
    
 
-        // alert(data.longitude);
+// 　　　　this.content.scrollToTop(e.keyboardHeight) 
 
-        //更新操作
-        // console.log("time:" + data.time);
+
+// this.productInfo.productId = this.pId;
+　});
+window.addEventListener('native.keyboardhide',  (e)=> {
+    // todo 进行键盘不可用时操作
+    let scrollDiv= <HTMLElement><unknown>document.getElementsByClassName("card");
+console.log(scrollDiv)
+scrollDiv[0].style.height="300px"
+this.content.scrollToTop(0)
+    console.log(e)
+});
+
+   
       
       }
     
-    // let socket = io("ws://127.0.0.1:3000"); // 建立链接
-    // this.socket.on('news',function(data){ // 监听服务端的消息“msg”
   
-    //   console.log(data);
-       
-        
-    // });
   
 
 //聊天

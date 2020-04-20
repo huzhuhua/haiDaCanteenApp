@@ -5,14 +5,13 @@ ion-content{
 //通栏
 .toolbar{
     width:100%;
-
     position: relative;
-    height: 233px;
-    background-image:  url("../../../assets/images/登录注册banner.png") ;
+    height: 225px;
+    background-image:  url("../../../assets/HdImage/loginBanner.png") ;
     background-size: cover;
     -webkit-background-size: cover;
     overflow: hidden;
-}
+  }
 
 // 去掉顶部banner边框
 ion-toolbar {
@@ -38,26 +37,28 @@ h3 {
     top:42%;
     transform: translate(-50%,-50%);
     width: 63px;
-    height: 73px;
-}
+    height: 54px;
+  }
 
 // 输入框项目
 ion-item{
     margin: 20px auto;
-    border: 1.5px solid #5E6DFB ;
-    width: 300px;
+    border: 1.5px solid #10c689 ;
+    width: 83%;
     height: 40px;
     border-radius: 11px;
 }
 //注册
 .register{
-    width: 93%;
-    font-size: 15px;
-    color:white;
-    margin-left: 16px;
-    padding-top: 5px;
-    height: 53px;
-    letter-spacing: 3px;
+    width: 83%;
+  font-size: 18px;
+  height:43px;
+  margin: 20px auto;
+  background-color: #10c689;
+  letter-spacing: 3px;
+  border-radius: 7px;
+  box-shadow: 0px 4px 10px #333;
+  margin-bottom: 30px;
 
 }
 
@@ -81,17 +82,17 @@ ion-text{
 ion-button{
     margin-top: 0px;
     margin-bottom: 20px;
-    background: url('../../../assets/images/登录按钮.png');
-    background-size: cover;
-    overflow: hidden;
+    // background: url('../../../assets/images/登录按钮.png');
+    // background-size: cover;
+    // overflow: hidden;
 
 }
 
 //登录
 .register{
-    width: 316px;
+    width: 83%;
     font-size: 15px;
-    height:60px;
+    height:37px;
     margin: 6px auto;
     margin-top: 15px;
     background-color: red($color: #000000);
@@ -104,12 +105,14 @@ ion-button{
 
 .login {
     font-size: 15px;
-    letter-spacing:3px
+    letter-spacing:3px;
+    color:#10c689
 }
 .agreement{
     font-size: 13px;
     text-decoration: none;
-    letter-spacing:3px
+    letter-spacing:3px;
+    color:#10c689
 }
 //图标
 ion-icon{

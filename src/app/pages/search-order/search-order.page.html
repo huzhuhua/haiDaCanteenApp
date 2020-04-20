@@ -1,11 +1,21 @@
-<ion-header style="margin-top: 17px;">
+<!-- <ion-header style="margin-top: 17px;">
   <ion-toolbar style="position: relative;align-items: center;width: 100%;">
     <ion-back-button slot="start"></ion-back-button>
    <ion-input value="商品名称，订单编号" class="input"></ion-input>
     <span (click)="searchOrder()" class="search" >搜索</span>
   </ion-toolbar>
+</ion-header> -->
+<ion-header style=" margin-bottom: 20px;">
+  <ion-toolbar style="position: relative;">
+  
+    <div class="toolbar">
+      <ion-back-button slot="start" style="margin-left: -320px;color: #ffffff;margin-top: 25px;"></ion-back-button>
+        <!-- <img class="logo" src="assets//HdImage/logo 2.png" alt="" > -->
+        <ion-input placeholder="商品名称，订单编号" class="input">   <ion-icon src="../../assets//HdImage/搜索.svg" style="font-size: 25px;"></ion-icon> </ion-input>
+        <span (click)="searchOrder()" class="search" >搜索</span>
+    </div>
+  </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <app-order [productList]="productList"></app-order>
 </ion-content>

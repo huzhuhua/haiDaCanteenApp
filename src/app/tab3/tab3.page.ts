@@ -15,6 +15,7 @@ import { OrderService } from '../services/order.service';
 export class Tab3Page {
     @ViewChild(IonContent, name) content: IonContent;
     public productList: any;
+    public hasOrder:boolean = false;
     constructor(private router: Router ,
         private orderService:OrderService,
         ) {
@@ -26,7 +27,13 @@ export class Tab3Page {
     }
     //获取全部订单
     async allOrder(){
+        this.hasOrder =false
         this.productList =await this.orderService.allOrder()
+        if(this.productList.length == "0"){
+            this.hasOrder = true
+            console.log("dd")
+        }
+        console.log(this.productList)
         this.productList.reverse()
      await this.handle()
     }

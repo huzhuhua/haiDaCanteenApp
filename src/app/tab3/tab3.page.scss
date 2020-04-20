@@ -5,14 +5,32 @@ ion-text{
 .router-link-active{
 color:#fff;
 }
+// div{
+//     width: 30%;
+//     height: 40px;
+// }
 span{
-    width: 30%;
+   display: inline-block;
+    width: 60px;
     font-size: 13px;
     margin: 20px 20px;
     height: 28px;
    color: #fff;
-    background-color: #15c185;
+    background-color: #a3f50c;
 border-radius: 5px;
 text-align: center;
 padding-top: 5px;
+
 }
+
+  /* 第一步：选择目标 */
+  input:checked + span{
+    // color:#F66;
+    font-weight:bold;
+    background:#10c689;
+  }
+  /* 第二步：隐藏radio */
+  input[type="radio"]{
+    display:none;
+  }
+

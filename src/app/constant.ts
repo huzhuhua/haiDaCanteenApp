@@ -36,7 +36,7 @@ ID_CARD_EXPIRED:"HD0000",
 //退出登录失败状态码
  USER_EXIT_WRONG:"UE0001",
 //  SERVER_URL: 'http://localhost:3000',
-    SERVER_URL: 'http://qqahl.com:3000', 
+    // SERVER_URL: 'http://qqahl.com:3000', 
     //服务器地址
-//  SERVER_URL:'/api'
+ SERVER_URL:'/api'
  }
